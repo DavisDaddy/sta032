@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Introduction</h1>
+
+<p>This is a discussion of debugging techniques in R.  It is based on a paper by
+Roger Peng, now at Johns Hopkins University:</p>
+
+<pre><code>http://www.biostat.jhsph.edu/~rpeng/docs/R-debug-tools.pdf
+</code></pre>
+
+<h2>Focus on five functions:</h2>
+
+<ul>
+<li>traceback</li>
+<li>debug</li>
+<li>browser</li>
+<li>trace</li>
+<li>recover</li>
+</ul>
+
+<h2>Severity level</h2>
+
+<p>R mainly uses two ways of reporting a problem:</p>
+
+<ul>
+<li>Warning: Does not stop execution</li>
+<li>Error: More serious &ndash; <em>does</em> stop execution</li>
+</ul>
+
+<p>Example of warning:</p>
+
+<pre><code class="r">&gt; zzz &lt;- log(-1)
+</code></pre>
+
+<pre><code>## Warning: NaNs produced
+</code></pre>
+
+<pre><code class="r">&gt; zzz
+</code></pre>
+
+<pre><code>## [1] NaN
+</code></pre>
+
+<p>Example of error:</p>
+
+<pre><code class="r">#### Define a function to be used/abused later on.
+message &lt;- function(x) {
+  if(x &gt; 0)
+    print(&quot;Hello&quot;)
+  else
+    print(&quot;Goodbye&quot;)
+  }
+</code></pre>
+
+<p>Here&#39;s the function in action:</p>
+
+<pre><code class="r">x &lt;- 42
+message(x)
+</code></pre>
+
+<pre><code>## [1] &quot;Hello&quot;
+</code></pre>
+
+<pre><code class="r">
+x &lt;- log(-1)  #### Produces warning but does not stop
+</code></pre>
+
+<pre><code>## Warning: NaNs produced
+</code></pre>
+
+<pre><code class="r">message(x)
+</code></pre>
+
+<pre><code>## Error: missing value where TRUE/FALSE needed
+</code></pre>
+
+<h2>Debugging tools</h2>
+
+<h2>Print &ldquo;call stack&rdquo; with <code>traceback</code></h2>
+
+<p>How did we get here?  That is, what sequence of function calls led us to the
+point where an error occurred?  Answer: the <code>traceback</code> function can tell us.
+Here&#39;s an example:</p>
+
+<pre><code>&gt;   message(log(-1))
+Error in if (x &gt; 0) print(&quot;Hello&quot;) else print(&quot;Goodbye&quot;) : 
+  missing value where TRUE/FALSE needed
+In addition: Warning message:
+In log(-1) : NaNs produced
+&gt; 
+&gt;   traceback()
+1: message(log(-1))
+
+</code></pre>
+
+<p>It&#39;s hard to get &ldquo;lost&rdquo; when you&#39;ve got only one function to begin with, but
+real life is more complicated.  The following isn&#39;t exactly &ldquo;real-life&rdquo;
+either, but it better illustrates the point.</p>
+
+<pre><code class="r">f &lt;- function(x) {
+    r &lt;- x - g(x)
+    r
+}
+g &lt;- function(y) {
+    r &lt;- y * h(y)
+    r
+}
+h &lt;- function(z) {
+    r &lt;- log(z)
+    if (r &lt; 10) 
+        r^2 else r^3
+}
+</code></pre>
+
+<p>You can probably guess that the log function is going to be the trouble maker,
+but let&#39;s see what happens.</p>
+
+<pre><code>&gt; f(-1)
+Error in if (r &lt; 10) r^2 else r^3 : missing value where TRUE/FALSE needed
+In addition: Warning message:
+In log(z) : NaNs produced
+&gt; traceback()
+3: h(y) at #2
+2: g(x) at #2
+1: f(-1)
+&gt; 
+
+</code></pre>
+
+<p>This shows that we started out with a call to f, which generated a call to g,
+which generated a call to h.  The error evidently occurred at statement #2 of
+h.  Note, by the way, the following trick to view the line numbers in a
+function:</p>
+
+<pre><code>&gt; as.list(body(h))
+[[1]]
+`{`
+
+[[2]]
+r &lt;- log(z)
+
+[[3]]
+if (r &lt; 10) r^2 else r^3
+
+</code></pre>
+
+<p>I.e., statement #2 of h is, as expected, the one that involves the log function.</p>
+
+<h2>The <code>debug</code> function</h2>
+
+<p>The <code>traceback</code> function helps us to locate the error, but then what do we do?
+Ideally, we could just stare at our code, then find and fix the error.  But it
+often helps to have some detailed information as to what was going on in our
+code at the time of the error.</p>
+
+<p>The <code>debug</code> function allows us to do just that.  We can step through our code,
+a line at a time, and examine variables along the way.</p>
+
+<p>The syntax is:</p>
+
+<pre><code>debug(function-name)
+</code></pre>
+
+<p>and to turn off debugging we use:</p>
+
+<pre><code>undebug(function-name)
+</code></pre>
+
+<p>(I.e., we might find and fix a problem on the third pass through a loop of
+10000 iterations, after which we no longer need or want to debug for the other
+9997 times through the loop.)</p>
+
+<p>Here&#39;s an example.  The mathematical background is that we have N observations
+of a random variable that we assume to be normally distributed but with an
+unknown mean and variance.  To estimate the parameters we need to compute the
+sum of the squared differences from the mean:</p>
+
+<p>\[ 
+SS = \sum_{n=1}^{N}(x_n - \mu)^2
+ \]</p>
+
+<p>(Details at:</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters">http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters</a></p>
+
+<p>)</p>
+
+<p>Here we&#39;ll focus on just one part of the calculation, computing the sum of the
+squared differences. Here&#39;s an R function that will do that for us:</p>
+
+<pre><code class="r">SS &lt;- function(mu, x) {
+    d &lt;- x - mu
+    d2 &lt;- d^2
+    ss &lt;- sum(d2)
+    ss
+}
+</code></pre>
+
+<p>You can probably see that the function could be written much more compactly,
+but we&#39;ll string it out for purposes of illustration.</p>
+
+<p>Let&#39;s generate some points from a Normal(0,1) distribution:</p>
+
+<pre><code class="r">set.seed(314159)  # Set the RNG seed so results are reproducible
+xPoints &lt;- rnorm(100)
+</code></pre>
+
+<p>Let&#39;s run SS to get a feel for its behavior:</p>
+
+<pre><code class="r">SS(1, xPoints)
+</code></pre>
+
+<pre><code>## [1] 202.5
+</code></pre>
+
+<pre><code class="r">muTest &lt;- as.numeric(-5:5)
+SSTest &lt;- sapply(muTest, SS, xPoints)
+plot(muTest, SSTest)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk exerciseSS"/> </p>
+
+<p>Now suppose we want to examine in detail the behavior of the SS function.
+First, we flag the function for debugging:</p>
+
+<pre><code class="r">debug(SS)
+</code></pre>
+
+<pre><code>&gt; SS(1, xPoints)
+debugging in: SS(1, xPoints)
+debug at #1: {
+    d &lt;- x - mu
+    d2 &lt;- d^2
+    ss &lt;- sum(d2)
+    ss
+}
+Browse[2]&gt; n
+debug at #2: d &lt;- x - mu
+Browse[2]&gt; n
+debug at #3: d2 &lt;- d^2
+Browse[2]&gt; n
+debug at #4: ss &lt;- sum(d2)
+Browse[2]&gt; n
+debug at #5: ss
+Browse[2]&gt; n
+exiting from: SS(1, xPoints)
+[1] 202.482
+</code></pre>
+
+<p>This isn&#39;t a particularly interesting use of the debugger, as all we did was
+to step through the function a line at a time, using the &#39;n&#39; command, but it
+does illustrate some of the basic ideas:</p>
+
+<ul>
+<li><p>First, when we enter the SS function, the function itself is printed, and
+execution <strong>stops</strong>.</p></li>
+<li><p>The R prompt, &#39;&gt;&#39;, changes to &#39;Browse[<number>]&gt;&#39;</p></li>
+</ul>
+
+<p>There are four basic commands you can use in the debugger:</p>
+
+<ul>
+<li><p><strong>n</strong>:  execute the current line of code and step to the next</p></li>
+<li><p><strong>c</strong>: continue execution without stopping again</p></li>
+<li><p><strong>Q</strong>: quit debugging completely and to back to the top-level R prompt</p></li>
+<li><p><strong>where</strong>: similar to calling traceback</p></li>
+</ul>
+
+<p>You an execute any R code at the &ldquo;Browse&rdquo; prompt, i.e., not just code related
+to the function.  The most important example of this is probably the ls()
+command, which shows us what objects are defined in the current environment
+(i.e., within a given function, for instance):</p>
+
+<pre><code>    Browse[2]&gt; ls()
+    [1] &quot;mu&quot; &quot;x&quot; 
+
+    Browse[2]&gt; mu
+    [1] 1
+
+    Browse[2]&gt; head(x)
+    [1] -0.79928868 -0.73009689  1.43687692  0.30502316 -0.39728401
+    [6]  0.08889039
+</code></pre>
+
+<p>But the facility is completely general.  Here&#39;s a trivial example of defining
+something unrelated to the current function:</p>
+
+<pre><code>    Browse[2]&gt; zzz &lt;- sqrt(64)
+    Browse[2]&gt; zzz
+    [1] 8
+</code></pre>
+
+<p>Here&#39;s another, somewhat more interesting session with SS:</p>
+
+<pre><code>    &gt; SS(1, xPoints)
+    debugging in: SS(1, xPoints)
+    debug at #1: {
+        d &lt;- x - mu
+        d2 &lt;- d^2
+        ss &lt;- sum(d2)
+        ss
+    }
+    Browse[2]&gt; n
+    debug at #2: d &lt;- x - mu
+    Browse[2]&gt; n
+    debug at #3: d2 &lt;- d^2
+    Browse[2]&gt; d[1]  ## Print the value of the first element of d
+    [1] -1.799289
+    Browse[2]&gt; n
+    debug at #4: ss &lt;- sum(d2)
+    Browse[2]&gt; hist(d2)
+    Browse[2]&gt; n
+    debug at #5: ss
+    Browse[2]&gt; print(ss)
+    [1] 202.482
+    Browse[2]&gt; ls()
+    [1] &quot;d&quot;  &quot;d2&quot; &quot;mu&quot; &quot;ss&quot; &quot;x&quot; 
+    Browse[2]&gt; where
+    where 1: SS(1, xPoints)
+
+    Browse[2]&gt; y &lt;- x^2  ## Create new object
+    Browse[2]&gt; ls()
+    [1] &quot;d&quot;  &quot;d2&quot; &quot;mu&quot; &quot;ss&quot; &quot;x&quot;  &quot;y&quot; 
+    Browse[2]&gt; head(y)
+    [1] 0.638862388 0.533041463 2.064615286 0.093039131 0.157834589
+    [6] 0.007901501
+    Browse[2]&gt; c  ## Execute the rest of the function w/o stopping
+    exiting from: SS(1, xPoints)
+    [1] 202.482
+
+    &gt; undebug(SS)  ## No need for further debugging
+</code></pre>
+
+<p>Note the explicit use of the <code>print</code> function in the above.  At an interactive
+prompt, R will &ldquo;autoprint&rdquo; the value of a variable when it is used, so use of
+the <code>print</code> function is optional.  But what if, for instance, you had <code>n</code> as a
+parameter in your function?  Then to examine <code>n</code> you&#39;d need to say explicitly:</p>
+
+<pre><code>print(n)
+</code></pre>
+
+<p>One final thing: if you want to debug a function, you have to say so
+<strong>before</strong> you call the function.  This is more or less obvious.</p>
+
+<p>Perhaps not so obvious is the fact that you can flag functions for debugging
+&ldquo;on the fly&rdquo;.  I.e., you can turn on debugging for other functions while
+you&#39;re in the process of debugging a given function.  Example later.</p>
+
+<h2>Explicit Calls to Browser</h2>
+
+<p>Rather than flagging a function for debugging and then stepping through the
+function a line at a time, it is sometimes convenient to modify your code in
+such a way as to trigger debugging at the point where you suspect the trouble
+lies.</p>
+
+<p>Consider the following modified version of SS, for instance.  We might feel
+confident that the trouble occurs in our function only after <code>d2</code> has been
+calculated, so we insert a call to the function <code>browser</code> at the point where
+we want to start, well, browsing.</p>
+
+<pre><code class="r">
+SS &lt;- function(mu, x) {
+    d &lt;- x - mu
+    d2 &lt;- d^2
+    browser()
+    ss &lt;- sum(d2)
+    ss
+}
+</code></pre>
+
+<pre><code>    &gt; SS(2, xPoints)
+    Called from: SS(2, xPoints)
+    Browse[1]&gt; ls()
+    [1] &quot;d&quot;  &quot;d2&quot; &quot;mu&quot; &quot;x&quot; 
+    Browse[1]&gt; print(mu)
+    [1] 2
+    Browse[1]&gt; mean(x)
+    [1] -0.05553729
+    Browse[1]&gt; n
+    debug at #5: ss &lt;- sum(d2)
+    Browse[2]&gt; c
+    [1] 513.5895
+</code></pre>
+
+<p>One drawback to this mode of operation is that you have to remember to
+<em>remove</em> the call to <code>browser</code> before you put the code into production.</p>
+
+<p>One real advantage of this approach is that you can use it to debug
+&ldquo;anonymous&rdquo; functions, as:</p>
+
+<pre><code>    sapply(1:50, function_with_no_name {
+        .
+        .
+        .
+        browser()
+        .
+        .
+        .
+    })
+</code></pre>
+
+<h2>Inserting Code with <code>trace</code></h2>
+
+<p>As with <code>debug</code>, the function <code>trace</code> allows you to debug code, but <code>trace</code> is
+much more general and sophisticated.  The simplest uses of <code>trace</code> don&#39;t
+appear much different from the corresponding use of <code>debug</code>, although some
+differences are evident.</p>
+
+<p>The following example is taken from the book <em>Software for Data Analysis</em> by
+John M. Chambers.  Suppose we have defined three functions, called <code>Fn1</code>,
+<code>Fn2</code>, <code>Fn3</code>.  (The details of the function don&#39;t matter for the purposes of
+this example.)  Then we might use <code>trace</code> as follows:</p>
+
+<pre><code>    trace(Fn1, recover)
+    trace(Fn2, exit = browser)
+    trace(Fn3, browser, exit = browser)
+</code></pre>
+
+<p>Here, <code>browser</code> is the same function we saw above.  The function <code>recover</code>
+lets us examine the full sequence of calls that brought us to a given point in
+our code, and then browse inside <em>any</em> of the functions in the sequence.</p>
+
+<p>After the above calls to <code>trace</code>, all future calls to <code>Fn1</code> will begin with a
+call to <code>recover()</code>; calls to <code>Fn2</code> will invoke &#39;browser()<code>just before the
+function exits; calls to</code>Fn3<code>will invoke</code>browser()<code>on both entry to the
+function and exit from the function.  (In the case of</code>Fn3 we might get tired
+of stepping through the function and hit &#39;c&#39; (continue), but stop before we
+leave the function, juuust to make sure everything is still OK before we lose
+all the local variables in the function.)</p>
+
+<p>The <code>trace</code> function works by modifying the code of the function, then saving
+the modified function, and running the modified version when you invoke the
+function.  The original code is not touched, and you can restore the original
+behavior by executing:</p>
+
+<pre><code>    untrace(Fn1)
+    etc.
+</code></pre>
+
+<p>Here are some examples with our <code>SS</code> function:</p>
+
+<pre><code class="r">trace(SS, recover)
+SS(1, xPoints)
+untrace(SS)
+
+trace(SS, browser)
+SS(2, xPoints)
+untrace(SS)
+
+trace(SS, exit = browser)
+SS(3, xPoints)
+untrace(SS)
+
+</code></pre>
+
+<p>The paper by Roger Peng, mentioned at the beginning of this note, has an
+example in which he minimizes the negative log-likelihood of a statistical
+model, using an R function that he calls <code>nLL</code>.  The details of the discussion
+are somewhat complicated and will be omitted here.</p>
+
+<p>The salient point is that the procedure in question involves many iterations,
+and is plagued by the same problem that we discussed above: the log of a
+negative number produces a so-called <code>NaN</code> (&ldquo;not a number&rdquo;) in <em>some</em> of the
+iterations.  We would hope not to get NaN&#39;s in our calculations, and we might,
+therefore, want to examine in detail the situations in which a NaN is
+produced.  But there might be tens or hundreds or thousands of iterations,
+most of which do not generate NaN&#39;s.  Stepping through all the iterations
+would take a lifetime.  What to do?</p>
+
+<p>The solution is to trace the function using some of its more sophisticated
+options:</p>
+
+<pre><code>trace(&quot;nLL&quot;, quote(if(any(is.nan(lz))) { browser() }), at=4, print=F)
+</code></pre>
+
+<p>Here:</p>
+
+<ul>
+<li><p><code>nLL</code> is the name of the function to be traced</p></li>
+<li><p>the stuff inside the <code>quote</code> function is code to be inserted
+(dynamically) into the nLL function; it could also be just the
+ name of a function (as in our introductory examples)</p></li>
+<li><p><code>at</code> is the line number at which to insert the code, which the
+author determines from <code>as.list(body(nLL))</code> (see above)</p></li>
+<li><p><code>print=FALSE</code> just suppresses the printing of a descriptive
+message</p></li>
+</ul>
+
+<p>This is as if we had written:</p>
+
+<pre><code>    if(any(is.nan(lz))) {
+        browser()
+    }
+</code></pre>
+
+<p>at line 4 of the <code>nLL</code> function.</p>
+
+<p>Here&#39;s a simpler example using the functions we mentioned at the beginning of
+the discussion:</p>
+
+<pre><code class="r">
+trace(h, quote(if (is.nan(r)) {
+    browser()
+}), at = 3)
+f(7)
+f(-3)
+untrace(f)
+
+</code></pre>
+
+<p>Finally, if using the quoted expression for the second argument of <code>trace</code>
+seems too intimidating. let&#39;s note that <code>trace</code> has an <code>edit</code> argument.  If
+you call trace as:</p>
+
+<pre><code>    trace (someFn, ..., edit=TRUE)
+</code></pre>
+
+<p>you will dropped into an editor, where you can edit your code to your heart&#39;s
+content before the (temporarily modified) function executes.  BTW, you can
+also supply the name of an editor here, as:</p>
+
+<pre><code>    trace (someFn, ..., edit=&quot;/usr/bin/vim&quot;)
+
+</code></pre>
+
+</body>
+
+</html>
+
