@@ -5710,6 +5710,42 @@ by a vertical bar, &ldquo;|&rdquo;, in the pattern.  Here&#39;s an example:</p>
 
 </code></pre>
 
+<h1>Debugging in R</h1>
+
+<p>There are times when even the most-experienced programmer encounters seemingly
+inexplicable behavior in his or her program.  One response to this situation
+is to stare intently at the program code for long periods of time, in the
+hopes of spotting the flaw in the program.  This is, perhaps, commendable at
+some level, but it&#39;s often a waste of time, as our brains tend to make,
+subconsciously, the same mistakes over and over if we ask them to do the same
+tasks over and over.</p>
+
+<p>Is there an alternative?  The answer is: yes, it&#39;s called &ldquo;debugging&rdquo;.
+Debugging a program consists essentially of somehow interrupting the
+execution of a program at selected spots and examining the values of program
+variables and other aspects of the computing environment.</p>
+
+<p>The oldest and simplest way to do this is simply to embed <code>print</code> statements
+at the relevant places in the code.  This can be tedious, and it does require
+us to remember to remove the <code>print</code> statements once we&#39;ve got things working.</p>
+
+<p>The basic R package includes a number of functions to help us do this
+debugging in a more-systematic way:</p>
+
+<ul>
+<li><code>traceback</code></li>
+<li><code>debug</code></li>
+<li><code>browser</code></li>
+<li><code>trace</code></li>
+<li><code>recover</code></li>
+</ul>
+
+<p>There is a reasonably-accessible discussion of debugging with these functions
+at:</p>
+
+<pre><code>https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd
+</code></pre>
+
 <h1>A quick review: &ldquo;control panels&rdquo; for R</h1>
 
 <p>You can think of R as a sort of machine with a number of &ldquo;control panels&rdquo;.</p>

@@ -6014,6 +6014,40 @@ by a vertical bar, "|", in the pattern.  Here's an example:
 ```
 
 
+Debugging in R
+==============
+
+There are times when even the most-experienced programmer encounters seemingly
+inexplicable behavior in his or her program.  One response to this situation
+is to stare intently at the program code for long periods of time, in the
+hopes of spotting the flaw in the program.  This is, perhaps, commendable at
+some level, but it's often a waste of time, as our brains tend to make,
+subconsciously, the same mistakes over and over if we ask them to do the same
+tasks over and over.
+
+Is there an alternative?  The answer is: yes, it's called "debugging".
+Debugging a program consists essentially of somehow interrupting the
+execution of a program at selected spots and examining the values of program
+variables and other aspects of the computing environment.
+
+The oldest and simplest way to do this is simply to embed `print` statements
+at the relevant places in the code.  This can be tedious, and it does require
+us to remember to remove the `print` statements once we've got things working.
+
+The basic R package includes a number of functions to help us do this
+debugging in a more-systematic way:
+
+  - `traceback`
+  - `debug`
+  - `browser`
+  - `trace`
+  - `recover`
+
+There is a reasonably-accessible discussion of debugging with these functions
+at:
+
+    https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd
+
 
 A quick review: "control panels" for R
 ======================================

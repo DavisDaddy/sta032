@@ -257,15 +257,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#logical-or"><span class="toc-section-number">39.5.4</span> Logical OR</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#a-quick-review-control-panels-for-r"><span class="toc-section-number">40</span> A quick review: “control panels” for R</a><ul>
-<li><a href="#the-interpreter-the-main-control-panel"><span class="toc-section-number">40.1</span> The interpreter: the main control panel</a><ul>
-<li><a href="#the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">40.1.1</span> The settings on the interpreter control panel</a></li>
-<li><a href="#reading-out-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">40.1.2</span> Reading out the settings on the interpreter control panel</a></li>
-<li><a href="#changing-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">40.1.3</span> Changing the settings on the interpreter control panel</a></li>
+<li><a href="#debugging-in-r"><span class="toc-section-number">40</span> Debugging in R</a></li>
+<li><a href="#a-quick-review-control-panels-for-r"><span class="toc-section-number">41</span> A quick review: “control panels” for R</a><ul>
+<li><a href="#the-interpreter-the-main-control-panel"><span class="toc-section-number">41.1</span> The interpreter: the main control panel</a><ul>
+<li><a href="#the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.1</span> The settings on the interpreter control panel</a></li>
+<li><a href="#reading-out-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.2</span> Reading out the settings on the interpreter control panel</a></li>
+<li><a href="#changing-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.3</span> Changing the settings on the interpreter control panel</a></li>
 </ul></li>
-<li><a href="#the-options-control-panel"><span class="toc-section-number">40.2</span> The <code>options</code> control panel</a></li>
-<li><a href="#the-par-control-panel"><span class="toc-section-number">40.3</span> The <code>par</code> control panel</a></li>
-<li><a href="#the-random-number-control-panel"><span class="toc-section-number">40.4</span> The random-number control panel</a></li>
+<li><a href="#the-options-control-panel"><span class="toc-section-number">41.2</span> The <code>options</code> control panel</a></li>
+<li><a href="#the-par-control-panel"><span class="toc-section-number">41.3</span> The <code>par</code> control panel</a></li>
+<li><a href="#the-random-number-control-panel"><span class="toc-section-number">41.4</span> The random-number control panel</a></li>
 </ul></li>
 </ul>
 </div>
@@ -3538,35 +3539,49 @@ not in the list.</code></pre>
                      <span class="kw">c</span>(<span class="st">&quot;Fred&quot;</span>, <span class="st">&quot;Ethel&quot;</span>, <span class="st">&quot;Curly&quot;</span>, <span class="st">&quot;Rainman&quot;</span>, <span class="st">&quot;moe&quot;</span>),
                      <span class="dt">value=</span><span class="ot">TRUE</span>)
   lookStooge</code></pre>
-<h1 id="a-quick-review-control-panels-for-r"><a href="#a-quick-review-control-panels-for-r"><span class="header-section-number">40</span> A quick review: “control panels” for R</a></h1>
+<h1 id="debugging-in-r"><a href="#debugging-in-r"><span class="header-section-number">40</span> Debugging in R</a></h1>
+<p>There are times when even the most-experienced programmer encounters seemingly inexplicable behavior in his or her program. One response to this situation is to stare intently at the program code for long periods of time, in the hopes of spotting the flaw in the program. This is, perhaps, commendable at some level, but it’s often a waste of time, as our brains tend to make, subconsciously, the same mistakes over and over if we ask them to do the same tasks over and over.</p>
+<p>Is there an alternative? The answer is: yes, it’s called “debugging”. Debugging a program consists essentially of somehow interrupting the execution of a program at selected spots and examining the values of program variables and other aspects of the computing environment.</p>
+<p>The oldest and simplest way to do this is simply to embed <code>print</code> statements at the relevant places in the code. This can be tedious, and it does require us to remember to remove the <code>print</code> statements once we’ve got things working.</p>
+<p>The basic R package includes a number of functions to help us do this debugging in a more-systematic way:</p>
+<ul>
+<li><code>traceback</code></li>
+<li><code>debug</code></li>
+<li><code>browser</code></li>
+<li><code>trace</code></li>
+<li><code>recover</code></li>
+</ul>
+<p>There is a reasonably-accessible discussion of debugging with these functions at:</p>
+<pre><code>https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd</code></pre>
+<h1 id="a-quick-review-control-panels-for-r"><a href="#a-quick-review-control-panels-for-r"><span class="header-section-number">41</span> A quick review: “control panels” for R</a></h1>
 <p>You can think of R as a sort of machine with a number of “control panels”.</p>
-<h2 id="the-interpreter-the-main-control-panel"><a href="#the-interpreter-the-main-control-panel"><span class="header-section-number">40.1</span> The interpreter: the main control panel</a></h2>
+<h2 id="the-interpreter-the-main-control-panel"><a href="#the-interpreter-the-main-control-panel"><span class="header-section-number">41.1</span> The interpreter: the main control panel</a></h2>
 <p>The part of R that reads commands and executes the corresponding functions is the <em>interpreter</em>.</p>
-<h3 id="the-settings-on-the-interpreter-control-panel"><a href="#the-settings-on-the-interpreter-control-panel"><span class="header-section-number">40.1.1</span> The settings on the interpreter control panel</a></h3>
+<h3 id="the-settings-on-the-interpreter-control-panel"><a href="#the-settings-on-the-interpreter-control-panel"><span class="header-section-number">41.1.1</span> The settings on the interpreter control panel</a></h3>
 <p>The settings for this control panel are:</p>
 <ul>
 <li>the variables that are defined at any one moment</li>
 <li>the values of those variables</li>
 </ul>
-<h3 id="reading-out-the-settings-on-the-interpreter-control-panel"><a href="#reading-out-the-settings-on-the-interpreter-control-panel"><span class="header-section-number">40.1.2</span> Reading out the settings on the interpreter control panel</a></h3>
+<h3 id="reading-out-the-settings-on-the-interpreter-control-panel"><a href="#reading-out-the-settings-on-the-interpreter-control-panel"><span class="header-section-number">41.1.2</span> Reading out the settings on the interpreter control panel</a></h3>
 <p>You can examine the state of the interpreter in various ways:</p>
 <ul>
 <li>ls()</li>
 <li>print()</li>
 </ul>
-<h3 id="changing-the-settings-on-the-interpreter-control-panel"><a href="#changing-the-settings-on-the-interpreter-control-panel"><span class="header-section-number">40.1.3</span> Changing the settings on the interpreter control panel</a></h3>
+<h3 id="changing-the-settings-on-the-interpreter-control-panel"><a href="#changing-the-settings-on-the-interpreter-control-panel"><span class="header-section-number">41.1.3</span> Changing the settings on the interpreter control panel</a></h3>
 <p>You change the settings of the interpreter by using an assignment statement:</p>
 <ul>
 <li><code>zzz &lt;- 42</code></li>
 </ul>
-<h2 id="the-options-control-panel"><a href="#the-options-control-panel"><span class="header-section-number">40.2</span> The <code>options</code> control panel</a></h2>
+<h2 id="the-options-control-panel"><a href="#the-options-control-panel"><span class="header-section-number">41.2</span> The <code>options</code> control panel</a></h2>
 <p>The <code>options()</code> function controls what you might call R’s general settings. You can type:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
   <span class="kw">options</span>()  ## to see the values of all options currently set
   ?options   ## to see a discussion of the many options
   <span class="kw">options</span>(<span class="dt">digits=</span><span class="dv">18</span>)  ## to set to 18 the number of digits displayed in output
   <span class="kw">options</span>(<span class="dt">width=</span><span class="dv">120</span>)  ## to make R use more of your screen real estate</code></pre>
-<h2 id="the-par-control-panel"><a href="#the-par-control-panel"><span class="header-section-number">40.3</span> The <code>par</code> control panel</a></h2>
+<h2 id="the-par-control-panel"><a href="#the-par-control-panel"><span class="header-section-number">41.3</span> The <code>par</code> control panel</a></h2>
 <p>The <code>par()</code> function can be used to set or query <em>graphical</em> parameters.</p>
 <p>You can type:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
@@ -3574,7 +3589,7 @@ not in the list.</code></pre>
   ?par  ## to see a discussion a discussion of the graphics parameters
   <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)) ## to put the next six plots into a 3-row, 2-col array</code></pre>
 <p>There are many examples above of other uses of <code>par</code>.</p>
-<h2 id="the-random-number-control-panel"><a href="#the-random-number-control-panel"><span class="header-section-number">40.4</span> The random-number control panel</a></h2>
+<h2 id="the-random-number-control-panel"><a href="#the-random-number-control-panel"><span class="header-section-number">41.4</span> The random-number control panel</a></h2>
 <p>The random-number “machinery” in R is activated by the <code>set.seed()</code> function or by the use of any function in R that relates to random numbers (<code>rnorm</code>, <code>dnorm</code>, <code>sample</code>, etc.), and it is <em>changed</em> by <strong>any</strong> subsequent use of those functions.</p>
 <pre class="sourceCode r"><code class="sourceCode r">
   .Random.seed  ## produces an error if no previous use of random numbers
