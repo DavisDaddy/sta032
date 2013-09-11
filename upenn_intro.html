@@ -1412,14 +1412,16 @@ you call the first element &ldquo;element 1&rdquo;.  But there are advantages to
 <p>Here are some examples of indexing and subsetting a vector:</p>
 
 <pre><code class="r">
-  a &lt;- c(1,3,5)
-  a[1]; a[2]; a[3]
+a &lt;- c(1, 3, 5)
+a[1]
+a[2]
+a[3]
 
-  a[c(1, 3)]    ## using a vector to subset another vector
-  b &lt;- c(1, 3); ## the subset-specifier can be a variable
-  a[b]
+a[c(1, 3)]  ## using a vector to subset another vector
+b &lt;- c(1, 3)  ## the subset-specifier can be a variable
+a[b]
 
-  a[c(1, 2, 1, 2, 1, 1, 1, 3, 3, 3)]  ## this one is interesting
+a[c(1, 2, 1, 2, 1, 1, 1, 3, 3, 3)]  ## this one is interesting
 
 </code></pre>
 
@@ -2165,7 +2167,7 @@ rbind(1:5, x)  # Row binding.
 their own: they take on these roles inside the &ldquo;cbind&rdquo; and &ldquo;rbind&rdquo; functions.</p>
 
 <p>Both functions accept an arbitrary number of conforming arguments.  Conforming
-for <code>cbind()</code> means the arguments have equal numbers of rows; for rbind()&#39; it
+for <code>cbind()</code> means the arguments have equal numbers of rows; for <code>rbind()</code> it
 means equal numbers of columns.  If vector arguments are not conforming, R
 extends them cyclically or clips them but may give you a warning if the length
 of the longest argument is not an even multiple of the lengths of the shorter
@@ -3201,7 +3203,7 @@ items, so that they explicitly appear in the result of the function call.</p>
 
 <p>In R, arguments are passed to functions &ldquo;by value&rdquo;, <em>not</em>  &ldquo;by reference&rdquo; or
 &ldquo;by name&rdquo;.  This means that all arguments get <em>copied</em> into a function, so
-that any calculations done on those arguments inside the function does <em>not</em>
+that any calculations done on those arguments inside the function do <em>not</em>
 affect the original variables.  Here&#39;s an example.</p>
 
 <pre><code class="r">
