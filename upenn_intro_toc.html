@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Michael Hannon" />
-  <meta name="date" content="2013-08-26" />
+  <meta name="date" content="2013-10-03" />
   <title>A Brief Introduction to R</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -32,7 +32,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">A Brief Introduction to R</h1>
 <h2 class="author">Michael Hannon</h2>
-<h3 class="date">2013-08-26</h3>
+<h3 class="date">2013-10-03</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -178,6 +178,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#operations-on-dataframes"><span class="toc-section-number">29.3</span> Operations on dataframes</a></li>
 <li><a href="#it-sometimes-looks-like-a-matrix-but-it-isnt"><span class="toc-section-number">29.4</span> It sometimes looks like a matrix, but it isn’t</a></li>
 <li><a href="#making-a-dataframe-from-other-data-sources"><span class="toc-section-number">29.5</span> Making a dataframe from other data sources</a></li>
+<li><a href="#sorting-a-data-frame"><span class="toc-section-number">29.6</span> Sorting a data frame</a></li>
 </ul></li>
 <li><a href="#flow-control-conditionals-and-loops"><span class="toc-section-number">30</span> Flow control: conditionals and loops</a><ul>
 <li><a href="#making-decisions-the-if-statement"><span class="toc-section-number">30.1</span> Making decisions: the <code>if</code> statement</a></li>
@@ -464,13 +465,13 @@ pi  <span class="co"># That&#39;s the number `greek pi`, 3.14159...</span>
 <span class="kw">acos</span>(<span class="dv">0</span>)  <span class="co"># This is the inverse of cos, arccos, hence pi/2.</span>
 pi/<span class="dv">2</span>  <span class="co"># `pi` is the only hardwired constant: 3.14159...</span></code></pre>
 <h2 id="integers"><a href="#integers"><span class="header-section-number">6.2</span> Integers</a></h2>
-<p>Numeric objects are double-precision by default, but it’s possible to create truly integer-valued objects in R. Here are some examples:</p>
+<p>Numeric objects are double-precision by default, but it’s possible to create truly integer-valued objects in R. If you add an <code>L</code> to a numeric literal, you force it to be an integer. And some functions in R produce integer-valued results by default. Here are some examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 uuu &lt;-<span class="st"> </span><span class="dv">7</span>  ## a regular, double-precision numeric
 uuu
 <span class="kw">str</span>(uuu)
 
-vvv &lt;-<span class="st"> </span><span class="kw">as.integer</span>(uuu)
+vvv &lt;-<span class="st"> </span><span class="kw">as.integer</span>(uuu)  ## &#39;coerce&#39; a numeric to an integer
 vvv
 <span class="kw">str</span>(vvv)
 
@@ -484,9 +485,15 @@ zzz
 <p>Here’s a <strong>digression</strong>: we used the term “some functions” in the example above. Where’s the function in that example? Send the following code to R, and you’ll see:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
   yyy &lt;-<span class="st"> `</span><span class="dt">:</span><span class="st">`</span>(<span class="dv">1</span>, <span class="dv">5</span>)
-  yyy
+  yyy               ## spoiler: same as 1:5
   <span class="kw">str</span>(yyy)
   </code></pre>
+<p>In other words, the “operator” denoted by <code>:</code> is actually a function that can be called in the same way as, for instance, the <code>sqrt</code> function. The same is true for other operators:</p>
+<p>```(r stillCantBeSerious, eval=FALSE, tidy=FALSE}</p>
+<p><code>+</code>(7, 11) ## same as: 7 + 11 <code>*</code>(6, 7) ## same as: 6 * 7</p>
+<p>```</p>
+<p>This is occasionally useful, but it probably won’t be of much use in this course.</p>
+<p>End of digression.</p>
 <h2 id="strings"><a href="#strings"><span class="header-section-number">6.3</span> Strings</a></h2>
 <p>These are pieces of text, or “words”. They are delimited by single or double quotes, but the <code>print</code> function will show them with double quotes:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
@@ -663,7 +670,23 @@ z &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</sp
 </ol>
 <h2 id="vignettes"><a href="#vignettes"><span class="header-section-number">9.3</span> Vignettes</a></h2>
 <p>There are sometimes extended discussions of packages in R (packages are discussed below). The extended discussions are referred to as “vignettes”.</p>
-<p>Here’s an example:</p>
+<p>Here’s an example. Calling the <code>vignette()</code> function without an argument lists all the vignettes that are currently available on your system. Suppose you call <code>vignette()</code>, and you notice the following in the output from the function:</p>
+<pre><code>Vignettes in package ‘knitr’:
+
+datatables                  Display Tables with the DataTables Library
+(source, pdf)
+knit_expand                 Templating with knit_expand() (source, pdf)
+knitr-html                  An R HTML Vignette with knitr (source, pdf)
+knitr-intro                 An Introduction to knitr (source, pdf)
+knitr-markdown              An R Markdown Vignette with knitr (source, pdf)
+knitr-refcard               knitr Reference Card (source, pdf)
+docco-classic               R Markdown with the Docco Classic Style (source,
+pdf)
+docco-linear                R Markdown with the Docco Linear Style (source,
+pdf)
+
+</code></pre>
+<p>Hmmm. What <em>is</em> this <code>knitr</code> thing? I think I’ve heard people talk about it. Ah, I see from the list that there’s a <code>knitr-intro</code> vignette (i.e., a possibly lengthy discussion introducing me to the <code>knitr</code> package). Let’s have a look:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">vignette</span>()  ## lists all vignettes currently available
 <span class="kw">library</span>(knitr)  ## load the knitr package into your current R session
@@ -742,7 +765,7 @@ x</code></pre>
 <p>A more-common use of the <code>library</code> command is to load additional packages into your R session. Send the following code to R and observe the results of the two <code>search</code> commands:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">search</span>()
-<span class="kw">library</span>(xtable)
+<span class="kw">library</span>(parallel)
 <span class="kw">search</span>()</code></pre>
 <h2 id="namespace"><a href="#namespace"><span class="header-section-number">12.7</span> Namespace</a></h2>
 <h3 id="general-remarks"><a href="#general-remarks"><span class="header-section-number">12.7.1</span> General remarks</a></h3>
@@ -823,7 +846,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Every assignment in R creates a <em>copy</em> of the assigned object. The assignment is done “by value”, not “by reference” as in some other languages.</p>
 <p>The following code chunk demonstrates this feature.</p>
 <pre class="sourceCode r"><code class="sourceCode r">
-a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)  <span class="co">#</span>
+a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)  <span class="co"># </span>
 a
 b &lt;-<span class="st"> </span>a  <span class="co"># &#39;b&#39; gets its own copy.</span>
 b  <span class="co"># We couldn&#39;t tell from this, though.</span>
@@ -910,21 +933,21 @@ b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</sp
 a[<span class="ot">FALSE</span>]  ## c(FALSE,FALSE,FALSE)  &#39;FALSE&#39; is repeated 3 times
 a[<span class="ot">TRUE</span>]  ## c(TRUE,TRUE,TRUE)
 
-a[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]  ## too short: recycle to c(TRUE,FALSE,TRUE)
+a[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]  ## too short: recycle to c(TRUE,FALSE,TRUE)   
 a[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)]  <span class="co"># too long: truncate</span>
 
 (<span class="dv">1</span>:<span class="dv">12</span>)[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]  <span class="co"># recycle (and leave out every third item)</span></code></pre>
 <h2 id="repeated-indexing"><a href="#repeated-indexing"><span class="header-section-number">17.4</span> Repeated indexing</a></h2>
 <p>Vectors can be indexed repeatedly. Here are some examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
-  a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+  a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
   b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)
 
-  a[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)][<span class="dv">2</span>]  <span class="co"># Select item two of a[c(1,3)], i.e. item 3 of &#39;a&#39;.</span>
-                <span class="co"># (Looks like a matrix element in C, but isn&#39;t!!)</span>
-  (a[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)])[<span class="dv">2</span>]   <span class="co"># This is what the previous expression really means.  </span>
+  a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)][<span class="dv">2</span>]  <span class="co"># Select item two of a[c(1,3)], i.e. item 3 of &#39;a&#39;.</span>
+                 <span class="co"># (Looks like a matrix element in C, but isn&#39;t!!)</span>
+  (a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)])[<span class="dv">2</span>]   <span class="co"># This is what the previous expression really means.  </span>
 
-  a[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)][<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)]</code></pre>
+  a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)][<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)]</code></pre>
 <h2 id="vector-indexing-and-subsetting-used-for-assignment"><a href="#vector-indexing-and-subsetting-used-for-assignment"><span class="header-section-number">17.5</span> Vector indexing and subsetting used for assignment</a></h2>
 <p>Vector indexing and subsetting can be used for assignment. Here are some examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
@@ -940,10 +963,10 @@ a
 a[<span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10000</span>, <span class="dv">20000</span>)
 a
 a[<span class="dv">2</span>:<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
-a
+a  <span class="co"># &#39;0&#39; is repeated to fill both vector elements.</span>
 b &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
 b[<span class="dv">3</span>:<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)
-b
+b  <span class="co"># &#39;c(10,20)&#39; is cyclically repeated.</span>
 b[<span class="dv">7</span>:<span class="dv">9</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>)  <span class="co"># works, but generates a warning</span></code></pre>
 <p>In the last example, the segment of <code>b</code> that is to replaced has length <code>3</code>, but the thing that’s being put into <code>b</code> has length <code>2</code>. R warns you of this, but goes ahead and does the replacement using recycling:</p>
 <pre><code>
@@ -953,14 +976,14 @@ b[<span class="dv">7</span>:<span class="dv">9</span>] &lt;-<span class="st"> </
 <p>We’ve already seen numerous examples of creating a vector using the <code>c</code> function. Here are some other ways to create vectors.</p>
 <h2 id="the-c-function-or-manual-entry"><a href="#the-c-function-or-manual-entry"><span class="header-section-number">18.1</span> The <code>c</code> function (or “manual entry”)</a></h2>
 <pre class="sourceCode r"><code class="sourceCode r">
-x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>)</code></pre>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>)  ## the &#39;usual&#39; way (so far)</code></pre>
 <h2 id="sequences-of-equally-spaced-numbers"><a href="#sequences-of-equally-spaced-numbers"><span class="header-section-number">18.2</span> Sequences of equally spaced numbers</a></h2>
 <pre class="sourceCode r"><code class="sourceCode r">
 <span class="dv">3</span>:<span class="dv">10</span>
 <span class="dv">10</span>:<span class="dv">3</span>
 <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">10</span>)  <span class="co"># where to start, where to stop</span>
 <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">1</span>/<span class="dv">3</span>)  <span class="co"># third argument &#39;by&#39; = step size</span>
-<span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="dt">len =</span> <span class="dv">8</span>)  <span class="co"># where to start, where to stop, how many?</span>
+<span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="dt">len =</span> <span class="dv">4</span>)  <span class="co"># where to start, where to stop, how many?</span>
 <span class="kw">seq</span>(letters)  <span class="co"># List of indexes into &#39;letters&#39;</span></code></pre>
 <h3 id="digression-on-data-type"><a href="#digression-on-data-type"><span class="header-section-number">18.2.1</span> Digression on data type</a></h3>
 <p>Note that two of the sequences above are “numeric”, i.e., double-precision floating-point. The rest are integers. One of the numeric sequences is obvious. But the other one “looks” like a bunch of integers. Can you tell which it is? (Hint: the <code>str</code> function) This is sometimes important, as you <strong>cannot reliably test two floating-point numbers for equality</strong>.</p>
@@ -1043,8 +1066,8 @@ x[nm]
 ## Named assignment/extension is possible:
 x[<span class="kw">c</span>(<span class="st">&quot;fifth&quot;</span>, <span class="st">&quot;fourth&quot;</span>)] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">11</span>)
 x
-## Note: &#39;fourth&#39; existed and is re-assigned; &#39;fifth&#39; did not exist and is
-## an extension of &#39;x&#39;.
+## Note: &#39;fourth&#39; existed and is re-assigned; &#39;fifth&#39; did not exist and is an
+## extension of &#39;x&#39;.
 
 ## If names are not unique, the first matching name is selected:
 <span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">a =</span> <span class="dv">3</span>)
@@ -1084,12 +1107,12 @@ x
 <span class="kw">sort</span>(x)  ## default is to sort in increasing order
 <span class="kw">rev</span>(x)  ## reverse the order of the entries in x</code></pre>
 <h2 id="permutations-and-other-uses-of-sample"><a href="#permutations-and-other-uses-of-sample"><span class="header-section-number">22.2</span> Permutations and other uses of <code>sample</code></a></h2>
-<p>Something like the opposite of sorting, a “permutation” is a (potentially) scrambled listing of the elements of a vector. Permutations are important in probability, and it’s somewhat surprising the R has no built-in <code>permutation</code> function. The rationale may be that the built-in function <code>sample</code> will produce a permutation.</p>
+<p>Something like the opposite of sorting, a “permutation” is a (potentially) scrambled listing of the elements of a vector. Permutations are important in probability, and it’s somewhat surprising that R has no built-in <code>permutation</code> function. The rationale may be that the built-in function <code>sample</code> will produce a permutation.</p>
 <p>The <code>sample</code> function is one of the more-important functions that we’ll encounter in this course. We’ve seen an example of it above. Here are some more examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">1</span>, <span class="dv">5</span>:<span class="dv">10</span>)  ## unsorted vector
 <span class="kw">sample</span>(x)  ## random permutation of &#39;x&#39;
-<span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)  ## random sample of size 100 from x
+<span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)  ## random sample of size 100 from x 
 <span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">100</span>)  ## generates error.  Why?</code></pre>
 <h2 id="the-order-function"><a href="#the-order-function"><span class="header-section-number">22.3</span> The <code>order</code> function</a></h2>
 <p>From the R help page:</p>
@@ -1099,9 +1122,19 @@ x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</sp
 <p>Here is the canonical example for the <code>order</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>:<span class="dv">1</span>, <span class="dv">5</span>:<span class="dv">10</span>)  ## unsorted vector
+x
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">3</span>)
+x
 <span class="kw">order</span>(x)
 <span class="kw">sort</span>(x)
 x[<span class="kw">order</span>(x)]  <span class="co"># Same!</span></code></pre>
+<p>If you run the example above, you should see from the output of the <code>order()</code> function that:</p>
+<ul>
+<li>x[4] would be the first element if x were sorted</li>
+<li>x[5] would be the second element if x were sorted</li>
+<li>x[10] would be the third element if x were sorted</li>
+</ul>
+<p>and so on.</p>
 <p>Hmmm. Well, <em>that</em> was underwhelming. Why bother with <code>order</code> at all, if it’s no more than a lengthier version of <code>sort</code>? The answer is that <code>order</code> can be used to sort more-complicated objects, such as matrices and data frames, which are both discussed below. See also the example below on parallel sorting, which is essentially the same idea.</p>
 <p>R can sort non-numeric data, such as strings, for example.</p>
 <pre class="sourceCode r"><code class="sourceCode r">
@@ -1146,28 +1179,28 @@ x
 <pre class="sourceCode r"><code class="sourceCode r">
 x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>, <span class="dt">min =</span> -<span class="dv">10</span>, <span class="dt">max =</span> +<span class="dv">10</span>)
 x
-<span class="kw">round</span>(x)
+<span class="kw">round</span>(x)  ## multiple values in, multiple values out: &#39;vectorized&#39;
 <span class="kw">round</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>)
-##
-<span class="kw">round</span>(<span class="fl">1.5</span>)
+## 
+<span class="kw">round</span>(<span class="fl">1.5</span>)  ## see the help page for &#39;round&#39;
 <span class="kw">round</span>(<span class="fl">2.5</span>)
-##
+## 
 <span class="kw">trunc</span>(x)
 <span class="kw">ceiling</span>(x)
 <span class="kw">abs</span>(x)
-##
+## 
 y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>, <span class="dv">36</span>)
 <span class="kw">sqrt</span>(y)
 <span class="kw">sqrt</span>(x)  ## works but NaN&#39;s produced for negative values in &#39;x&#39;
-z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span> +<span class="st"> </span>(<span class="dv">0</span>+4i), <span class="dv">6</span> +<span class="st"> </span>(<span class="dv">0</span>+8i))  ## but R DOES handle complex numbers
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span> +<span class="st"> </span><span class="dv">4</span>, <span class="dv">6</span> +<span class="st"> </span><span class="dv">8</span>)  ## but R DOES handle complex numbers
 <span class="kw">sqrt</span>(z)
-##
+## 
 <span class="kw">log</span>(x^<span class="dv">2</span>)
 <span class="kw">exp</span>(<span class="dv">1</span>)
 <span class="kw">exp</span>(x/<span class="dv">100</span>)
-<span class="kw">cos</span>(pi)
+<span class="kw">cos</span>(pi)  <span class="co"># &#39;pi&#39; is predefined; the number e=exp(1) is not.</span>
 <span class="kw">cos</span>(pi *<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))  ## vectorized
-##
+## 
 <span class="kw">acos</span>(<span class="fl">0.5</span>)  ## trig functions use radians, not degrees
 pi/<span class="dv">3</span></code></pre>
 <h1 id="matrices"><a href="#matrices"><span class="header-section-number">26</span> Matrices</a></h1>
@@ -1233,7 +1266,7 @@ myMat
 <span class="kw">dim</span>(myMat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)  <span class="co"># NOW it&#39;s a matrix.</span>
 myMat
 <span class="kw">is.matrix</span>(myMat)  <span class="co"># Let&#39;s check (it&#39;s TRUE)</span>
-<span class="kw">dim</span>(myMat) &lt;-<span class="st"> </span><span class="ot">NULL</span>
+<span class="kw">dim</span>(myMat) &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># Stripping to a vector. &#39;NULL&#39; is a reserved word</span>
 myMat
 <span class="kw">is.matrix</span>(myMat)  <span class="co"># Check it again (it&#39;s FALSE)</span></code></pre>
 <h2 id="names-for-the-rows-and-columns"><a href="#names-for-the-rows-and-columns"><span class="header-section-number">26.6</span> Names for the rows and columns</a></h2>
@@ -1440,7 +1473,7 @@ z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</sp
 z  ## ALL strings now</code></pre>
 <p>It <em>is</em> possible to do calculations with this constraint. <strong>All</strong> of our code and data are stored as binary numbers inside the computer, for example, so we <em>could</em> just code everything numerically.</p>
 <p>The obvious downside to doing that is that it’s hard to look at code and remember what the numbers mean (did that <code>17</code> refer to <em>Indiana</em> or <em>Iowa</em>?), and it’s very easy (for most people) to make mistakes without some kind of a hint as to the meaning of the numbers.</p>
-<p>Lists are data structures without the restriction to one type of data. Lists are sequences of anything. They can contain: basic data types, vectors, matrices, arrays, lists (recursion), … . In particular, they can contain arbitrarily nested lists of lists.</p>
+<p>Lists are data structures without the restriction to one type of data. Lists are sequences of anything. They can contain: basic data types, vectors, matrices, arrays, lists (recursion), … . In particular, they can contain arbitrarily nested lists of lists (which is the only point of the binary-tree example, the details of which are otherwise unimportant in this context).</p>
 <p>Here are some examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
   z &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="st">&quot;99&quot;</span>)  ## mix of numeric and string --  OK now.
@@ -1529,8 +1562,9 @@ z  ## ALL strings now</code></pre>
                  <span class="dt">flags=</span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),
                  <span class="dt">lst=</span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">4</span>)
                 )
+  myList
   myList[<span class="dv">2</span>:<span class="dv">3</span>]        ## sublist with two items: $mat, $flags
-  myList[<span class="dv">2</span>:<span class="dv">3</span>][[<span class="dv">1</span>]]   ## the content of the first item in the sublist
+  myList[<span class="dv">2</span>:<span class="dv">3</span>][[<span class="dv">1</span>]]   ## have to dig further to get the numerical matrix!
   myList[<span class="dv">2</span>:<span class="dv">3</span>]$mat    ## ditto
   myList[<span class="dv">2</span>]          ## a list of length 1: $mat
   myList[<span class="dv">2</span>][[<span class="dv">1</span>]]     ## the contents of the $mat element
@@ -1651,7 +1685,13 @@ z  ## ALL strings now</code></pre>
     5  54    205     69     Male   FALSE
 
 </code></pre>
-<p>Now we read the contents of that file into R. It winds up looking pretty much the same:</p>
+<p>Now we read the contents of that file into R. Note that if you want to run this example, you first have to <em>create</em> the file outside of R. You can use the text editor of your choice to make the file, but the file <em>does</em> have to be a text file (i.e., not a Word document, for instance).</p>
+<p>Also, you need to create the file in the place where R is currently looking for files, that is, the place in the file system that the R command:</p>
+<pre><code>
+  getwd()
+</code></pre>
+<p>shows you.</p>
+<p>The data end up looking pretty much the same in R as outside of R:</p>
 <pre class="sourceCode r"><code class="sourceCode r">
 myTable &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;atable.dat&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)
 myTable</code></pre>
@@ -1672,6 +1712,26 @@ myTable</code></pre>
                            <span class="dt">header=</span><span class="ot">TRUE</span>)
   <span class="kw">head</span>(myNewTable)  ## show just the first few rows of the dataframe
   <span class="kw">str</span>(myNewTable)</code></pre>
+<h2 id="sorting-a-data-frame"><a href="#sorting-a-data-frame"><span class="header-section-number">29.6</span> Sorting a data frame</a></h2>
+<p>In a previous section we noted that the <code>order()</code> function is useful in sorting matrices and data frames. We’re now in a position to give an example of that.</p>
+<p>In the following example, we’re given a data frame containing some information about a few people. (For simplicity we’re constructing the data frame in the example, but you can imagine we got the data from some outside source, so that we have no control over the initial format.)</p>
+<p>Suppose that we wish to sort the data frame according to the heights of the people in the data frame. We can pull the heights out of the data frame, but then what? It might be an interesting exercise to try to find another way to do this, but the canonical approach is to use the <code>order()</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+  myDF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(<span class="kw">list</span>(<span class="dv">72</span>, <span class="dv">160</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;Fred&quot;</span>),
+                           <span class="kw">list</span>(<span class="dv">60</span>, <span class="dv">120</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;Bob&quot;</span>),
+                           <span class="kw">list</span>(<span class="dv">84</span>, <span class="dv">250</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;Ron&quot;</span>)
+                          )
+                    )
+
+  <span class="kw">colnames</span>(myDF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ht&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;eyeColor&quot;</span>, <span class="st">&quot;name&quot;</span>)
+  myDF
+
+  heights &lt;-<span class="st"> </span><span class="kw">unlist</span>(myDF$ht)
+  heights
+
+  ordHts &lt;-<span class="st"> </span><span class="kw">order</span>(heights)
+  myDF[ordHts, ]</code></pre>
+<p>If you run the code chunk above, you’ll see that the first row does indeed contain the smallest height, and, furthermore, all the other attributes of short, green-eyed Bob also appear in the first row, as they should.</p>
 <h1 id="flow-control-conditionals-and-loops"><a href="#flow-control-conditionals-and-loops"><span class="header-section-number">30</span> Flow control: conditionals and loops</a></h1>
 <p>R has the kinds of conditional and looping statements that you would expect to find in a “C-like” language, along with some you might not expect. R also has a family of functions (the “apply” family – see below) that (a) are in most cases better to use for looping than the “C-like” constructs and (b) are similar in spirit to the “transform” function, for instance, in the C++ standard library.</p>
 <p><strong>Note</strong>: you don’t have to know anything about C or C++ to understand and use these features of R.</p>
@@ -1701,8 +1761,24 @@ if (<span class="kw">length</span>(mVec) &gt;<span class="st"> </span><span clas
 }</code></pre>
 <p>A couple of comments:</p>
 <ol style="list-style-type: decimal">
-<li><p>The use of the <code>print</code> function is optional in interactive use. It never <em>hurts</em> to use it, but it’s <em>required</em> for non-interactive use (running in “batch” mode, for instance).</p></li>
-<li><p>There is some latitude in the placement of the curly braces. It is to some degree just a matter of the style you prefer. But if you don’t put the <code>{</code> on the same line as the <code>else</code>, R will sometimes get “confused”. So:</p></li>
+<li>The use of the <code>print</code> function is optional in interactive use. It never <em>hurts</em> to use it, but it’s <em>required</em> in some cases (inside functions or loops, for instance):</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">
+  foo &lt;-<span class="st"> </span>function(x) {
+      x
+      y &lt;-<span class="st"> </span>x^<span class="dv">2</span>
+  }
+
+  <span class="kw">foo</span>(<span class="dv">7</span>)
+
+  bar &lt;-<span class="st"> </span>function(x) {
+      <span class="kw">print</span>(x)
+      y &lt;-<span class="st"> </span>x^<span class="dv">2</span>
+  }
+
+  <span class="kw">bar</span>(<span class="dv">7</span>)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>There is some latitude in the placement of the curly braces. It is to some degree just a matter of the style you prefer. But if you don’t put the <code>{</code> on the same line as the <code>else</code>, R will sometimes get “confused”. So:</li>
 </ol>
 <pre><code>
   } else {   ## good
@@ -1913,7 +1989,8 @@ x</code></pre>
 
   <span class="kw">myArgsFn</span>(<span class="dt">y=</span>(<span class="dv">1</span>:<span class="dv">5</span>)^<span class="dv">3</span>, <span class="dt">x=</span><span class="dv">1</span>:<span class="dv">5</span>) ## x gets 1:5, y gets (1:5)^3 </code></pre>
 <p>It’s possible to define <em>default</em> values for arguments when you define a function. That is, if a given argument has a default value in the definition of a function, and you <em>omit</em> that argument when you call the function, the argument takes on the default value for the duration of the function.</p>
-<p>Note that doing this makes it imperative that you name the arguments that you <em>do</em> include when you call the function. Here’s an example:</p>
+<p>Note that doing this makes it imperative that you name the arguments that you <em>do</em> include when you call the function. Here’s an example. <strong>Note</strong>: the point of the example is to show that a function defined, in this case, with seven arguments, can be successfully called with zero to up to seven arguments (a maximum of five in the example), <em>provided</em> the formal arguments have been assigned default values during the definition of the function.</p>
+<p>It is <strong>not</strong> necessary to focus on the details of the function at this point.</p>
 <pre class="sourceCode r"><code class="sourceCode r">
   myFn4 &lt;-<span class="st"> </span>function(<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dv">20</span>),
                     <span class="dt">x=</span><span class="dv">1</span>:<span class="kw">length</span>(y),
@@ -3555,6 +3632,7 @@ not in the list.</code></pre>
 </ul>
 <p>There is a reasonably-accessible discussion of debugging with these functions at:</p>
 <pre><code>https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd</code></pre>
+<p>Also note that, starting with version 0.98, RStudio will have a graphical interface to most of these debugging tools.</p>
 <h1 id="a-quick-review-control-panels-for-r"><a href="#a-quick-review-control-panels-for-r"><span class="header-section-number">41</span> A quick review: “control panels” for R</a></h1>
 <p>You can think of R as a sort of machine with a number of “control panels”.</p>
 <h2 id="the-interpreter-the-main-control-panel"><a href="#the-interpreter-the-main-control-panel"><span class="header-section-number">41.1</span> The interpreter: the main control panel</a></h2>

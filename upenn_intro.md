@@ -1,6 +1,6 @@
 % A Brief Introduction to R
 % Michael Hannon
-% 2013-08-26
+% 2013-10-03
 
 # Acknowledgment
 
@@ -465,7 +465,9 @@ Integers
 --------
 
 Numeric objects are double-precision by default, but it's possible to create
-truly integer-valued objects in R.  Here are some examples:
+truly integer-valued objects in R.  If you add an `L` to a numeric literal,
+you force it to be an integer.  And some functions in R produce integer-valued
+results by default.  Here are some examples:
 
 
 ```r
@@ -474,7 +476,7 @@ uuu <- 7  ## a regular, double-precision numeric
 uuu
 str(uuu)
 
-vvv <- as.integer(uuu)
+vvv <- as.integer(uuu)  ## 'coerce' a numeric to an integer
 vvv
 str(vvv)
 
@@ -496,12 +498,28 @@ and you'll see:
 ```r
 
   yyy <- `:`(1, 5)
-  yyy
+  yyy               ## spoiler: same as 1:5
   str(yyy)
   
 ```
 
   
+In other words, the "operator" denoted by `:` is actually a function that can
+be called in the same way as, for instance, the `sqrt` function.  The same is
+true for other operators:
+
+```(r stillCantBeSerious, eval=FALSE, tidy=FALSE}
+
+  `+`(7, 11)  ## same as: 7 + 11
+  `*`(6, 7)   ## same as: 6 * 7
+
+```
+
+This is occasionally useful, but it probably won't be of much use in this
+course.
+
+End of digression.
+
 Strings
 -------
 
@@ -912,7 +930,33 @@ Vignettes
 There are sometimes extended discussions of packages in R (packages are
 discussed below).  The extended discussions are referred to as "vignettes".
 
-Here's an example:
+Here's an example.  Calling the `vignette()` function without an argument
+lists all the vignettes that are currently available on your system.  Suppose
+you call `vignette()`, and you notice the following in the output from the
+function:
+
+```
+Vignettes in package ‘knitr’:
+
+datatables                  Display Tables with the DataTables Library
+(source, pdf)
+knit_expand                 Templating with knit_expand() (source, pdf)
+knitr-html                  An R HTML Vignette with knitr (source, pdf)
+knitr-intro                 An Introduction to knitr (source, pdf)
+knitr-markdown              An R Markdown Vignette with knitr (source, pdf)
+knitr-refcard               knitr Reference Card (source, pdf)
+docco-classic               R Markdown with the Docco Classic Style (source,
+pdf)
+docco-linear                R Markdown with the Docco Linear Style (source,
+pdf)
+
+
+```
+
+Hmmm.  What *is* this `knitr` thing?  I think I've heard people talk about it.
+Ah, I see from the list that there's a `knitr-intro` vignette (i.e., a
+possibly lengthy discussion introducing me to the `knitr` package).  Let's
+have a look:
 
 
 ```r
@@ -922,6 +966,7 @@ library(knitr)  ## load the knitr package into your current R session
 vignette("knitr-intro")  ## assuming you're now using knitr
 
 ```
+
 
 
 Functions: arguments and other details
@@ -988,7 +1033,6 @@ x <- 1:5
 x
 str(x)
 str(mtcars)  ## a built-in data set
-
 ```
 
 
@@ -1143,7 +1187,7 @@ two `search` commands:
 ```r
 
 search()
-library(xtable)
+library(parallel)
 search()
 
 ```
@@ -1310,7 +1354,7 @@ The following code chunk demonstrates this feature.
 
 ```r
 
-a <- c(1, 3, 5)  #
+a <- c(1, 3, 5)  # 
 a
 b <- a  # 'b' gets its own copy.
 b  # We couldn't tell from this, though.
@@ -1496,7 +1540,7 @@ b <- c(1, 3)
 a[FALSE]  ## c(FALSE,FALSE,FALSE)  'FALSE' is repeated 3 times
 a[TRUE]  ## c(TRUE,TRUE,TRUE)
 
-a[c(TRUE, FALSE)]  ## too short: recycle to c(TRUE,FALSE,TRUE)
+a[c(TRUE, FALSE)]  ## too short: recycle to c(TRUE,FALSE,TRUE)   
 a[c(TRUE, TRUE, FALSE, FALSE, FALSE)]  # too long: truncate
 
 (1:12)[c(TRUE, TRUE, FALSE)]  # recycle (and leave out every third item)
@@ -1511,14 +1555,14 @@ Vectors can be indexed repeatedly.  Here are some examples:
 
 ```r
 
-  a <- c(1,3,5)
+  a <- c(1, 3, 5)
   b <- c(1, 3)
 
-  a[c(1,3)][2]  # Select item two of a[c(1,3)], i.e. item 3 of 'a'.
-                # (Looks like a matrix element in C, but isn't!!)
-  (a[c(1,3)])[2]   # This is what the previous expression really means.  
+  a[c(1, 3)][2]  # Select item two of a[c(1,3)], i.e. item 3 of 'a'.
+                 # (Looks like a matrix element in C, but isn't!!)
+  (a[c(1, 3)])[2]   # This is what the previous expression really means.  
 
-  a[c(1,3)][c(1,2,1,2)]
+  a[c(1, 3)][c(1, 2, 1, 2)]
 
 ```
 
@@ -1544,10 +1588,10 @@ a
 a[c(FALSE, TRUE, TRUE)] <- c(10000, 20000)
 a
 a[2:3] <- 0
-a
+a  # '0' is repeated to fill both vector elements.
 b <- 1:10
 b[3:6] <- c(10, 20)
-b
+b  # 'c(10,20)' is cyclically repeated.
 b[7:9] <- c(1000, 2000)  # works, but generates a warning
 
 ```
@@ -1575,7 +1619,7 @@ The `c` function (or "manual entry")
 
 ```r
 
-x <- c(-1, 2, 5)
+x <- c(-1, 2, 5)  ## the 'usual' way (so far)
 
 ```
 
@@ -1590,7 +1634,7 @@ Sequences of equally spaced numbers
 10:3
 seq(3, 10)  # where to start, where to stop
 seq(3, 10, by = 1/3)  # third argument 'by' = step size
-seq(3, 10, len = 8)  # where to start, where to stop, how many?
+seq(3, 10, len = 4)  # where to start, where to stop, how many?
 seq(letters)  # List of indexes into 'letters'
 
 ```
@@ -1741,8 +1785,8 @@ x[nm]
 ## Named assignment/extension is possible:
 x[c("fifth", "fourth")] <- c(10, 11)
 x
-## Note: 'fourth' existed and is re-assigned; 'fifth' did not exist and is
-## an extension of 'x'.
+## Note: 'fourth' existed and is re-assigned; 'fifth' did not exist and is an
+## extension of 'x'.
 
 ## If names are not unique, the first matching name is selected:
 c(a = 1, b = 2, a = 3)
@@ -1840,7 +1884,7 @@ Permutations and other uses of `sample`
 
 Something like the opposite of sorting, a "permutation" is a (potentially)
 scrambled listing of the elements of a vector.  Permutations are important in
-probability, and it's somewhat surprising the R has no built-in `permutation`
+probability, and it's somewhat surprising that R has no built-in `permutation`
 function.  The rationale may be that the built-in function `sample` will
 produce a permutation.
 
@@ -1853,7 +1897,7 @@ more examples:
 
 x <- c(5:1, 5:10)  ## unsorted vector
 sample(x)  ## random permutation of 'x'
-sample(x, size = 100, replace = TRUE)  ## random sample of size 100 from x
+sample(x, size = 100, replace = TRUE)  ## random sample of size 100 from x 
 sample(x, size = 100)  ## generates error.  Why?
 
 ```
@@ -1876,12 +1920,24 @@ Here is the canonical example for the `order` function:
 ```r
 
 x <- c(5:1, 5:10)  ## unsorted vector
+x
+x <- c(5, 10, 6, 1, 2, 9, 8, 7, 4, 3)
+x
 order(x)
 sort(x)
 x[order(x)]  # Same!
 
 ```
 
+
+If you run the example above, you should see from the output of the `order()`
+function that:
+
+  - x[4]  would be the first element if x were sorted
+  - x[5]  would be the second element if x were sorted
+  - x[10] would be the third element if x were sorted
+
+and so on.
 
 Hmmm.  Well, *that* was underwhelming.  Why bother with `order` at all, if
 it's no more than a lengthier version of `sort`?  The answer is that `order`
@@ -1976,28 +2032,28 @@ containing seven items.  Here are some concrete examples:
 
 x <- runif(20, min = -10, max = +10)
 x
-round(x)
+round(x)  ## multiple values in, multiple values out: 'vectorized'
 round(x, digits = 2)
-##
-round(1.5)
+## 
+round(1.5)  ## see the help page for 'round'
 round(2.5)
-##
+## 
 trunc(x)
 ceiling(x)
 abs(x)
-##
+## 
 y <- c(4, 9, 16, 25, 36)
 sqrt(y)
 sqrt(x)  ## works but NaN's produced for negative values in 'x'
-z <- c(3 + (0+4i), 6 + (0+8i))  ## but R DOES handle complex numbers
+z <- c(3 + 4, 6 + 8)  ## but R DOES handle complex numbers
 sqrt(z)
-##
+## 
 log(x^2)
 exp(1)
 exp(x/100)
-cos(pi)
+cos(pi)  # 'pi' is predefined; the number e=exp(1) is not.
 cos(pi * c(1, 2, 3, 4, 5, 6))  ## vectorized
-##
+## 
 acos(0.5)  ## trig functions use radians, not degrees
 pi/3
 
@@ -2133,7 +2189,7 @@ myMat
 dim(myMat) <- c(3, 4)  # NOW it's a matrix.
 myMat
 is.matrix(myMat)  # Let's check (it's TRUE)
-dim(myMat) <- NULL
+dim(myMat) <- NULL  # Stripping to a vector. 'NULL' is a reserved word
 myMat
 is.matrix(myMat)  # Check it again (it's FALSE)
 
@@ -2449,7 +2505,8 @@ hint as to the meaning of the numbers.
 Lists are data structures without the restriction to one type of data.  Lists
 are sequences of anything.  They can contain: basic data types, vectors,
 matrices, arrays, lists (recursion), ... .   In particular, they can contain
-arbitrarily nested lists of lists.
+arbitrarily nested lists of lists (which is the only point of the binary-tree
+example, the details of which are otherwise unimportant in this context).
 
 Here are some examples:
 
@@ -2598,8 +2655,9 @@ sublist.  Here are some examples:
                  flags=c(TRUE,TRUE,FALSE,TRUE),
                  lst=list(1:3,1:4)
                 )
+  myList
   myList[2:3]        ## sublist with two items: $mat, $flags
-  myList[2:3][[1]]   ## the content of the first item in the sublist
+  myList[2:3][[1]]   ## have to dig further to get the numerical matrix!
   myList[2:3]$mat    ## ditto
   myList[2]          ## a list of length 1: $mat
   myList[2][[1]]     ## the contents of the $mat element
@@ -2799,8 +2857,24 @@ dataframe.  Here's a simple example.  First, here are the contents of a file,
 
 ```
 
-Now we read the contents of that file into R.  It winds up looking pretty much
-the same:
+Now we read the contents of that file into R.  Note that if you want to run
+this example, you first have to *create* the file outside of R.  You can use
+the text editor of your choice to make the file, but the file *does* have to
+be a text file (i.e., not a Word document, for instance).
+
+Also, you need to create the file in the place where R is currently looking
+for files, that is, the place in the file system that the R command:
+
+```
+
+  getwd()
+
+```
+
+shows you.
+
+
+The data end up looking pretty much the same in R as outside of R:
 
 
 ```r
@@ -2847,6 +2921,48 @@ the web.)  Here's an example:
 
 ```
 
+
+Sorting a data frame
+--------------------
+
+In a previous section we noted that the `order()` function is useful in
+sorting matrices and data frames.  We're now in a position to give an example
+of that.
+
+In the following example, we're given a data frame containing some information
+about a few people.  (For simplicity we're constructing the data frame in the
+example, but you can imagine we got the data from some outside source, so that
+we have no control over the initial format.)
+
+Suppose that we wish to sort the data frame according to the heights of the
+people in the data frame.  We can pull the heights out of the data frame, but
+then what?  It might be an interesting exercise to try to find another way to
+do this, but the canonical approach is to use the `order()` function:
+
+
+```r
+
+  myDF <- data.frame(rbind(list(72, 160, "blue", "Fred"),
+                           list(60, 120, "green", "Bob"),
+                           list(84, 250, "brown", "Ron")
+                          )
+                    )
+
+  colnames(myDF) <- c("ht", "wt", "eyeColor", "name")
+  myDF
+
+  heights <- unlist(myDF$ht)
+  heights
+
+  ordHts <- order(heights)
+  myDF[ordHts, ]
+
+```
+
+
+If you run the code chunk above, you'll see that the first row does indeed
+contain the smallest height, and, furthermore, all the other attributes of
+short, green-eyed Bob also appear in the first row, as they should.
 
 
 Flow control: conditionals and loops
@@ -2911,8 +3027,28 @@ if (length(mVec) > 10) {
 A couple of comments:
 
 (1) The use of the `print` function is optional in interactive use.  It never
-*hurts* to use it, but it's *required* for non-interactive use (running in
-"batch" mode, for instance).
+*hurts* to use it, but it's *required* in some cases (inside functions or
+loops, for instance):
+
+
+```r
+
+  foo <- function(x) {
+      x
+      y <- x^2
+  }
+
+  foo(7)
+
+  bar <- function(x) {
+      print(x)
+      y <- x^2
+  }
+
+  bar(7)
+
+```
+
 
 (2) There is some latitude in the placement of the curly braces.  It is to
 some degree just a matter of the style you prefer.  But if you don't put the
@@ -3347,7 +3483,13 @@ of a function, and you *omit* that argument when you call the function, the
 argument takes on the default value for the duration of the function.
 
 Note that doing this makes it imperative that you name the arguments that you
-*do* include when you call the function.  Here's an example:
+*do* include when you call the function.  Here's an example.  **Note**: the
+point of the example is to show that a function defined, in this case, with
+seven arguments, can be successfully called with zero to up to seven arguments
+(a maximum of five in the example), *provided* the formal arguments have been
+assigned default values during the definition of the function.
+
+It is **not** necessary to focus on the details of the function at this point.
 
 
 ```r
@@ -6050,6 +6192,8 @@ at:
 
     https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd
 
+Also note that, starting with version 0.98, RStudio will have a graphical
+interface to most of these debugging tools.
 
 A quick review: "control panels" for R
 ======================================

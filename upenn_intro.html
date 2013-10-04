@@ -612,14 +612,16 @@ pi/2  # `pi` is the only hardwired constant: 3.14159...
 <h2>Integers</h2>
 
 <p>Numeric objects are double-precision by default, but it&#39;s possible to create
-truly integer-valued objects in R.  Here are some examples:</p>
+truly integer-valued objects in R.  If you add an <code>L</code> to a numeric literal,
+you force it to be an integer.  And some functions in R produce integer-valued
+results by default.  Here are some examples:</p>
 
 <pre><code class="r">
 uuu &lt;- 7  ## a regular, double-precision numeric
 uuu
 str(uuu)
 
-vvv &lt;- as.integer(uuu)
+vvv &lt;- as.integer(uuu)  ## &#39;coerce&#39; a numeric to an integer
 vvv
 str(vvv)
 
@@ -639,17 +641,35 @@ and you&#39;ll see:</p>
 
 <pre><code class="r">
   yyy &lt;- `:`(1, 5)
-  yyy
+  yyy               ## spoiler: same as 1:5
   str(yyy)
 
 </code></pre>
 
-<h2>Strings</h2>
+<p>In other words, the &ldquo;operator&rdquo; denoted by <code>:</code> is actually a function that can
+be called in the same way as, for instance, the <code>sqrt</code> function.  The same is
+true for other operators:</p>
 
-<p>These are pieces of text, or &ldquo;words&rdquo;.  They are delimited by single or double
-quotes, but the <code>print</code> function will show them with double quotes:</p>
+<p>&ldquo;(r stillCantBeSerious, eval=FALSE, tidy=FALSE}</p>
 
-<pre><code class="r">
+<p><code>+</code>(7, 11)  ## same as: 7 + 11
+  <code>*</code>(6, 7)   ## same as: 6 * 7</p>
+
+<pre><code>
+This is occasionally useful, but it probably won&#39;t be of much use in this
+course.
+
+End of digression.
+
+Strings
+-------
+
+These are pieces of text, or &quot;words&quot;.  They are delimited by single or double
+quotes, but the `print` function will show them with double quotes:
+
+
+```r
+
 &quot;a&quot;
 &quot;a&quot;
 &quot;abc&quot;
@@ -855,7 +875,7 @@ help(&quot;sqrt&quot;)  # Ditto.
 
 <h2>Composite Statements</h2>
 
-<p>These are multiple statements, considered as one, enclosed in &ldquo;curly braces&rdquo;:</p>
+<p>These are multiple statements, considered as one, enclosed in &quot;curly braces&rdquo;:</p>
 
 <pre><code class="r">
 {
@@ -986,7 +1006,32 @@ functions available in R, so you really need a tool like <code>apropos</code>.</
 <p>There are sometimes extended discussions of packages in R (packages are
 discussed below).  The extended discussions are referred to as &ldquo;vignettes&rdquo;.</p>
 
-<p>Here&#39;s an example:</p>
+<p>Here&#39;s an example.  Calling the <code>vignette()</code> function without an argument
+lists all the vignettes that are currently available on your system.  Suppose
+you call <code>vignette()</code>, and you notice the following in the output from the
+function:</p>
+
+<pre><code>Vignettes in package ‘knitr’:
+
+datatables                  Display Tables with the DataTables Library
+(source, pdf)
+knit_expand                 Templating with knit_expand() (source, pdf)
+knitr-html                  An R HTML Vignette with knitr (source, pdf)
+knitr-intro                 An Introduction to knitr (source, pdf)
+knitr-markdown              An R Markdown Vignette with knitr (source, pdf)
+knitr-refcard               knitr Reference Card (source, pdf)
+docco-classic               R Markdown with the Docco Classic Style (source,
+pdf)
+docco-linear                R Markdown with the Docco Linear Style (source,
+pdf)
+
+
+</code></pre>
+
+<p>Hmmm.  What <em>is</em> this <code>knitr</code> thing?  I think I&#39;ve heard people talk about it.
+Ah, I see from the list that there&#39;s a <code>knitr-intro</code> vignette (i.e., a
+possibly lengthy discussion introducing me to the <code>knitr</code> package).  Let&#39;s
+have a look:</p>
 
 <pre><code class="r">
 vignette()  ## lists all vignettes currently available
@@ -1044,7 +1089,6 @@ x &lt;- 1:5
 x
 str(x)
 str(mtcars)  ## a built-in data set
-
 </code></pre>
 
 <h1>Management of Data and Functions </h1>
@@ -1171,7 +1215,7 @@ two <code>search</code> commands:</p>
 
 <pre><code class="r">
 search()
-library(xtable)
+library(parallel)
 search()
 
 </code></pre>
@@ -1325,7 +1369,7 @@ is done &ldquo;by value&rdquo;, not &ldquo;by reference&rdquo; as in some other 
 <p>The following code chunk demonstrates this feature.</p>
 
 <pre><code class="r">
-a &lt;- c(1, 3, 5)  #
+a &lt;- c(1, 3, 5)  # 
 a
 b &lt;- a  # &#39;b&#39; gets its own copy.
 b  # We couldn&#39;t tell from this, though.
@@ -1486,7 +1530,7 @@ b &lt;- c(1, 3)
 a[FALSE]  ## c(FALSE,FALSE,FALSE)  &#39;FALSE&#39; is repeated 3 times
 a[TRUE]  ## c(TRUE,TRUE,TRUE)
 
-a[c(TRUE, FALSE)]  ## too short: recycle to c(TRUE,FALSE,TRUE)
+a[c(TRUE, FALSE)]  ## too short: recycle to c(TRUE,FALSE,TRUE)   
 a[c(TRUE, TRUE, FALSE, FALSE, FALSE)]  # too long: truncate
 
 (1:12)[c(TRUE, TRUE, FALSE)]  # recycle (and leave out every third item)
@@ -1498,14 +1542,14 @@ a[c(TRUE, TRUE, FALSE, FALSE, FALSE)]  # too long: truncate
 <p>Vectors can be indexed repeatedly.  Here are some examples:</p>
 
 <pre><code class="r">
-  a &lt;- c(1,3,5)
+  a &lt;- c(1, 3, 5)
   b &lt;- c(1, 3)
 
-  a[c(1,3)][2]  # Select item two of a[c(1,3)], i.e. item 3 of &#39;a&#39;.
-                # (Looks like a matrix element in C, but isn&#39;t!!)
-  (a[c(1,3)])[2]   # This is what the previous expression really means.  
+  a[c(1, 3)][2]  # Select item two of a[c(1,3)], i.e. item 3 of &#39;a&#39;.
+                 # (Looks like a matrix element in C, but isn&#39;t!!)
+  (a[c(1, 3)])[2]   # This is what the previous expression really means.  
 
-  a[c(1,3)][c(1,2,1,2)]
+  a[c(1, 3)][c(1, 2, 1, 2)]
 
 </code></pre>
 
@@ -1527,10 +1571,10 @@ a
 a[c(FALSE, TRUE, TRUE)] &lt;- c(10000, 20000)
 a
 a[2:3] &lt;- 0
-a
+a  # &#39;0&#39; is repeated to fill both vector elements.
 b &lt;- 1:10
 b[3:6] &lt;- c(10, 20)
-b
+b  # &#39;c(10,20)&#39; is cyclically repeated.
 b[7:9] &lt;- c(1000, 2000)  # works, but generates a warning
 
 </code></pre>
@@ -1552,7 +1596,7 @@ function.  Here are some other ways to create vectors.</p>
 <h2>The <code>c</code> function (or &ldquo;manual entry&rdquo;)</h2>
 
 <pre><code class="r">
-x &lt;- c(-1, 2, 5)
+x &lt;- c(-1, 2, 5)  ## the &#39;usual&#39; way (so far)
 
 </code></pre>
 
@@ -1563,7 +1607,7 @@ x &lt;- c(-1, 2, 5)
 10:3
 seq(3, 10)  # where to start, where to stop
 seq(3, 10, by = 1/3)  # third argument &#39;by&#39; = step size
-seq(3, 10, len = 8)  # where to start, where to stop, how many?
+seq(3, 10, len = 4)  # where to start, where to stop, how many?
 seq(letters)  # List of indexes into &#39;letters&#39;
 
 </code></pre>
@@ -1694,8 +1738,8 @@ x[nm]
 ## Named assignment/extension is possible:
 x[c(&quot;fifth&quot;, &quot;fourth&quot;)] &lt;- c(10, 11)
 x
-## Note: &#39;fourth&#39; existed and is re-assigned; &#39;fifth&#39; did not exist and is
-## an extension of &#39;x&#39;.
+## Note: &#39;fourth&#39; existed and is re-assigned; &#39;fifth&#39; did not exist and is an
+## extension of &#39;x&#39;.
 
 ## If names are not unique, the first matching name is selected:
 c(a = 1, b = 2, a = 3)
@@ -1777,7 +1821,7 @@ rev(x)  ## reverse the order of the entries in x
 
 <p>Something like the opposite of sorting, a &ldquo;permutation&rdquo; is a (potentially)
 scrambled listing of the elements of a vector.  Permutations are important in
-probability, and it&#39;s somewhat surprising the R has no built-in <code>permutation</code>
+probability, and it&#39;s somewhat surprising that R has no built-in <code>permutation</code>
 function.  The rationale may be that the built-in function <code>sample</code> will
 produce a permutation.</p>
 
@@ -1788,7 +1832,7 @@ more examples:</p>
 <pre><code class="r">
 x &lt;- c(5:1, 5:10)  ## unsorted vector
 sample(x)  ## random permutation of &#39;x&#39;
-sample(x, size = 100, replace = TRUE)  ## random sample of size 100 from x
+sample(x, size = 100, replace = TRUE)  ## random sample of size 100 from x 
 sample(x, size = 100)  ## generates error.  Why?
 
 </code></pre>
@@ -1806,11 +1850,25 @@ sample(x, size = 100)  ## generates error.  Why?
 
 <pre><code class="r">
 x &lt;- c(5:1, 5:10)  ## unsorted vector
+x
+x &lt;- c(5, 10, 6, 1, 2, 9, 8, 7, 4, 3)
+x
 order(x)
 sort(x)
 x[order(x)]  # Same!
 
 </code></pre>
+
+<p>If you run the example above, you should see from the output of the <code>order()</code>
+function that:</p>
+
+<ul>
+<li>x[4]  would be the first element if x were sorted</li>
+<li>x[5]  would be the second element if x were sorted</li>
+<li>x[10] would be the third element if x were sorted</li>
+</ul>
+
+<p>and so on.</p>
 
 <p>Hmmm.  Well, <em>that</em> was underwhelming.  Why bother with <code>order</code> at all, if
 it&#39;s no more than a lengthier version of <code>sort</code>?  The answer is that <code>order</code>
@@ -1888,28 +1946,28 @@ containing seven items.  Here are some concrete examples:</p>
 <pre><code class="r">
 x &lt;- runif(20, min = -10, max = +10)
 x
-round(x)
+round(x)  ## multiple values in, multiple values out: &#39;vectorized&#39;
 round(x, digits = 2)
-##
-round(1.5)
+## 
+round(1.5)  ## see the help page for &#39;round&#39;
 round(2.5)
-##
+## 
 trunc(x)
 ceiling(x)
 abs(x)
-##
+## 
 y &lt;- c(4, 9, 16, 25, 36)
 sqrt(y)
 sqrt(x)  ## works but NaN&#39;s produced for negative values in &#39;x&#39;
-z &lt;- c(3 + (0+4i), 6 + (0+8i))  ## but R DOES handle complex numbers
+z &lt;- c(3 + 4, 6 + 8)  ## but R DOES handle complex numbers
 sqrt(z)
-##
+## 
 log(x^2)
 exp(1)
 exp(x/100)
-cos(pi)
+cos(pi)  # &#39;pi&#39; is predefined; the number e=exp(1) is not.
 cos(pi * c(1, 2, 3, 4, 5, 6))  ## vectorized
-##
+## 
 acos(0.5)  ## trig functions use radians, not degrees
 pi/3
 
@@ -2027,7 +2085,7 @@ myMat
 dim(myMat) &lt;- c(3, 4)  # NOW it&#39;s a matrix.
 myMat
 is.matrix(myMat)  # Let&#39;s check (it&#39;s TRUE)
-dim(myMat) &lt;- NULL
+dim(myMat) &lt;- NULL  # Stripping to a vector. &#39;NULL&#39; is a reserved word
 myMat
 is.matrix(myMat)  # Check it again (it&#39;s FALSE)
 
@@ -2338,7 +2396,8 @@ hint as to the meaning of the numbers.</p>
 <p>Lists are data structures without the restriction to one type of data.  Lists
 are sequences of anything.  They can contain: basic data types, vectors,
 matrices, arrays, lists (recursion), &hellip; .   In particular, they can contain
-arbitrarily nested lists of lists.</p>
+arbitrarily nested lists of lists (which is the only point of the binary-tree
+example, the details of which are otherwise unimportant in this context).</p>
 
 <p>Here are some examples:</p>
 
@@ -2465,8 +2524,9 @@ sublist.  Here are some examples:</p>
                  flags=c(TRUE,TRUE,FALSE,TRUE),
                  lst=list(1:3,1:4)
                 )
+  myList
   myList[2:3]        ## sublist with two items: $mat, $flags
-  myList[2:3][[1]]   ## the content of the first item in the sublist
+  myList[2:3][[1]]   ## have to dig further to get the numerical matrix!
   myList[2:3]$mat    ## ditto
   myList[2]          ## a list of length 1: $mat
   myList[2][[1]]     ## the contents of the $mat element
@@ -2652,8 +2712,22 @@ dataframe.  Here&#39;s a simple example.  First, here are the contents of a file
 
 </code></pre>
 
-<p>Now we read the contents of that file into R.  It winds up looking pretty much
-the same:</p>
+<p>Now we read the contents of that file into R.  Note that if you want to run
+this example, you first have to <em>create</em> the file outside of R.  You can use
+the text editor of your choice to make the file, but the file <em>does</em> have to
+be a text file (i.e., not a Word document, for instance).</p>
+
+<p>Also, you need to create the file in the place where R is currently looking
+for files, that is, the place in the file system that the R command:</p>
+
+<pre><code>
+  getwd()
+
+</code></pre>
+
+<p>shows you.</p>
+
+<p>The data end up looking pretty much the same in R as outside of R:</p>
 
 <pre><code class="r">
 myTable &lt;- read.table(&quot;atable.dat&quot;, header = TRUE)
@@ -2692,6 +2766,44 @@ the web.)  Here&#39;s an example:</p>
   str(myNewTable)
 
 </code></pre>
+
+<h2>Sorting a data frame</h2>
+
+<p>In a previous section we noted that the <code>order()</code> function is useful in
+sorting matrices and data frames.  We&#39;re now in a position to give an example
+of that.</p>
+
+<p>In the following example, we&#39;re given a data frame containing some information
+about a few people.  (For simplicity we&#39;re constructing the data frame in the
+example, but you can imagine we got the data from some outside source, so that
+we have no control over the initial format.)</p>
+
+<p>Suppose that we wish to sort the data frame according to the heights of the
+people in the data frame.  We can pull the heights out of the data frame, but
+then what?  It might be an interesting exercise to try to find another way to
+do this, but the canonical approach is to use the <code>order()</code> function:</p>
+
+<pre><code class="r">
+  myDF &lt;- data.frame(rbind(list(72, 160, &quot;blue&quot;, &quot;Fred&quot;),
+                           list(60, 120, &quot;green&quot;, &quot;Bob&quot;),
+                           list(84, 250, &quot;brown&quot;, &quot;Ron&quot;)
+                          )
+                    )
+
+  colnames(myDF) &lt;- c(&quot;ht&quot;, &quot;wt&quot;, &quot;eyeColor&quot;, &quot;name&quot;)
+  myDF
+
+  heights &lt;- unlist(myDF$ht)
+  heights
+
+  ordHts &lt;- order(heights)
+  myDF[ordHts, ]
+
+</code></pre>
+
+<p>If you run the code chunk above, you&#39;ll see that the first row does indeed
+contain the smallest height, and, furthermore, all the other attributes of
+short, green-eyed Bob also appear in the first row, as they should.</p>
 
 <h1>Flow control: conditionals and loops</h1>
 
@@ -2749,8 +2861,25 @@ if (length(mVec) &gt; 10) {
 <p>A couple of comments:</p>
 
 <p>(1) The use of the <code>print</code> function is optional in interactive use.  It never
-<em>hurts</em> to use it, but it&#39;s <em>required</em> for non-interactive use (running in
-&ldquo;batch&rdquo; mode, for instance).</p>
+<em>hurts</em> to use it, but it&#39;s <em>required</em> in some cases (inside functions or
+loops, for instance):</p>
+
+<pre><code class="r">
+  foo &lt;- function(x) {
+      x
+      y &lt;- x^2
+  }
+
+  foo(7)
+
+  bar &lt;- function(x) {
+      print(x)
+      y &lt;- x^2
+  }
+
+  bar(7)
+
+</code></pre>
 
 <p>(2) There is some latitude in the placement of the curly braces.  It is to
 some degree just a matter of the style you prefer.  But if you don&#39;t put the
@@ -3134,7 +3263,13 @@ of a function, and you <em>omit</em> that argument when you call the function, t
 argument takes on the default value for the duration of the function.</p>
 
 <p>Note that doing this makes it imperative that you name the arguments that you
-<em>do</em> include when you call the function.  Here&#39;s an example:</p>
+<em>do</em> include when you call the function.  Here&#39;s an example.  <strong>Note</strong>: the
+point of the example is to show that a function defined, in this case, with
+seven arguments, can be successfully called with zero to up to seven arguments
+(a maximum of five in the example), <em>provided</em> the formal arguments have been
+assigned default values during the definition of the function.</p>
+
+<p>It is <strong>not</strong> necessary to focus on the details of the function at this point.</p>
 
 <pre><code class="r">
   myFn4 &lt;- function(y=rnorm(20),
@@ -5747,6 +5882,9 @@ at:</p>
 
 <pre><code>https://github.com/DavisDaddy/sta032/blob/master/R-debug-tools.Rmd
 </code></pre>
+
+<p>Also note that, starting with version 0.98, RStudio will have a graphical
+interface to most of these debugging tools.</p>
 
 <h1>A quick review: &ldquo;control panels&rdquo; for R</h1>
 
