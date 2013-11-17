@@ -3878,7 +3878,7 @@ Consider the following example:
 If you run the code above, you'll see that you get a nicely-formatted table of
 selected values of the trig functions, and by *naming* the elements of the
 data frame, you get a nice header for the table as well.  This formatting is
-actually the motivation for introducing the `do.call` function at the point.
+actually the motivation for introducing the `do.call` function at this point.
 
 Note, by the way, that if, for instance, you decided you needed to have a
 finer granularity in your result, you could change `by=0.2` to `by=0.1` (for
