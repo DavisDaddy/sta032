@@ -654,9 +654,9 @@ say, computer science, may have some interest in it.  R also has attributes of
 a functional language in the technical sense.  It was derived originally from
 Lisp.  But R is clearly NOT a purely functional language: you can use R to
 generate plots, PDF files, etc., which are side-effects of function calls.
-It's also the case that R incorporates two different paradigms, referred to as
-`S3` and `S4`, for doing object-oriented programming.  We won't be directly
-concerned with these in this class.
+It's also the case that R incorporates (at least) three different paradigms,
+referred to as `S3`, `S4`, and `Reference Classes`, for doing object-oriented
+programming.  We won't be directly concerned with these in this class.
 
 Statements/Expressions
 ======================

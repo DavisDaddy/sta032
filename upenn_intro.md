@@ -728,9 +728,9 @@ say, computer science, may have some interest in it.  R also has attributes of
 a functional language in the technical sense.  It was derived originally from
 Lisp.  But R is clearly NOT a purely functional language: you can use R to
 generate plots, PDF files, etc., which are side-effects of function calls.
-It's also the case that R incorporates two different paradigms, referred to as
-`S3` and `S4`, for doing object-oriented programming.  We won't be directly
-concerned with these in this class.
+It's also the case that R incorporates (at least) three different paradigms,
+referred to as `S3`, `S4`, and `Reference Classes`, for doing object-oriented
+programming.  We won't be directly concerned with these in this class.
 
 Statements/Expressions
 ======================
@@ -4170,7 +4170,7 @@ Consider the following example:
 If you run the code above, you'll see that you get a nicely-formatted table of
 selected values of the trig functions, and by *naming* the elements of the
 data frame, you get a nice header for the table as well.  This formatting is
-actually the motivation for introducing the `do.call` function at the point.
+actually the motivation for introducing the `do.call` function at this point.
 
 Note, by the way, that if, for instance, you decided you needed to have a
 finer granularity in your result, you could change `by=0.2` to `by=0.1` (for
@@ -4945,50 +4945,67 @@ Here's the (somewhat lengthy) example:
 
     ## Load the package with the baseball data
   library(Lahman)
+```
+
+```
+## Error: there is no package called 'Lahman'
+```
+
+```r
     ## Get an overview of the "batting" portion
   names(Batting)
 ```
 
 ```
-##  [1] "playerID"  "yearID"    "stint"     "teamID"    "lgID"     
-##  [6] "G"         "G_batting" "AB"        "R"         "H"        
-## [11] "X2B"       "X3B"       "HR"        "RBI"       "SB"       
-## [16] "CS"        "BB"        "SO"        "IBB"       "HBP"      
-## [21] "SH"        "SF"        "GIDP"      "G_old"
+## Error: object 'Batting' not found
 ```
 
 ```r
   
     ## Look at data only back to 1990
   batRecentYears <- Batting[Batting$yearID >= 1990, ]
+```
+
+```
+## Error: object 'Batting' not found
+```
+
+```r
   summary(batRecentYears$yearID)  ## some useful attributes of the data
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    1990    2000    2000    2000    2010    2010
+## Error: object 'batRecentYears' not found
 ```
 
 ```r
   
     ## Discard the columns that we don't need in this calculation
   batRecentYears <- batRecentYears[ , c("G_batting", "AB", "H")]
+```
+
+```
+## Error: object 'batRecentYears' not found
+```
+
+```r
                                    
     ## remove lines with missing data (NA) and select only "starters",
     ## meaning anybody that's played about half the games
   starters <- batRecentYears[(!is.na(batRecentYears$G_batting)) &
                              (batRecentYears$G_batting >= 82), ]
+```
+
+```
+## Error: object 'batRecentYears' not found
+```
+
+```r
   summary(starters)
 ```
 
 ```
-##    G_batting         AB            H      
-##  Min.   : 82   Min.   :  0   Min.   :  0  
-##  1st Qu.:103   1st Qu.:317   1st Qu.: 82  
-##  Median :126   Median :425   Median :114  
-##  Mean   :125   Mean   :418   Mean   :115  
-##  3rd Qu.:146   3rd Qu.:534   3rd Qu.:148  
-##  Max.   :163   Max.   :716   Max.   :262
+## Error: object 'starters' not found
 ```
 
 ```r
@@ -4996,23 +5013,38 @@ Here's the (somewhat lengthy) example:
     ## require that the player have some minimum number of hits, so as to
     ## avoid skewing the data (e.g., 3 at bats, 2 hits in a single year)
   hitters <- starters[starters$H > 50, ]
+```
+
+```
+## Error: object 'starters' not found
+```
+
+```r
   
     ## clean up the data a little further.  Remove entries for which
     ## the "at bats" or "hits" is missing (i.e., the value is NA).
   hitters <- hitters[!(is.na(hitters$AB)), ]
+```
+
+```
+## Error: object 'hitters' not found
+```
+
+```r
   hitters <- hitters[!(is.na(hitters$H)), ]
+```
+
+```
+## Error: object 'hitters' not found
+```
+
+```r
   
   summary(hitters)
 ```
 
 ```
-##    G_batting         AB            H      
-##  Min.   : 82   Min.   :169   Min.   : 51  
-##  1st Qu.:107   1st Qu.:337   1st Qu.: 88  
-##  Median :130   Median :441   Median :119  
-##  Mean   :127   Mean   :437   Mean   :120  
-##  3rd Qu.:148   3rd Qu.:540   3rd Qu.:151  
-##  Max.   :163   Max.   :716   Max.   :262
+## Error: object 'hitters' not found
 ```
 
 ```r
@@ -5020,13 +5052,7 @@ Here's the (somewhat lengthy) example:
 ```
 
 ```
-##     G_batting  AB   H
-## 97         89 244  68
-## 113       101 345  86
-## 114       120 420 107
-## 115       109 320  81
-## 116        94 252  69
-## 119        96 286  78
+## Error: object 'hitters' not found
 ```
 
 ```r
@@ -5034,12 +5060,19 @@ Here's the (somewhat lengthy) example:
     ## compute batting average as hits/at-bats.  Force conversion from
     ## integer to double-precision (technically not necessary)
   battingAverages <- (as.numeric(hitters$H) / as.numeric(hitters$AB)) * 1000
+```
+
+```
+## Error: object 'hitters' not found
+```
+
+```r
   
   head(battingAverages)     ## look at the first few
 ```
 
 ```
-## [1] 278.7 249.3 254.8 253.1 273.8 272.7
+## Error: object 'battingAverages' not found
 ```
 
 ```r
@@ -5047,8 +5080,7 @@ Here's the (somewhat lengthy) example:
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##     159     252     272     273     292     394
+## Error: object 'battingAverages' not found
 ```
 
 ```r
@@ -5056,28 +5088,42 @@ Here's the (somewhat lengthy) example:
 ```
 
 ```
-## [1] 5997
+## Error: object 'battingAverages' not found
 ```
 
 ```r
   
     ## calculate the mean and standard deviation of the final data
   meanBA <- mean(battingAverages)  ## sum them up, divide by no. of points
+```
+
+```
+## Error: object 'battingAverages' not found
+```
+
+```r
   meanBA
 ```
 
 ```
-## [1] 272.6
+## Error: object 'meanBA' not found
 ```
 
 ```r
   
   sdBA <- sd(battingAverages)  ## measure the spread of the data
+```
+
+```
+## Error: object 'battingAverages' not found
+```
+
+```r
   sdBA
 ```
 
 ```
-## [1] 29.1
+## Error: object 'sdBA' not found
 ```
 
 ```r
@@ -5086,6 +5132,13 @@ Here's the (somewhat lengthy) example:
     ##    prob=TRUE scales the y axis to [0, 1]
     ##    breaks tells how many bars to put in the histogram
   hist(battingAverages, prob=TRUE, breaks=20, col="lightblue")
+```
+
+```
+## Error: object 'battingAverages' not found
+```
+
+```r
   
     ## this could be a "normal" distribution.  Overlay the curve for
     ## the corresponding normal and check visually.  Note that by using
@@ -5093,7 +5146,9 @@ Here's the (somewhat lengthy) example:
   curve(dnorm(x, mean=meanBA, sd=sdBA), add=TRUE, col="red", lwd=2)
 ```
 
-![](figure/battingAverages.png) 
+```
+## Error: object 'meanBA' not found
+```
 
 ```r
   
