@@ -1,7 +1,7 @@
 ---
 title: "A Brief Introduction to R"
 author: "Michael Hannon"
-date: "2014-04-05"
+date: "2014-04-06"
 output:
   pdf_document:
     highlight: tango
@@ -9,6 +9,9 @@ output:
   html_document:
     theme: cosmo
     toc: yes
+    pandoc_args: [
+      "--number-sections"
+    ]
 ---
 
 

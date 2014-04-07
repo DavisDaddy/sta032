@@ -11,7 +11,7 @@
 
 <meta name="author" content="Michael Hannon" />
 
-<meta name="date" content="2014-04-05" />
+<meta name="date" content="2014-04-06" />
 
 <title>A Brief Introduction to R</title>
 
@@ -41,259 +41,259 @@
 <div id="header">
 <h1 class="title">A Brief Introduction to R</h1>
 <h4 class="author"><em>Michael Hannon</em></h4>
-<h4 class="date"><em>2014-04-05</em></h4>
+<h4 class="date"><em>2014-04-06</em></h4>
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#acknowledgment">Acknowledgment</a></li>
-<li><a href="#the-r-website">The R website:</a></li>
-<li><a href="#r-and-related-tools-for-sta-032">R and related tools for STA 032</a><ul>
-<li><a href="#step-1-install-r">Step 1: Install R</a><ul>
-<li><a href="#getting-started">Getting started</a></li>
-<li><a href="#windows-versus-mac-linux">Windows versus Mac, linux</a></li>
-<li><a href="#software-on-linux">Software on linux</a></li>
-<li><a href="#software-on-mac">Software on Mac</a></li>
+<li><a href="#acknowledgment"><span class="toc-section-number">1</span> Acknowledgment</a></li>
+<li><a href="#the-r-website"><span class="toc-section-number">2</span> The R website:</a></li>
+<li><a href="#r-and-related-tools-for-sta-032"><span class="toc-section-number">3</span> R and related tools for STA 032</a><ul>
+<li><a href="#step-1-install-r"><span class="toc-section-number">3.1</span> Step 1: Install R</a><ul>
+<li><a href="#getting-started"><span class="toc-section-number">3.1.1</span> Getting started</a></li>
+<li><a href="#windows-versus-mac-linux"><span class="toc-section-number">3.1.2</span> Windows versus Mac, linux</a></li>
+<li><a href="#software-on-linux"><span class="toc-section-number">3.1.3</span> Software on linux</a></li>
+<li><a href="#software-on-mac"><span class="toc-section-number">3.1.4</span> Software on Mac</a></li>
 </ul></li>
-<li><a href="#step-2-install-rstudio">Step 2: Install RStudio</a></li>
-<li><a href="#step-3-install-the-knitr-package">Step 3: Install the knitr package</a></li>
-<li><a href="#step-4-start-using-r-markdown">Step 4: Start using R Markdown</a><ul>
-<li><a href="#the-knitting-process">The “knitting” process</a></li>
-<li><a href="#adding-your-own-r-code">Adding your own R code</a></li>
-<li><a href="#some-words-about-code-chunks">Some words about code chunks</a></li>
-<li><a href="#r-markdown-reference">R Markdown reference</a></li>
-<li><a href="#summary">Summary</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#the-simplest-use-of-r">The simplest use of R</a></li>
-<li><a href="#some-background-information-about-r">Some Background Information about R</a><ul>
-<li><a href="#r-is-an-interpreted-language">R is an <strong>Interpreted Language</strong></a></li>
-<li><a href="#r-is-high-level">R is <strong>High Level</strong></a></li>
-<li><a href="#autoprinting"><strong>Autoprinting</strong></a></li>
-<li><a href="#syntax"><strong>Syntax</strong></a></li>
-<li><a href="#more-syntax"><strong>More Syntax</strong></a></li>
-</ul></li>
-<li><a href="#basic-data-types">Basic Data Types</a><ul>
-<li><a href="#double-precision">Double Precision</a></li>
-<li><a href="#integers">Integers</a></li>
-<li><a href="#strings">Strings</a></li>
-<li><a href="#logical">Logical</a></li>
-<li><a href="#missing-and-exceptional-values-na-nan-inf--inf">Missing and exceptional values: NA, NaN, Inf, -Inf</a><ul>
-<li><a href="#missing-values">Missing values</a></li>
-<li><a href="#infinite-numbers">Infinite numbers</a></li>
-<li><a href="#numbers-that-just-dont-make-no-sense">Numbers that just don’t make no sense</a></li>
+<li><a href="#step-2-install-rstudio"><span class="toc-section-number">3.2</span> Step 2: Install RStudio</a></li>
+<li><a href="#step-3-install-the-knitr-package"><span class="toc-section-number">3.3</span> Step 3: Install the knitr package</a></li>
+<li><a href="#step-4-start-using-r-markdown"><span class="toc-section-number">3.4</span> Step 4: Start using R Markdown</a><ul>
+<li><a href="#the-knitting-process"><span class="toc-section-number">3.4.1</span> The “knitting” process</a></li>
+<li><a href="#adding-your-own-r-code"><span class="toc-section-number">3.4.2</span> Adding your own R code</a></li>
+<li><a href="#some-words-about-code-chunks"><span class="toc-section-number">3.4.3</span> Some words about code chunks</a></li>
+<li><a href="#r-markdown-reference"><span class="toc-section-number">3.4.4</span> R Markdown reference</a></li>
+<li><a href="#summary"><span class="toc-section-number">3.4.5</span> Summary</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#r-is-a-functional-language">R is a Functional Language</a><ul>
-<li><a href="#r-language-details-for-geeks--">R language details for geeks ;-)</a></li>
+<li><a href="#the-simplest-use-of-r"><span class="toc-section-number">4</span> The simplest use of R</a></li>
+<li><a href="#some-background-information-about-r"><span class="toc-section-number">5</span> Some Background Information about R</a><ul>
+<li><a href="#r-is-an-interpreted-language"><span class="toc-section-number">5.1</span> R is an <strong>Interpreted Language</strong></a></li>
+<li><a href="#r-is-high-level"><span class="toc-section-number">5.2</span> R is <strong>High Level</strong></a></li>
+<li><a href="#autoprinting"><span class="toc-section-number">5.3</span> <strong>Autoprinting</strong></a></li>
+<li><a href="#syntax"><span class="toc-section-number">5.4</span> <strong>Syntax</strong></a></li>
+<li><a href="#more-syntax"><span class="toc-section-number">5.5</span> <strong>More Syntax</strong></a></li>
 </ul></li>
-<li><a href="#statementsexpressions">Statements/Expressions</a><ul>
-<li><a href="#assignments">Assignments</a></li>
-<li><a href="#side-effects">Side effects</a></li>
-<li><a href="#composite-statements">Composite Statements</a></li>
-<li><a href="#various-forms-of-the-assignment-statement">Various forms of the assignment statement</a></li>
-<li><a href="#no-type-declarations">No type declarations</a></li>
-</ul></li>
-<li><a href="#getting-help">Getting Help</a><ul>
-<li><a href="#rs-built-in-help-function">R’s built-in <code>help</code> function</a></li>
-<li><a href="#apropos">Apropos</a></li>
-<li><a href="#vignettes">Vignettes</a></li>
-</ul></li>
-<li><a href="#functions-arguments-and-other-details">Functions: arguments and other details</a><ul>
-<li><a href="#function-arguments">Function arguments</a></li>
-<li><a href="#what-about-the-rest-of-the-function">What about the rest of the function?</a></li>
-<li><a href="#the-str-function-considered-useful">The <code>str</code> function considered useful</a></li>
-</ul></li>
-<li><a href="#management-of-data-and-functions">Management of Data and Functions</a><ul>
-<li><a href="#listing-r-objects-both-data-and-functions">Listing R objects, both data and functions</a></li>
-<li><a href="#removing-data-and-functions">Removing data and functions</a></li>
-</ul></li>
-<li><a href="#packages-and-the-search-list">Packages and the <code>search</code> list</a><ul>
-<li><a href="#general-discussion-of-packages">General discussion of packages</a></li>
-<li><a href="#r-always-has-some-packages-loaded-available">R always has <em>some</em> packages loaded (available)</a><ul>
-<li><a href="#packages-loaded-by-default">Packages loaded by default</a></li>
-</ul></li>
-<li><a href="#packages-loaded-now">Packages loaded <em>now</em></a></li>
-<li><a href="#whats-in-a-given-package">What’s in a given package?</a></li>
-<li><a href="#sorting-this-out-a-bit-more">Sorting this out a bit more</a></li>
-<li><a href="#what-else-does-library-do">What else does <code>library</code> do?</a></li>
-<li><a href="#namespace">Namespace</a><ul>
-<li><a href="#general-remarks">General remarks</a></li>
-<li><a href="#searching-package-namespaces">Searching package namespaces</a></li>
-<li><a href="#dealing-with-namespace-collisions">Dealing with namespace “collisions”</a></li>
+<li><a href="#basic-data-types"><span class="toc-section-number">6</span> Basic Data Types</a><ul>
+<li><a href="#double-precision"><span class="toc-section-number">6.1</span> Double Precision</a></li>
+<li><a href="#integers"><span class="toc-section-number">6.2</span> Integers</a></li>
+<li><a href="#strings"><span class="toc-section-number">6.3</span> Strings</a></li>
+<li><a href="#logical"><span class="toc-section-number">6.4</span> Logical</a></li>
+<li><a href="#missing-and-exceptional-values-na-nan-inf--inf"><span class="toc-section-number">6.5</span> Missing and exceptional values: NA, NaN, Inf, -Inf</a><ul>
+<li><a href="#missing-values"><span class="toc-section-number">6.5.1</span> Missing values</a></li>
+<li><a href="#infinite-numbers"><span class="toc-section-number">6.5.2</span> Infinite numbers</a></li>
+<li><a href="#numbers-that-just-dont-make-no-sense"><span class="toc-section-number">6.5.3</span> Numbers that just don’t make no sense</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#getting-into-and-out-of-r">Getting into and out of R</a><ul>
-<li><a href="#starting-r">Starting R</a></li>
-<li><a href="#leaving-r">Leaving R</a></li>
-<li><a href="#r-hates-to-say-goodbye">R hates to say goodbye</a></li>
-<li><a href="#to-save-or-not-to-save">To save or not to save</a></li>
+<li><a href="#r-is-a-functional-language"><span class="toc-section-number">7</span> R is a Functional Language</a><ul>
+<li><a href="#r-language-details-for-geeks--"><span class="toc-section-number">7.1</span> R language details for geeks ;-)</a></li>
 </ul></li>
-<li><a href="#semantics">Semantics</a></li>
-<li><a href="#operator-syntax-and-precedence">Operator syntax and precedence</a></li>
-<li><a href="#vectors">Vectors</a><ul>
-<li><a href="#coercion">Coercion</a></li>
-<li><a href="#a-peek-ahead-lists">A peek ahead: lists</a></li>
+<li><a href="#statementsexpressions"><span class="toc-section-number">8</span> Statements/Expressions</a><ul>
+<li><a href="#assignments"><span class="toc-section-number">8.1</span> Assignments</a></li>
+<li><a href="#side-effects"><span class="toc-section-number">8.2</span> Side effects</a></li>
+<li><a href="#composite-statements"><span class="toc-section-number">8.3</span> Composite Statements</a></li>
+<li><a href="#various-forms-of-the-assignment-statement"><span class="toc-section-number">8.4</span> Various forms of the assignment statement</a></li>
+<li><a href="#no-type-declarations"><span class="toc-section-number">8.5</span> No type declarations</a></li>
 </ul></li>
-<li><a href="#indexing-and-subsetting-vectors">Indexing and subsetting vectors</a><ul>
-<li><a href="#numeric-indices">Numeric indices</a></li>
-<li><a href="#exclusions-with-negative-numeric-indices">Exclusions with negative numeric indices</a></li>
-<li><a href="#logical-selection">Logical selection</a></li>
-<li><a href="#repeated-indexing">Repeated indexing</a></li>
-<li><a href="#vector-indexing-and-subsetting-used-for-assignment">Vector indexing and subsetting used for assignment</a></li>
+<li><a href="#getting-help"><span class="toc-section-number">9</span> Getting Help</a><ul>
+<li><a href="#rs-built-in-help-function"><span class="toc-section-number">9.1</span> R’s built-in <code>help</code> function</a></li>
+<li><a href="#apropos"><span class="toc-section-number">9.2</span> Apropos</a></li>
+<li><a href="#vignettes"><span class="toc-section-number">9.3</span> Vignettes</a></li>
 </ul></li>
-<li><a href="#some-functions-that-create-vectors">Some functions that create vectors</a><ul>
-<li><a href="#the-c-function-or-manual-entry">The <code>c</code> function (or “manual entry”)</a></li>
-<li><a href="#sequences-of-equally-spaced-numbers">Sequences of equally spaced numbers</a><ul>
-<li><a href="#digression-on-data-type">Digression on data type</a></li>
+<li><a href="#functions-arguments-and-other-details"><span class="toc-section-number">10</span> Functions: arguments and other details</a><ul>
+<li><a href="#function-arguments"><span class="toc-section-number">10.1</span> Function arguments</a></li>
+<li><a href="#what-about-the-rest-of-the-function"><span class="toc-section-number">10.2</span> What about the rest of the function?</a></li>
+<li><a href="#the-str-function-considered-useful"><span class="toc-section-number">10.3</span> The <code>str</code> function considered useful</a></li>
 </ul></li>
-<li><a href="#repetitions">Repetitions</a></li>
-<li><a href="#miscellaneous-ways-of-generating-vectors">Miscellaneous ways of generating vectors</a></li>
+<li><a href="#management-of-data-and-functions"><span class="toc-section-number">11</span> Management of Data and Functions</a><ul>
+<li><a href="#listing-r-objects-both-data-and-functions"><span class="toc-section-number">11.1</span> Listing R objects, both data and functions</a></li>
+<li><a href="#removing-data-and-functions"><span class="toc-section-number">11.2</span> Removing data and functions</a></li>
 </ul></li>
-<li><a href="#automatic-vector-extension">Automatic vector extension</a></li>
-<li><a href="#named-vector-elements">Named vector elements</a></li>
-<li><a href="#vectors-with-named-elements-as-associative-arrays">Vectors with named elements as associative arrays</a></li>
-<li><a href="#ranking-sorting-reversing-permuting">Ranking, sorting, reversing, permuting</a><ul>
-<li><a href="#basic-sorting">Basic sorting</a></li>
-<li><a href="#permutations-and-other-uses-of-sample">Permutations and other uses of <code>sample</code></a></li>
-<li><a href="#the-order-function">The <code>order</code> function</a></li>
+<li><a href="#packages-and-the-search-list"><span class="toc-section-number">12</span> Packages and the <code>search</code> list</a><ul>
+<li><a href="#general-discussion-of-packages"><span class="toc-section-number">12.1</span> General discussion of packages</a></li>
+<li><a href="#r-always-has-some-packages-loaded-available"><span class="toc-section-number">12.2</span> R always has <em>some</em> packages loaded (available)</a><ul>
+<li><a href="#packages-loaded-by-default"><span class="toc-section-number">12.2.1</span> Packages loaded by default</a></li>
 </ul></li>
-<li><a href="#simple-statistics">Simple statistics</a></li>
-<li><a href="#cumulative-operations">Cumulative operations</a></li>
-<li><a href="#simple-numeric-functionstransformations-vectorization">Simple numeric functions/transformations; vectorization</a></li>
-<li><a href="#matrices">Matrices</a><ul>
-<li><a href="#creating-a-matrix-by-hand">Creating a matrix “by hand”</a></li>
-<li><a href="#reading-a-matrix-from-a-file">Reading a matrix from a file</a></li>
-<li><a href="#is-this-object-a-matrix">Is this object a matrix?</a></li>
-<li><a href="#a-vector-by-any-other-name-would-be-a-matrix">A vector by any other name would … be a matrix?</a></li>
-<li><a href="#vector-to-matrix-and-back-again">Vector to matrix and back again</a></li>
-<li><a href="#names-for-the-rows-and-columns">Names for the rows and columns</a></li>
-<li><a href="#indexing-and-subsetting-a-matrix-by-rows-and-columns">Indexing and subsetting a matrix by rows and columns</a></li>
-<li><a href="#a-vector-is-a-vector">A vector is a vector</a></li>
-<li><a href="#indexingsubsetting-can-be-used-for-assignment">Indexing/subsetting can be used for assignment</a></li>
-<li><a href="#associative-array-feature-for-matrices">Associative-array feature for matrices</a></li>
-<li><a href="#column-and-row-binding">Column and row binding</a></li>
-<li><a href="#coercion-of-matrices-to-vectors">Coercion of matrices to vectors</a></li>
-<li><a href="#generating-patterned-matrices">Generating patterned matrices</a></li>
-</ul></li>
-<li><a href="#arrays-the-generalization-of-matrices-to-more-than-2-indexes">Arrays: the generalization of matrices to more than 2 indexes</a></li>
-<li><a href="#lists">Lists</a><ul>
-<li><a href="#access-to-list-items">Access to list items</a></li>
-<li><a href="#access-to-sublists">Access to sublists</a></li>
-<li><a href="#sublists-are-still-lists">Sublists are still lists</a></li>
-</ul></li>
-<li><a href="#dataframes">Dataframes</a><ul>
-<li><a href="#background">Background</a></li>
-<li><a href="#making-a-data-frame-by-hand">Making a data frame “by hand”</a></li>
-<li><a href="#operations-on-dataframes">Operations on dataframes</a></li>
-<li><a href="#it-sometimes-looks-like-a-matrix-but-it-isnt">It sometimes looks like a matrix, but it isn’t</a></li>
-<li><a href="#making-a-dataframe-from-other-data-sources">Making a dataframe from other data sources</a></li>
-<li><a href="#sorting-a-data-frame">Sorting a data frame</a></li>
-</ul></li>
-<li><a href="#flow-control-conditionals-and-loops">Flow control: conditionals and loops</a><ul>
-<li><a href="#making-decisions-the-if-statement">Making decisions: the <code>if</code> statement</a></li>
-<li><a href="#something-a-little-different-the-ifelse-function">Something a little different: the <code>ifelse</code> function</a></li>
-<li><a href="#the-for-loop">The <code>for</code> loop</a></li>
-<li><a href="#the-while-loop">The <code>while</code> loop</a></li>
-<li><a href="#the-next-and-break-commands">The <code>next</code> and <code>break</code> commands</a></li>
-<li><a href="#the-repeat-loop">The <code>repeat</code> loop</a></li>
-</ul></li>
-<li><a href="#writing-functions">Writing functions</a><ul>
-<li><a href="#syntax-1">Syntax</a></li>
-<li><a href="#semantics-1">Semantics</a></li>
-<li><a href="#more-semantics">More semantics</a></li>
-<li><a href="#return-values">Return values</a></li>
-<li><a href="#syntax-and-return-values">Syntax <em>and</em> return values</a></li>
-<li><a href="#a-realistic-example">A realistic example</a></li>
-<li><a href="#arguments-to-functions">Arguments to functions</a></li>
-<li><a href="#functions-returning-complex-data-structures">Functions returning complex data structures</a></li>
-<li><a href="#function-arguments-passed-by-value">Function arguments passed by value</a></li>
-<li><a href="#r-uses-lexical-scoping">R uses <em>lexical scoping</em></a></li>
-<li><a href="#scoping-a-word-of-caution">Scoping: a word of caution</a></li>
-</ul></li>
-<li><a href="#a-better-way-of-looping-the-apply-family">A better way of looping: the “apply” family</a><ul>
-<li><a href="#background-1">Background</a></li>
-<li><a href="#lapply"><code>lapply</code></a></li>
-<li><a href="#sapply"><code>sapply</code></a></li>
-<li><a href="#replicate"><code>replicate</code></a></li>
-<li><a href="#apply"><code>apply</code></a></li>
-<li><a href="#mapply"><code>mapply</code></a></li>
-</ul></li>
-<li><a href="#do.call-and-its-applications"><code>do.call</code> and its applications</a></li>
-<li><a href="#string-manipulation">String manipulation</a></li>
-<li><a href="#pseudo-random-numbers">Pseudo-random numbers</a><ul>
-<li><a href="#background-and-motivation">Background and motivation</a></li>
-<li><a href="#generation-of-random-numbers">Generation of random numbers</a></li>
-<li><a href="#random-numbers-in-r">Random numbers in R</a></li>
-</ul></li>
-<li><a href="#plotting">Plotting</a><ul>
-<li><a href="#background-2">Background</a></li>
-<li><a href="#the-murrell-book">The Murrell book</a></li>
-<li><a href="#plot-and-related-functions"><code>plot</code> and related functions</a></li>
-<li><a href="#graphics-parameters.-the-par-function">Graphics parameters. The <code>par()</code> function</a><ul>
-<li><a href="#colors">Colors</a></li>
-<li><a href="#font">Font</a></li>
-<li><a href="#character-expansion">Character expansion</a></li>
-<li><a href="#plotting-characters-and-lines">Plotting characters and lines</a></li>
-<li><a href="#margins">Margins</a></li>
-<li><a href="#layout">Layout</a></li>
-</ul></li>
-<li><a href="#more-decorations">More decorations</a></li>
-<li><a href="#multiple-plots-on-one-display">Multiple plots on one display</a></li>
-<li><a href="#multiple-plots-on-multiple-displays">Multiple plots on multiple displays</a></li>
-<li><a href="#saving-a-plot-to-a-file">Saving a plot to a file</a></li>
-<li><a href="#plots-for-exploratory-data-analysis">Plots for exploratory data analysis</a><ul>
-<li><a href="#histogram">Histogram</a></li>
-<li><a href="#box-plot">Box plot</a></li>
+<li><a href="#packages-loaded-now"><span class="toc-section-number">12.3</span> Packages loaded <em>now</em></a></li>
+<li><a href="#whats-in-a-given-package"><span class="toc-section-number">12.4</span> What’s in a given package?</a></li>
+<li><a href="#sorting-this-out-a-bit-more"><span class="toc-section-number">12.5</span> Sorting this out a bit more</a></li>
+<li><a href="#what-else-does-library-do"><span class="toc-section-number">12.6</span> What else does <code>library</code> do?</a></li>
+<li><a href="#namespace"><span class="toc-section-number">12.7</span> Namespace</a><ul>
+<li><a href="#general-remarks"><span class="toc-section-number">12.7.1</span> General remarks</a></li>
+<li><a href="#searching-package-namespaces"><span class="toc-section-number">12.7.2</span> Searching package namespaces</a></li>
+<li><a href="#dealing-with-namespace-collisions"><span class="toc-section-number">12.7.3</span> Dealing with namespace “collisions”</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#querying-r-objects">Querying R objects</a></li>
-<li><a href="#the-working-directory">The working directory</a></li>
-<li><a href="#regular-expressions">Regular expressions</a><ul>
-<li><a href="#general-discussion">General discussion</a></li>
-<li><a href="#some-basic-syntax">Some basic syntax</a><ul>
-<li><a href="#escape-sequences">Escape sequences</a></li>
+<li><a href="#getting-into-and-out-of-r"><span class="toc-section-number">13</span> Getting into and out of R</a><ul>
+<li><a href="#starting-r"><span class="toc-section-number">13.1</span> Starting R</a></li>
+<li><a href="#leaving-r"><span class="toc-section-number">13.2</span> Leaving R</a></li>
+<li><a href="#r-hates-to-say-goodbye"><span class="toc-section-number">13.3</span> R hates to say goodbye</a></li>
+<li><a href="#to-save-or-not-to-save"><span class="toc-section-number">13.4</span> To save or not to save</a></li>
 </ul></li>
-<li><a href="#commonly-used-pattern-matching-functions">Commonly-used pattern-matching functions</a><ul>
-<li><a href="#grep">grep</a></li>
-<li><a href="#regexpr-and-gregexpr">regexpr and gregexpr</a></li>
-<li><a href="#sub-and-gsub">sub and gsub</a></li>
-<li><a href="#strsplit">strsplit</a></li>
+<li><a href="#semantics"><span class="toc-section-number">14</span> Semantics</a></li>
+<li><a href="#operator-syntax-and-precedence"><span class="toc-section-number">15</span> Operator syntax and precedence</a></li>
+<li><a href="#vectors"><span class="toc-section-number">16</span> Vectors</a><ul>
+<li><a href="#coercion"><span class="toc-section-number">16.1</span> Coercion</a></li>
+<li><a href="#a-peek-ahead-lists"><span class="toc-section-number">16.2</span> A peek ahead: lists</a></li>
 </ul></li>
-<li><a href="#more-complicated-examples">More-complicated examples</a></li>
-<li><a href="#regular-expressions-with-character-classes">Regular expressions with character classes</a><ul>
-<li><a href="#predefined-character-classes">Predefined character classes</a></li>
-<li><a href="#repetition-quantifiers">Repetition quantifiers</a></li>
-<li><a href="#reusing-the-matched-text">Reusing the matched text</a></li>
-<li><a href="#logical-or">Logical OR</a></li>
+<li><a href="#indexing-and-subsetting-vectors"><span class="toc-section-number">17</span> Indexing and subsetting vectors</a><ul>
+<li><a href="#numeric-indices"><span class="toc-section-number">17.1</span> Numeric indices</a></li>
+<li><a href="#exclusions-with-negative-numeric-indices"><span class="toc-section-number">17.2</span> Exclusions with negative numeric indices</a></li>
+<li><a href="#logical-selection"><span class="toc-section-number">17.3</span> Logical selection</a></li>
+<li><a href="#repeated-indexing"><span class="toc-section-number">17.4</span> Repeated indexing</a></li>
+<li><a href="#vector-indexing-and-subsetting-used-for-assignment"><span class="toc-section-number">17.5</span> Vector indexing and subsetting used for assignment</a></li>
+</ul></li>
+<li><a href="#some-functions-that-create-vectors"><span class="toc-section-number">18</span> Some functions that create vectors</a><ul>
+<li><a href="#the-c-function-or-manual-entry"><span class="toc-section-number">18.1</span> The <code>c</code> function (or “manual entry”)</a></li>
+<li><a href="#sequences-of-equally-spaced-numbers"><span class="toc-section-number">18.2</span> Sequences of equally spaced numbers</a><ul>
+<li><a href="#digression-on-data-type"><span class="toc-section-number">18.2.1</span> Digression on data type</a></li>
+</ul></li>
+<li><a href="#repetitions"><span class="toc-section-number">18.3</span> Repetitions</a></li>
+<li><a href="#miscellaneous-ways-of-generating-vectors"><span class="toc-section-number">18.4</span> Miscellaneous ways of generating vectors</a></li>
+</ul></li>
+<li><a href="#automatic-vector-extension"><span class="toc-section-number">19</span> Automatic vector extension</a></li>
+<li><a href="#named-vector-elements"><span class="toc-section-number">20</span> Named vector elements</a></li>
+<li><a href="#vectors-with-named-elements-as-associative-arrays"><span class="toc-section-number">21</span> Vectors with named elements as associative arrays</a></li>
+<li><a href="#ranking-sorting-reversing-permuting"><span class="toc-section-number">22</span> Ranking, sorting, reversing, permuting</a><ul>
+<li><a href="#basic-sorting"><span class="toc-section-number">22.1</span> Basic sorting</a></li>
+<li><a href="#permutations-and-other-uses-of-sample"><span class="toc-section-number">22.2</span> Permutations and other uses of <code>sample</code></a></li>
+<li><a href="#the-order-function"><span class="toc-section-number">22.3</span> The <code>order</code> function</a></li>
+</ul></li>
+<li><a href="#simple-statistics"><span class="toc-section-number">23</span> Simple statistics</a></li>
+<li><a href="#cumulative-operations"><span class="toc-section-number">24</span> Cumulative operations</a></li>
+<li><a href="#simple-numeric-functionstransformations-vectorization"><span class="toc-section-number">25</span> Simple numeric functions/transformations; vectorization</a></li>
+<li><a href="#matrices"><span class="toc-section-number">26</span> Matrices</a><ul>
+<li><a href="#creating-a-matrix-by-hand"><span class="toc-section-number">26.1</span> Creating a matrix “by hand”</a></li>
+<li><a href="#reading-a-matrix-from-a-file"><span class="toc-section-number">26.2</span> Reading a matrix from a file</a></li>
+<li><a href="#is-this-object-a-matrix"><span class="toc-section-number">26.3</span> Is this object a matrix?</a></li>
+<li><a href="#a-vector-by-any-other-name-would-be-a-matrix"><span class="toc-section-number">26.4</span> A vector by any other name would … be a matrix?</a></li>
+<li><a href="#vector-to-matrix-and-back-again"><span class="toc-section-number">26.5</span> Vector to matrix and back again</a></li>
+<li><a href="#names-for-the-rows-and-columns"><span class="toc-section-number">26.6</span> Names for the rows and columns</a></li>
+<li><a href="#indexing-and-subsetting-a-matrix-by-rows-and-columns"><span class="toc-section-number">26.7</span> Indexing and subsetting a matrix by rows and columns</a></li>
+<li><a href="#a-vector-is-a-vector"><span class="toc-section-number">26.8</span> A vector is a vector</a></li>
+<li><a href="#indexingsubsetting-can-be-used-for-assignment"><span class="toc-section-number">26.9</span> Indexing/subsetting can be used for assignment</a></li>
+<li><a href="#associative-array-feature-for-matrices"><span class="toc-section-number">26.10</span> Associative-array feature for matrices</a></li>
+<li><a href="#column-and-row-binding"><span class="toc-section-number">26.11</span> Column and row binding</a></li>
+<li><a href="#coercion-of-matrices-to-vectors"><span class="toc-section-number">26.12</span> Coercion of matrices to vectors</a></li>
+<li><a href="#generating-patterned-matrices"><span class="toc-section-number">26.13</span> Generating patterned matrices</a></li>
+</ul></li>
+<li><a href="#arrays-the-generalization-of-matrices-to-more-than-2-indexes"><span class="toc-section-number">27</span> Arrays: the generalization of matrices to more than 2 indexes</a></li>
+<li><a href="#lists"><span class="toc-section-number">28</span> Lists</a><ul>
+<li><a href="#access-to-list-items"><span class="toc-section-number">28.1</span> Access to list items</a></li>
+<li><a href="#access-to-sublists"><span class="toc-section-number">28.2</span> Access to sublists</a></li>
+<li><a href="#sublists-are-still-lists"><span class="toc-section-number">28.3</span> Sublists are still lists</a></li>
+</ul></li>
+<li><a href="#dataframes"><span class="toc-section-number">29</span> Dataframes</a><ul>
+<li><a href="#background"><span class="toc-section-number">29.1</span> Background</a></li>
+<li><a href="#making-a-data-frame-by-hand"><span class="toc-section-number">29.2</span> Making a data frame “by hand”</a></li>
+<li><a href="#operations-on-dataframes"><span class="toc-section-number">29.3</span> Operations on dataframes</a></li>
+<li><a href="#it-sometimes-looks-like-a-matrix-but-it-isnt"><span class="toc-section-number">29.4</span> It sometimes looks like a matrix, but it isn’t</a></li>
+<li><a href="#making-a-dataframe-from-other-data-sources"><span class="toc-section-number">29.5</span> Making a dataframe from other data sources</a></li>
+<li><a href="#sorting-a-data-frame"><span class="toc-section-number">29.6</span> Sorting a data frame</a></li>
+</ul></li>
+<li><a href="#flow-control-conditionals-and-loops"><span class="toc-section-number">30</span> Flow control: conditionals and loops</a><ul>
+<li><a href="#making-decisions-the-if-statement"><span class="toc-section-number">30.1</span> Making decisions: the <code>if</code> statement</a></li>
+<li><a href="#something-a-little-different-the-ifelse-function"><span class="toc-section-number">30.2</span> Something a little different: the <code>ifelse</code> function</a></li>
+<li><a href="#the-for-loop"><span class="toc-section-number">30.3</span> The <code>for</code> loop</a></li>
+<li><a href="#the-while-loop"><span class="toc-section-number">30.4</span> The <code>while</code> loop</a></li>
+<li><a href="#the-next-and-break-commands"><span class="toc-section-number">30.5</span> The <code>next</code> and <code>break</code> commands</a></li>
+<li><a href="#the-repeat-loop"><span class="toc-section-number">30.6</span> The <code>repeat</code> loop</a></li>
+</ul></li>
+<li><a href="#writing-functions"><span class="toc-section-number">31</span> Writing functions</a><ul>
+<li><a href="#syntax-1"><span class="toc-section-number">31.1</span> Syntax</a></li>
+<li><a href="#semantics-1"><span class="toc-section-number">31.2</span> Semantics</a></li>
+<li><a href="#more-semantics"><span class="toc-section-number">31.3</span> More semantics</a></li>
+<li><a href="#return-values"><span class="toc-section-number">31.4</span> Return values</a></li>
+<li><a href="#syntax-and-return-values"><span class="toc-section-number">31.5</span> Syntax <em>and</em> return values</a></li>
+<li><a href="#a-realistic-example"><span class="toc-section-number">31.6</span> A realistic example</a></li>
+<li><a href="#arguments-to-functions"><span class="toc-section-number">31.7</span> Arguments to functions</a></li>
+<li><a href="#functions-returning-complex-data-structures"><span class="toc-section-number">31.8</span> Functions returning complex data structures</a></li>
+<li><a href="#function-arguments-passed-by-value"><span class="toc-section-number">31.9</span> Function arguments passed by value</a></li>
+<li><a href="#r-uses-lexical-scoping"><span class="toc-section-number">31.10</span> R uses <em>lexical scoping</em></a></li>
+<li><a href="#scoping-a-word-of-caution"><span class="toc-section-number">31.11</span> Scoping: a word of caution</a></li>
+</ul></li>
+<li><a href="#a-better-way-of-looping-the-apply-family"><span class="toc-section-number">32</span> A better way of looping: the “apply” family</a><ul>
+<li><a href="#background-1"><span class="toc-section-number">32.1</span> Background</a></li>
+<li><a href="#lapply"><span class="toc-section-number">32.2</span> <code>lapply</code></a></li>
+<li><a href="#sapply"><span class="toc-section-number">32.3</span> <code>sapply</code></a></li>
+<li><a href="#replicate"><span class="toc-section-number">32.4</span> <code>replicate</code></a></li>
+<li><a href="#apply"><span class="toc-section-number">32.5</span> <code>apply</code></a></li>
+<li><a href="#mapply"><span class="toc-section-number">32.6</span> <code>mapply</code></a></li>
+</ul></li>
+<li><a href="#do.call-and-its-applications"><span class="toc-section-number">33</span> <code>do.call</code> and its applications</a></li>
+<li><a href="#string-manipulation"><span class="toc-section-number">34</span> String manipulation</a></li>
+<li><a href="#pseudo-random-numbers"><span class="toc-section-number">35</span> Pseudo-random numbers</a><ul>
+<li><a href="#background-and-motivation"><span class="toc-section-number">35.1</span> Background and motivation</a></li>
+<li><a href="#generation-of-random-numbers"><span class="toc-section-number">35.2</span> Generation of random numbers</a></li>
+<li><a href="#random-numbers-in-r"><span class="toc-section-number">35.3</span> Random numbers in R</a></li>
+</ul></li>
+<li><a href="#plotting"><span class="toc-section-number">36</span> Plotting</a><ul>
+<li><a href="#background-2"><span class="toc-section-number">36.1</span> Background</a></li>
+<li><a href="#the-murrell-book"><span class="toc-section-number">36.2</span> The Murrell book</a></li>
+<li><a href="#plot-and-related-functions"><span class="toc-section-number">36.3</span> <code>plot</code> and related functions</a></li>
+<li><a href="#graphics-parameters.-the-par-function"><span class="toc-section-number">36.4</span> Graphics parameters. The <code>par()</code> function</a><ul>
+<li><a href="#colors"><span class="toc-section-number">36.4.1</span> Colors</a></li>
+<li><a href="#font"><span class="toc-section-number">36.4.2</span> Font</a></li>
+<li><a href="#character-expansion"><span class="toc-section-number">36.4.3</span> Character expansion</a></li>
+<li><a href="#plotting-characters-and-lines"><span class="toc-section-number">36.4.4</span> Plotting characters and lines</a></li>
+<li><a href="#margins"><span class="toc-section-number">36.4.5</span> Margins</a></li>
+<li><a href="#layout"><span class="toc-section-number">36.4.6</span> Layout</a></li>
+</ul></li>
+<li><a href="#more-decorations"><span class="toc-section-number">36.5</span> More decorations</a></li>
+<li><a href="#multiple-plots-on-one-display"><span class="toc-section-number">36.6</span> Multiple plots on one display</a></li>
+<li><a href="#multiple-plots-on-multiple-displays"><span class="toc-section-number">36.7</span> Multiple plots on multiple displays</a></li>
+<li><a href="#saving-a-plot-to-a-file"><span class="toc-section-number">36.8</span> Saving a plot to a file</a></li>
+<li><a href="#plots-for-exploratory-data-analysis"><span class="toc-section-number">36.9</span> Plots for exploratory data analysis</a><ul>
+<li><a href="#histogram"><span class="toc-section-number">36.9.1</span> Histogram</a></li>
+<li><a href="#box-plot"><span class="toc-section-number">36.9.2</span> Box plot</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#debugging-in-r">Debugging in R</a></li>
-<li><a href="#a-quick-review-control-panels-for-r">A quick review: “control panels” for R</a><ul>
-<li><a href="#the-interpreter-the-main-control-panel">The interpreter: the main control panel</a><ul>
-<li><a href="#the-settings-on-the-interpreter-control-panel">The settings on the interpreter control panel</a></li>
-<li><a href="#reading-out-the-settings-on-the-interpreter-control-panel">Reading out the settings on the interpreter control panel</a></li>
-<li><a href="#changing-the-settings-on-the-interpreter-control-panel">Changing the settings on the interpreter control panel</a></li>
+<li><a href="#querying-r-objects"><span class="toc-section-number">37</span> Querying R objects</a></li>
+<li><a href="#the-working-directory"><span class="toc-section-number">38</span> The working directory</a></li>
+<li><a href="#regular-expressions"><span class="toc-section-number">39</span> Regular expressions</a><ul>
+<li><a href="#general-discussion"><span class="toc-section-number">39.1</span> General discussion</a></li>
+<li><a href="#some-basic-syntax"><span class="toc-section-number">39.2</span> Some basic syntax</a><ul>
+<li><a href="#escape-sequences"><span class="toc-section-number">39.2.1</span> Escape sequences</a></li>
 </ul></li>
-<li><a href="#the-options-control-panel">The <code>options</code> control panel</a></li>
-<li><a href="#the-par-control-panel">The <code>par</code> control panel</a></li>
-<li><a href="#the-random-number-control-panel">The random-number control panel</a></li>
+<li><a href="#commonly-used-pattern-matching-functions"><span class="toc-section-number">39.3</span> Commonly-used pattern-matching functions</a><ul>
+<li><a href="#grep"><span class="toc-section-number">39.3.1</span> grep</a></li>
+<li><a href="#regexpr-and-gregexpr"><span class="toc-section-number">39.3.2</span> regexpr and gregexpr</a></li>
+<li><a href="#sub-and-gsub"><span class="toc-section-number">39.3.3</span> sub and gsub</a></li>
+<li><a href="#strsplit"><span class="toc-section-number">39.3.4</span> strsplit</a></li>
+</ul></li>
+<li><a href="#more-complicated-examples"><span class="toc-section-number">39.4</span> More-complicated examples</a></li>
+<li><a href="#regular-expressions-with-character-classes"><span class="toc-section-number">39.5</span> Regular expressions with character classes</a><ul>
+<li><a href="#predefined-character-classes"><span class="toc-section-number">39.5.1</span> Predefined character classes</a></li>
+<li><a href="#repetition-quantifiers"><span class="toc-section-number">39.5.2</span> Repetition quantifiers</a></li>
+<li><a href="#reusing-the-matched-text"><span class="toc-section-number">39.5.3</span> Reusing the matched text</a></li>
+<li><a href="#logical-or"><span class="toc-section-number">39.5.4</span> Logical OR</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#debugging-in-r"><span class="toc-section-number">40</span> Debugging in R</a></li>
+<li><a href="#a-quick-review-control-panels-for-r"><span class="toc-section-number">41</span> A quick review: “control panels” for R</a><ul>
+<li><a href="#the-interpreter-the-main-control-panel"><span class="toc-section-number">41.1</span> The interpreter: the main control panel</a><ul>
+<li><a href="#the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.1</span> The settings on the interpreter control panel</a></li>
+<li><a href="#reading-out-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.2</span> Reading out the settings on the interpreter control panel</a></li>
+<li><a href="#changing-the-settings-on-the-interpreter-control-panel"><span class="toc-section-number">41.1.3</span> Changing the settings on the interpreter control panel</a></li>
+</ul></li>
+<li><a href="#the-options-control-panel"><span class="toc-section-number">41.2</span> The <code>options</code> control panel</a></li>
+<li><a href="#the-par-control-panel"><span class="toc-section-number">41.3</span> The <code>par</code> control panel</a></li>
+<li><a href="#the-random-number-control-panel"><span class="toc-section-number">41.4</span> The random-number control panel</a></li>
 </ul></li>
 </ul>
 </div>
 
 <div id="acknowledgment" class="section level1">
-<h1>Acknowledgment</h1>
+<h1><span class="header-section-number">1</span> Acknowledgment</h1>
 <p>This document was inspired by and partially based on:</p>
 <pre><code>http://www-stat.wharton.upenn.edu/~buja/STAT-541/Stat-541-R-intro.R</code></pre>
 </div>
 <div id="the-r-website" class="section level1">
-<h1>The R website:</h1>
+<h1><span class="header-section-number">2</span> The R website:</h1>
 <pre><code>http://cran.r-project.org</code></pre>
 <p>You should browse this web site to learn about R and the associated resources.</p>
 </div>
 <div id="r-and-related-tools-for-sta-032" class="section level1">
-<h1>R and related tools for STA 032</h1>
+<h1><span class="header-section-number">3</span> R and related tools for STA 032</h1>
 <p>There are four essential steps required to set up your own computer for the work you need to do in STA 032:</p>
 <ol style="list-style-type: decimal">
 <li>Install R</li>
@@ -302,13 +302,13 @@
 <li>Start using R Markdown</li>
 </ol>
 <div id="step-1-install-r" class="section level2">
-<h2>Step 1: Install R</h2>
+<h2><span class="header-section-number">3.1</span> Step 1: Install R</h2>
 <p>Look again at the main R site:</p>
 <pre><code>http://www.r-project.org/</code></pre>
 <p>It has lots of good information, including pointers to pre-compiled versions of R for various platforms.</p>
 <p>One thing to mention is that whenever you install R-related software, you’re asked to choose a CRAN mirror, i.e., a place from which to download the software. There are mirrors at UC Berkeley and at UCLA (sometimes referred to as “CA 1” and “CA 2” or similar), and these are probably the best ones to use at UCD.</p>
 <div id="getting-started" class="section level3">
-<h3>Getting started</h3>
+<h3><span class="header-section-number">3.1.1</span> Getting started</h3>
 <p>Once you have R installed, you might want to open the program and type:</p>
 <pre><code>help.start()</code></pre>
 <p>at the prompt. Then follow the link to:</p>
@@ -316,13 +316,13 @@
 <p>This is really all you need to know to get started using R. The rest of <strong>this</strong> section is mainly for culture and <strong>can be ignored</strong> (proceed to Step 2 below).</p>
 </div>
 <div id="windows-versus-mac-linux" class="section level3">
-<h3>Windows versus Mac, linux</h3>
+<h3><span class="header-section-number">3.1.2</span> Windows versus Mac, linux</h3>
 <p>In the opinion of many people, Windows is really not the best platform for this kind of computing, although it certainly <em>can</em> be done on Windows. If you’re running Windows, you might wish to consider running some form of linux in a virtual machine. VirtualBox is free and is widely used:</p>
 <pre><code>https://www.virtualbox.org/</code></pre>
 <p>Check with the instructor if you have questions about this.</p>
 </div>
 <div id="software-on-linux" class="section level3">
-<h3>Software on linux</h3>
+<h3><span class="header-section-number">3.1.3</span> Software on linux</h3>
 <p>If you’re fortunate enough to already be running some form of linux, all you need to do is to tell your package manager that you’d like to have R installed:</p>
 <pre><code>sudo apt-get install R    #### Debian family (including Ubuntu)
 (see also: http://cran.r-project.org/bin/linux/ubuntu/README )
@@ -330,7 +330,7 @@
 sudo yum install R    #### Redhat family (including Fedora)</code></pre>
 </div>
 <div id="software-on-mac" class="section level3">
-<h3>Software on Mac</h3>
+<h3><span class="header-section-number">3.1.4</span> Software on Mac</h3>
 <p>If you’re using a Mac, you can get a ready-made version of R from:</p>
 <pre><code>http://cran.r-project.org/bin/macosx/</code></pre>
 <p>Mac users might also want to have a look at the “Homebrew” package manager for Macintosh:</p>
@@ -339,7 +339,7 @@ sudo yum install R    #### Redhat family (including Fedora)</code></pre>
 </div>
 </div>
 <div id="step-2-install-rstudio" class="section level2">
-<h2>Step 2: Install RStudio</h2>
+<h2><span class="header-section-number">3.2</span> Step 2: Install RStudio</h2>
 <p>Open a browser and navigate to:</p>
 <pre><code>http://www.rstudio.com/ide/download/</code></pre>
 <p>Select:</p>
@@ -347,7 +347,7 @@ sudo yum install R    #### Redhat family (including Fedora)</code></pre>
 <p>and pick the version that’s appropriate for your system.</p>
 </div>
 <div id="step-3-install-the-knitr-package" class="section level2">
-<h2>Step 3: Install the knitr package</h2>
+<h2><span class="header-section-number">3.3</span> Step 3: Install the knitr package</h2>
 <p>Strictly speaking, you can do all of the calculations for this class using only R (from Step 1). The use of RStudio (from Step 2) simplifies many of the tasks involved in using R.</p>
 <p>The “knitr” package is an add-on package for R (one of 6000+ such packages available at CRAN and other places). See the discussion of packages below for some more details.</p>
 <p>The purpose of knitr is to allow you to combine descriptive text and R code in a single document (so-called “literate programming”) and to make it easy to generate publication-quality documents with a click of a button.</p>
@@ -361,10 +361,10 @@ sudo yum install R    #### Redhat family (including Fedora)</code></pre>
 <p>Regardless of the method you use, you <em>are</em> making use of CRAN, or one of its mirrors. RStudio just constructs the appropriate command and executes it on your behalf.</p>
 </div>
 <div id="step-4-start-using-r-markdown" class="section level2">
-<h2>Step 4: Start using R Markdown</h2>
+<h2><span class="header-section-number">3.4</span> Step 4: Start using R Markdown</h2>
 <p>You’re going to be using the knitr package to “knit” from an R Markdown file to an HTML file. This will produce a nicely formatted document that you will then submit to SmartSite (i.e, for your homeworks, etc.). The knitr package will do all the formatting for you, although it <em>is</em> highly customizable.</p>
 <div id="the-knitting-process" class="section level3">
-<h3>The “knitting” process</h3>
+<h3><span class="header-section-number">3.4.1</span> The “knitting” process</h3>
 <p>To knit to HTML you first have to be working in an R Markdown file, usually named with the suffix “Rmd”:</p>
 <pre><code>junk.Rmd</code></pre>
 <p>To get some practice doing this, do the following:</p>
@@ -383,7 +383,7 @@ sudo yum install R    #### Redhat family (including Fedora)</code></pre>
 <p>in you current working directory (or “folder”). That’s the file that you can send to SmartSite or to a colleague. (There will also be an intermediate file, “junk.md”, that you can safely ignore.)</p>
 </div>
 <div id="adding-your-own-r-code" class="section level3">
-<h3>Adding your own R code</h3>
+<h3><span class="header-section-number">3.4.2</span> Adding your own R code</h3>
 <p>This should show you how the process works. Next, put your own R code into an Rmd file if you haven’t done so already.</p>
 <p>Note that all of the R code goes into “code chunks” that look like:</p>
 <pre><code>    ```{r someLabel}
@@ -393,24 +393,24 @@ sudo yum install R    #### Redhat family (including Fedora)</code></pre>
     ``` </code></pre>
 </div>
 <div id="some-words-about-code-chunks" class="section level3">
-<h3>Some words about code chunks</h3>
+<h3><span class="header-section-number">3.4.3</span> Some words about code chunks</h3>
 <p>Have a look at the “Chunks” icon at the upper-right of the Rmd pane. Note, by the way, that there are <strong>numerous</strong> options that you can put on <code>{r}</code> line. The template Rmd file shows some options for figures. Have a look at:</p>
 <pre><code>http://yihui.name/knitr/options</code></pre>
 <p>for a detailed discussion. It’s good practice to always include a label for the code chunk, as with <code>someLabel</code> in the example above. This will make it easier for you to pinpoint mistakes (i.e., just in case you make any).</p>
 </div>
 <div id="r-markdown-reference" class="section level3">
-<h3>R Markdown reference</h3>
+<h3><span class="header-section-number">3.4.4</span> R Markdown reference</h3>
 <p>All this stuff is discussed very clearly at:</p>
 <pre><code>http://www.rstudio.com/ide/docs/authoring/using_markdown</code></pre>
 </div>
 <div id="summary" class="section level3">
-<h3>Summary</h3>
+<h3><span class="header-section-number">3.4.5</span> Summary</h3>
 <p>Once you have an R markdown file with at least one code chunk and, preferably, some discussion outside of the code chunk(s), you knit to HTML just as you did with the template file (called <code>junk.Rmd</code> in the example above). Again, this process creates a permanent file (<code>junk.html</code> in the example) in addition to the preview window. Here, “permanent” means that the file continues to exist even after you close the preview window, and you can view the file in your regular browser (Chrome, Firefox, Opera, etc.).</p>
 </div>
 </div>
 </div>
 <div id="the-simplest-use-of-r" class="section level1">
-<h1>The simplest use of R</h1>
+<h1><span class="header-section-number">4</span> The simplest use of R</h1>
 <p>Load the “.Rmd” version of this file into RStudio. Then place your cursor on each of the lines of code in turn inside the following “code chunk” and send each line to the R interpreter by typing:</p>
 <pre><code>CTRL-Enter (Windows/linux)
 Command-Enter (Macintosh)</code></pre>
@@ -424,9 +424,9 @@ Command-Enter (Macintosh)</code></pre>
 <p>Note that some of the above will be explained only later in the course. You should experiment with the code until you have a reasonable understanding of it.</p>
 </div>
 <div id="some-background-information-about-r" class="section level1">
-<h1>Some Background Information about R</h1>
+<h1><span class="header-section-number">5</span> Some Background Information about R</h1>
 <div id="r-is-an-interpreted-language" class="section level2">
-<h2>R is an <strong>Interpreted Language</strong></h2>
+<h2><span class="header-section-number">5.1</span> R is an <strong>Interpreted Language</strong></h2>
 <p>This means that users type expressions and see results immediately. For example:</p>
 <pre class="r"><code>    for(i in 1:10) { if(i%%2==0) print(i) }</code></pre>
 <pre><code>## [1] 2
@@ -441,12 +441,12 @@ Command-Enter (Macintosh)</code></pre>
 </ol>
 </div>
 <div id="r-is-high-level" class="section level2">
-<h2>R is <strong>High Level</strong></h2>
+<h2><span class="header-section-number">5.2</span> R is <strong>High Level</strong></h2>
 <p>It operates on complex data structures such as vectors, matrices, arrays, lists, dataframes, (all to be defined later) as opposed to C and Fortran, for instance, that operate on individual numbers only.</p>
 <p>This may seem awkward at first to C and C++ programmers.</p>
 </div>
 <div id="autoprinting" class="section level2">
-<h2><strong>Autoprinting</strong></h2>
+<h2><span class="header-section-number">5.3</span> <strong>Autoprinting</strong></h2>
 <p>In an interactive session, whatever is typed gets printed:</p>
 <pre class="r"><code>  2</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -462,7 +462,7 @@ Command-Enter (Macintosh)</code></pre>
 ## [24] 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40</code></pre>
 </div>
 <div id="syntax" class="section level2">
-<h2><strong>Syntax</strong></h2>
+<h2><span class="header-section-number">5.4</span> <strong>Syntax</strong></h2>
 <ol style="list-style-type: decimal">
 <li>R uses largely scientific/math notation; base 10.</li>
 <li>R has a wealth of functions (examples later).</li>
@@ -475,7 +475,7 @@ Command-Enter (Macintosh)</code></pre>
     &quot;   red   and   blue&quot;</code></pre>
 </div>
 <div id="more-syntax" class="section level2">
-<h2><strong>More Syntax</strong></h2>
+<h2><span class="header-section-number">5.5</span> <strong>More Syntax</strong></h2>
 <ol style="list-style-type: decimal">
 <li>Statements can run over multiple lines. Send the following lines to R:</li>
 </ol>
@@ -490,9 +490,9 @@ Command-Enter (Macintosh)</code></pre>
 </div>
 </div>
 <div id="basic-data-types" class="section level1">
-<h1>Basic Data Types</h1>
+<h1><span class="header-section-number">6</span> Basic Data Types</h1>
 <div id="double-precision" class="section level2">
-<h2>Double Precision</h2>
+<h2><span class="header-section-number">6.1</span> Double Precision</h2>
 <p>Numeric objects in R are double-precision (usually 64 bits or 8 bytes) by default. There is no single precision, and things that “look” like integers really are not – they’re double-precision, except as indicated below.</p>
 <p>Here are some examples of numeric objects in R:</p>
 <pre class="r"><code>  -2.000
@@ -513,7 +513,7 @@ Command-Enter (Macintosh)</code></pre>
   pi/2           # `pi` is the only hardwired constant: 3.14159...</code></pre>
 </div>
 <div id="integers" class="section level2">
-<h2>Integers</h2>
+<h2><span class="header-section-number">6.2</span> Integers</h2>
 <p>Numeric objects are double-precision by default, but it’s possible to create truly integer-valued objects in R. If you add an <code>L</code> to a numeric literal, you force it to be an integer. And some functions in R produce integer-valued results by default. Here are some examples:</p>
 <pre class="r"><code>  uuu &lt;- 7  ## a regular, double-precision numeric
   uuu
@@ -542,7 +542,7 @@ Command-Enter (Macintosh)</code></pre>
 <p>End of digression.</p>
 </div>
 <div id="strings" class="section level2">
-<h2>Strings</h2>
+<h2><span class="header-section-number">6.3</span> Strings</h2>
 <p>These are pieces of text, or “words”. They are delimited by single or double quotes, but the <code>print</code> function will show them with double quotes:</p>
 <pre class="r"><code>  'a'
   &quot;a&quot;
@@ -572,7 +572,7 @@ Command-Enter (Macintosh)</code></pre>
 <p>These are often used in examples and are sometimes used with the <code>paste</code> function to create labels, etc.</p>
 </div>
 <div id="logical" class="section level2">
-<h2>Logical</h2>
+<h2><span class="header-section-number">6.4</span> Logical</h2>
 <p>These are objects that can take on only two values: <code>TRUE</code> and <code>FALSE</code>.</p>
 <p><em>Note</em>: R recognizes <code>T</code> and <code>F</code> as synonyms for <code>TRUE</code> and <code>FALSE</code>. It’s a <em>bad idea</em> to use the short forms. (For one thing, you can <em>redefine</em> <code>T</code> and <code>F</code>. Try sending <code>T &lt;- 42</code> to R, for example.) Take the extra two seconds and type out the whole word. You’ll be glad you did.</p>
 <p>Another note: <code>TRUE</code> and <code>FALSE</code> are stored as the numbers <code>1</code> and <code>0</code>, respectively. This makes possible the seemingly dubious practice of doing arithmetic on logical objects.</p>
@@ -590,9 +590,9 @@ Command-Enter (Macintosh)</code></pre>
    FALSE + TRUE + TRUE + FALSE</code></pre>
 </div>
 <div id="missing-and-exceptional-values-na-nan-inf--inf" class="section level2">
-<h2>Missing and exceptional values: NA, NaN, Inf, -Inf</h2>
+<h2><span class="header-section-number">6.5</span> Missing and exceptional values: NA, NaN, Inf, -Inf</h2>
 <div id="missing-values" class="section level3">
-<h3>Missing values</h3>
+<h3><span class="header-section-number">6.5.1</span> Missing values</h3>
 <p>It is sometimes the case that some data are missing. You may ask R to read in a table of experimental results, where, by accident, some of the results have not been recorded;</p>
 <pre><code>    Name    Mass[kg]        Accel[m/s]
     Earth   5.98 * 10^24    9.81
@@ -606,7 +606,7 @@ Command-Enter (Macintosh)</code></pre>
 <p>will return <code>TRUE</code> if <code>x</code> has a value of <code>NA</code> and <code>FALSE</code> if it doesn’t.</p>
 </div>
 <div id="infinite-numbers" class="section level3">
-<h3>Infinite numbers</h3>
+<h3><span class="header-section-number">6.5.2</span> Infinite numbers</h3>
 <p>R will also deal gracefully with <code>infinite</code> numbers:</p>
 <pre class="r"><code>  x &lt;- 1 / 0
   x
@@ -614,7 +614,7 @@ Command-Enter (Macintosh)</code></pre>
   -3 / 0</code></pre>
 </div>
 <div id="numbers-that-just-dont-make-no-sense" class="section level3">
-<h3>Numbers that just don’t make no sense</h3>
+<h3><span class="header-section-number">6.5.3</span> Numbers that just don’t make no sense</h3>
 <p>But there are times, in mathematics and in R, where calculations lead to results that just don’t make sense in the normal framework. In such cases, R will assign a value of <code>NaN</code> (not a number):</p>
 <pre class="r"><code>  x &lt;- 0 / 0
   x</code></pre>
@@ -622,7 +622,7 @@ Command-Enter (Macintosh)</code></pre>
 </div>
 </div>
 <div id="r-is-a-functional-language" class="section level1">
-<h1>R is a Functional Language</h1>
+<h1><span class="header-section-number">7</span> R is a Functional Language</h1>
 <p>R is a functional language in what you might call the colloquial sense: it has built-in functions that return values, and you can define and use your own functions.</p>
 <pre class="r"><code>  x &lt;- sqrt(16)  ## `sqrt` is a built-in function
   y &lt;- x * 42    ## now using the result of the function call
@@ -636,20 +636,20 @@ Command-Enter (Macintosh)</code></pre>
   zFn(16)</code></pre>
 <p><strong>Note</strong>: we’ll discuss below in much greater detail the ways to define and use your own functions in R, but you can use the <code>zFn</code> example above as a template. (Or take a peek ahead if you want the details now.)</p>
 <div id="r-language-details-for-geeks--" class="section level2">
-<h2>R language details for geeks ;-)</h2>
+<h2><span class="header-section-number">7.1</span> R language details for geeks ;-)</h2>
 <p>This paragraph is essentially a digression, but people with an interest in, say, computer science, may have some interest in it. R also has attributes of a functional language in the technical sense. It was derived originally from Lisp. But R is clearly NOT a purely functional language: you can use R to generate plots, PDF files, etc., which are side-effects of function calls. It’s also the case that R incorporates (at least) three different paradigms, referred to as <code>S3</code>, <code>S4</code>, and <code>Reference Classes</code>, for doing object-oriented programming. (A <code>Reference Class</code> is actually a special kind of <code>S4</code> class.) We won’t be directly concerned with these in this class.</p>
 </div>
 </div>
 <div id="statementsexpressions" class="section level1">
-<h1>Statements/Expressions</h1>
+<h1><span class="header-section-number">8</span> Statements/Expressions</h1>
 <p>There are <strong>two types</strong> of expressions: <em>assignments</em> and <em>side effects</em>.</p>
 <div id="assignments" class="section level2">
-<h2>Assignments</h2>
+<h2><span class="header-section-number">8.1</span> Assignments</h2>
 <p>These expressions allocate data structures and make variables point to them.</p>
 <pre class="r"><code>  x &lt;- 1:3   # Allocate a vector 1,2,3 and make 'x' point to it.</code></pre>
 </div>
 <div id="side-effects" class="section level2">
-<h2>Side effects</h2>
+<h2><span class="header-section-number">8.2</span> Side effects</h2>
 <p>These are essentially display operations such as printing, plotting, showing help. Unlike assignments, they don’t change the computational state of the R system.</p>
 <pre class="r"><code>  x &lt;- 1:3
   x
@@ -660,7 +660,7 @@ Command-Enter (Macintosh)</code></pre>
   help(&quot;sqrt&quot;) # Ditto.</code></pre>
 </div>
 <div id="composite-statements" class="section level2">
-<h2>Composite Statements</h2>
+<h2><span class="header-section-number">8.3</span> Composite Statements</h2>
 <p>These are multiple statements, considered as one, enclosed in “curly braces”:</p>
 <pre class="r"><code>    { print(1)
       plot(1:10)
@@ -668,7 +668,7 @@ Command-Enter (Macintosh)</code></pre>
 <p>We saw an example of this in the function definition above, and it will also be needed in loops (discussed below). The notation is common to all “C-like” languages.</p>
 </div>
 <div id="various-forms-of-the-assignment-statement" class="section level2">
-<h2>Various forms of the assignment statement</h2>
+<h2><span class="header-section-number">8.4</span> Various forms of the assignment statement</h2>
 <p>Assignments to variables come in four equivalent syntactic forms:</p>
 <pre><code>  x &lt;- ...
   x = ...
@@ -685,14 +685,14 @@ Command-Enter (Macintosh)</code></pre>
   print(x)</code></pre>
 </div>
 <div id="no-type-declarations" class="section level2">
-<h2>No type declarations</h2>
+<h2><span class="header-section-number">8.5</span> No type declarations</h2>
 <p>Note that variables jump into existence upon assignment. Unlike C and Fortran, there is no need to declare variables. The variables are not “typed”; that is, any variable can point to data of any type, such as vectors, lists, matrices, …</p>
 </div>
 </div>
 <div id="getting-help" class="section level1">
-<h1>Getting Help</h1>
+<h1><span class="header-section-number">9</span> Getting Help</h1>
 <div id="rs-built-in-help-function" class="section level2">
-<h2>R’s built-in <code>help</code> function</h2>
+<h2><span class="header-section-number">9.1</span> R’s built-in <code>help</code> function</h2>
 <p>Once you’re in R, help(function) or help(“function”) shows the documentation for “function”.</p>
 <pre class="r"><code>  help(sqrt)  ## And from the &quot;See Also&quot; section of the output:
 
@@ -718,7 +718,7 @@ Command-Enter (Macintosh)</code></pre>
 <pre class="r"><code>  example(log)  ## examples of the use of the logarithm function</code></pre>
 </div>
 <div id="apropos" class="section level2">
-<h2>Apropos</h2>
+<h2><span class="header-section-number">9.2</span> Apropos</h2>
 <p>The <code>apropos</code> function in R is used to find functions related to some search term. For instance:</p>
 <pre class="r"><code>     apropos(&quot;char&quot;)</code></pre>
 <p>lists all functions whose names contain the string “char”.</p>
@@ -732,7 +732,7 @@ Command-Enter (Macintosh)</code></pre>
 </ol>
 </div>
 <div id="vignettes" class="section level2">
-<h2>Vignettes</h2>
+<h2><span class="header-section-number">9.3</span> Vignettes</h2>
 <p>There are sometimes extended discussions of packages in R (packages are discussed below). The extended discussions are referred to as “vignettes”.</p>
 <p>Here’s an example. Calling the <code>vignette()</code> function without an argument lists all the vignettes that are currently available on your system. Suppose you call <code>vignette()</code>, and you notice the following in the output from the function:</p>
 <pre><code>Vignettes in package ‘knitr’:
@@ -757,15 +757,15 @@ pdf)
 </div>
 </div>
 <div id="functions-arguments-and-other-details" class="section level1">
-<h1>Functions: arguments and other details</h1>
+<h1><span class="header-section-number">10</span> Functions: arguments and other details</h1>
 <div id="function-arguments" class="section level2">
-<h2>Function arguments</h2>
+<h2><span class="header-section-number">10.1</span> Function arguments</h2>
 <p>Sometimes even if you know the function you need, you still can’t remember the arguments to the function. One way to display the arguments is to use the <code>str</code> function. For example:</p>
 <pre class="r"><code>  str(rnorm)
   str(runif)</code></pre>
 </div>
 <div id="what-about-the-rest-of-the-function" class="section level2">
-<h2>What about the rest of the function?</h2>
+<h2><span class="header-section-number">10.2</span> What about the rest of the function?</h2>
 <p>You can find more information about functions just by typing their names:</p>
 <pre class="r"><code>  rnorm
   print(rnorm)  ## same
@@ -777,7 +777,7 @@ pdf)
 <p>to R to see an example of the latter.</p>
 </div>
 <div id="the-str-function-considered-useful" class="section level2">
-<h2>The <code>str</code> function considered useful</h2>
+<h2><span class="header-section-number">10.3</span> The <code>str</code> function considered useful</h2>
 <p>By the way, the function <code>str</code> is extremely useful for finding out details (the <em>str</em>ucture of) any R object:</p>
 <pre class="r"><code>  x &lt;- 1:5
   x
@@ -786,9 +786,9 @@ pdf)
 </div>
 </div>
 <div id="management-of-data-and-functions" class="section level1">
-<h1>Management of Data and Functions</h1>
+<h1><span class="header-section-number">11</span> Management of Data and Functions</h1>
 <div id="listing-r-objects-both-data-and-functions" class="section level2">
-<h2>Listing R objects, both data and functions</h2>
+<h2><span class="header-section-number">11.1</span> Listing R objects, both data and functions</h2>
 <p>Use either of:</p>
 <pre><code>  ls();  objects()
 </code></pre>
@@ -804,7 +804,7 @@ pdf)
 <p>etc., etc. Much more on this later.)</p>
 </div>
 <div id="removing-data-and-functions" class="section level2">
-<h2>Removing data and functions</h2>
+<h2><span class="header-section-number">11.2</span> Removing data and functions</h2>
 <p>Send the following code to R to see that R first creates a variable called <code>x</code> and asssigns a value to it, then removes that variable:</p>
 <pre class="r"><code>  x &lt;- 1:10
   x
@@ -813,53 +813,53 @@ pdf)
 </div>
 </div>
 <div id="packages-and-the-search-list" class="section level1">
-<h1>Packages and the <code>search</code> list</h1>
+<h1><span class="header-section-number">12</span> Packages and the <code>search</code> list</h1>
 <div id="general-discussion-of-packages" class="section level2">
-<h2>General discussion of packages</h2>
+<h2><span class="header-section-number">12.1</span> General discussion of packages</h2>
 <p>There are literally tens of thousands of functions, data sets, help files, and vignettes available in R. To make this enormous collection of information more manageable, <em>related</em> functions, data, and documents are commonly bundled together in a thing called a <strong>package</strong>. Imagine taking all the textbooks, class notes, exams, etc., from your last English class and putting them all in a box, marking ENGLISH on the outside of the box, and putting the box on a shelf in your closet. Next year, when one of your friends takes the same English class, you take down the box and hand it to your friend, to help him/her get through the class. A package in R serves roughly the same function.</p>
 </div>
 <div id="r-always-has-some-packages-loaded-available" class="section level2">
-<h2>R always has <em>some</em> packages loaded (available)</h2>
+<h2><span class="header-section-number">12.2</span> R always has <em>some</em> packages loaded (available)</h2>
 <div id="packages-loaded-by-default" class="section level3">
-<h3>Packages loaded by default</h3>
+<h3><span class="header-section-number">12.2.1</span> Packages loaded by default</h3>
 <p>You can see the list of packages that R loads by default (i.e., unless you tell it to do otherwise) by sending the following to R:</p>
 <pre class="r"><code>  getOption(&quot;defaultPackages&quot;)</code></pre>
 <p>(There’s actually another package, the <code>base</code> packages that’s <em>always</em> loaded, so the command above doesn’t list it.)</p>
 </div>
 </div>
 <div id="packages-loaded-now" class="section level2">
-<h2>Packages loaded <em>now</em></h2>
+<h2><span class="header-section-number">12.3</span> Packages loaded <em>now</em></h2>
 <p>To see what packages are currently loaded in <em>your</em> R session, send the following to R:</p>
 <pre class="r"><code>  search()</code></pre>
 </div>
 <div id="whats-in-a-given-package" class="section level2">
-<h2>What’s in a given package?</h2>
+<h2><span class="header-section-number">12.4</span> What’s in a given package?</h2>
 <p>The <code>search</code> command has given you a list of loaded packages. What’s in these packages? You can use the <code>ls</code> command to see the functions that are included in a package. For example, to see all functions that come with the base package of R:</p>
 <pre class="r"><code>  ls(&quot;package:base&quot;)</code></pre>
 </div>
 <div id="sorting-this-out-a-bit-more" class="section level2">
-<h2>Sorting this out a bit more</h2>
+<h2><span class="header-section-number">12.5</span> Sorting this out a bit more</h2>
 <p>If you’ve run the <code>ls</code> command above, you’ve seen that you get what you might call an embarrassment of riches: hundreds of functions names, but no clue as to what the functions do, except that function names usually give <em>some</em> clue about purpose of the function.</p>
 <p>You can get brief description of <em>some</em> of the functions in a package by using the <code>library</code> command:</p>
 <pre class="r"><code>  library(help=base)</code></pre>
 </div>
 <div id="what-else-does-library-do" class="section level2">
-<h2>What else does <code>library</code> do?</h2>
+<h2><span class="header-section-number">12.6</span> What else does <code>library</code> do?</h2>
 <p>A more-common use of the <code>library</code> command is to load additional packages into your R session. Send the following code to R and observe the results of the two <code>search</code> commands:</p>
 <pre class="r"><code>  search()
   library(parallel)
   search()</code></pre>
 </div>
 <div id="namespace" class="section level2">
-<h2>Namespace</h2>
+<h2><span class="header-section-number">12.7</span> Namespace</h2>
 <div id="general-remarks" class="section level3">
-<h3>General remarks</h3>
+<h3><span class="header-section-number">12.7.1</span> General remarks</h3>
 <p>Suppose you have <em>two</em> boxes in your closet, the one marked ENGLISH and one marked GEOLOGY. Your friend is taking both classes this quarter but has declined to borrow your boxes (no room in his/her apartment). He/she asks to see “Midterm 1”. Hmmm. Both of your classes had a “Midterm 1”. Which one to use?</p>
 <p>You would disambiguate by asking your friend: do you want “ENGLISH:Midterm 1” or “GEOLOGY:Midterm 1”?</p>
 <p>This is the idea of a <code>namespace</code>. Each package has its own set of variables that are distinct from the variables in other packages, <strong>even if the variables have the same name</strong>.</p>
 </div>
 <div id="searching-package-namespaces" class="section level3">
-<h3>Searching package namespaces</h3>
+<h3><span class="header-section-number">12.7.2</span> Searching package namespaces</h3>
 <p>When you refer to a variable (or function) in R, R goes through, in order, the packages listed by the <code>search</code> command and stops as soon as it finds a match.</p>
 <p>This means that a variable of a given name can “mask” a variable of the same name that occurs later in the search. Here’s an example in which a careless programmer uses <code>ls</code> as the name of a function and “masks” the function <code>ls</code> that appears in the <code>base</code> package:</p>
 <pre class="r"><code>  ls &lt;- function(x) x  #### NOT a good idea!
@@ -867,7 +867,7 @@ pdf)
   ls(&quot;package:base&quot;)   #### compare to the results above</code></pre>
 </div>
 <div id="dealing-with-namespace-collisions" class="section level3">
-<h3>Dealing with namespace “collisions”</h3>
+<h3><span class="header-section-number">12.7.3</span> Dealing with namespace “collisions”</h3>
 <p>How can we deal with this? There are two options:</p>
 <ul>
 <li>disambiguate using the name of the package (as for ENGLISH, etc., above)</li>
@@ -880,21 +880,21 @@ pdf)
 </div>
 </div>
 <div id="getting-into-and-out-of-r" class="section level1">
-<h1>Getting into and out of R</h1>
+<h1><span class="header-section-number">13</span> Getting into and out of R</h1>
 <div id="starting-r" class="section level2">
-<h2>Starting R</h2>
+<h2><span class="header-section-number">13.1</span> Starting R</h2>
 <p>When you’re using RStudio, you automatically have an R session running (in the lower-left portion of the screen). You can also start R from a terminal window (i.e., the command line) by typing:</p>
 <pre><code>R</code></pre>
 <p>The “R machinery” is <em>exactly the same</em> in both cases, but RStudio provides many additional bells and whistles.</p>
 </div>
 <div id="leaving-r" class="section level2">
-<h2>Leaving R</h2>
+<h2><span class="header-section-number">13.2</span> Leaving R</h2>
 <p>If you type:</p>
 <pre><code>q()</code></pre>
 <p>at the R prompt (“&gt;”) in any version of R, you will terminate the R session. You can do the same in RStudio by clicking on the window-close icon (usually an <code>x</code> located in one of the top corners of the screen).</p>
 </div>
 <div id="r-hates-to-say-goodbye" class="section level2">
-<h2>R hates to say goodbye</h2>
+<h2><span class="header-section-number">13.3</span> R hates to say goodbye</h2>
 <p>When you terminate an R session, R will ask you if you want to save the workspace. If you <em>do</em> save the workspace, R will create a file in your current working directory (“folder”) called:</p>
 <pre><code>.RData</code></pre>
 <p>that contains all the variables, functions, etc., that you currently have defined in your R session. Here’s a simple example from a command-line session of R:</p>
@@ -937,13 +937,13 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </code></pre>
 </div>
 <div id="to-save-or-not-to-save" class="section level2">
-<h2>To save or not to save</h2>
+<h2><span class="header-section-number">13.4</span> To save or not to save</h2>
 <p>In cases where you’re just doing some kind of exploratory work, you probably do <strong>not</strong> want to save your session. If you do save, when you start your next R session you’ll “inherit” all the mistakes, blind alleys, etc., that you went through in your previous session.</p>
 <p>But suppose, for instance, that you’ve finally figured out how to do the STA 032 homework, and you’ve been doing serious, useful R calculations for about two hours now. On your laptop. Wait. Are you running out of battery? No problem: just plug in your A/C adapter and you’re good to … <strong>Oh no!</strong> It’s back at the apartment! This might be a good time to exit R and save your work.</p>
 </div>
 </div>
 <div id="semantics" class="section level1">
-<h1>Semantics</h1>
+<h1><span class="header-section-number">14</span> Semantics</h1>
 <p>Every assignment in R creates a <em>copy</em> of the assigned object. The assignment is done “by value”, not “by reference” as in some other languages.</p>
 <p>The following code chunk demonstrates this feature.</p>
 <pre class="r"><code>  a &lt;- c(1,3,5) # 
@@ -958,12 +958,12 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   # Therefore, 'b' has its own copy.</code></pre>
 </div>
 <div id="operator-syntax-and-precedence" class="section level1">
-<h1>Operator syntax and precedence</h1>
+<h1><span class="header-section-number">15</span> Operator syntax and precedence</h1>
 <p>R has all the usual mathematical (and other) operators (<code>+</code>, <code>-</code>, <code>*</code>, etc.) and many not-so-usual operators. We’ll be introducing these as we need them, but you can find a summary on the “Syntax” help page:</p>
 <pre class="r"><code>  ?Syntax</code></pre>
 </div>
 <div id="vectors" class="section level1">
-<h1>Vectors</h1>
+<h1><span class="header-section-number">16</span> Vectors</h1>
 <p>The fundamental data type in R is the <strong>vector</strong>. It is an ordered collection of items, all of the <strong>same</strong> data type (numeric, logical, integer, etc.).</p>
 <p>We’ve already seen examples of vectors. The following code chunk shows a few more.</p>
 <pre class="r"><code>  c(1,3,4.5)   # Collect three numeric values in a vector.
@@ -972,20 +972,20 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   c(2.1,TRUE)     # Not an error.  Coercion of TRUE to 1.
   c(2,&quot;a&quot;,TRUE)   # Not an error.  Coercion of 2 and TRUE to strings.</code></pre>
 <div id="coercion" class="section level2">
-<h2>Coercion</h2>
+<h2><span class="header-section-number">16.1</span> Coercion</h2>
 <p>Note in this example, as in many places in R, if you enter the “wrong” type of argument, R assumes you <em>meant</em> to do that and will try to convert data types as necessary to make things work out (“work out” in this case meaning “have all items of the same data type”). This conversion among data types is usually referred to as <code>coercion</code> in R.</p>
 <p>If the items are not of the same type, they are coerced as follows:</p>
 <pre><code>  string &lt;-- numeric &lt;-- logical
 </code></pre>
 </div>
 <div id="a-peek-ahead-lists" class="section level2">
-<h2>A peek ahead: lists</h2>
+<h2><span class="header-section-number">16.2</span> A peek ahead: lists</h2>
 <p>Note that if you have a situation in which you <em>need</em> to have disparate data types in a single data structure, you can use a generalized form of vector, called a <strong>list</strong>. These are discussed below.</p>
 <p>You might be wondering why we bother at all to use vectors when lists are obviously “better”. There are good reasons, and they are discussed below.</p>
 </div>
 </div>
 <div id="indexing-and-subsetting-vectors" class="section level1">
-<h1>Indexing and subsetting vectors</h1>
+<h1><span class="header-section-number">17</span> Indexing and subsetting vectors</h1>
 <p>R has a very powerful set of tools for getting at the elements of a vector (and other data structures):</p>
 <ul>
 <li>selection/mapping with positive integer indices</li>
@@ -994,7 +994,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <li>selection by name when vector entries are named (“associative array”)</li>
 </ul>
 <div id="numeric-indices" class="section level2">
-<h2>Numeric indices</h2>
+<h2><span class="header-section-number">17.1</span> Numeric indices</h2>
 <p>Note that vectors in R are ONE-based (unlike C, but like Fortran), meaning simply that you refer to the initial value of the vector with index <code>1</code>, and <em>not</em> index <code>0</code>. (You might argue that this is the “natural” way of counting: you call the first element “element 1”. But there are advantages to using the “unnatural” way, starting at 0.)</p>
 <p>Here are some examples of indexing and subsetting a vector:</p>
 <pre class="r"><code>  a &lt;- c(1,3,5)
@@ -1010,7 +1010,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>In the last example we’re telling R: give me the first element of <code>a</code>, then the second element, then the first element again, then the second element again, etc., and R happily obliges.</p>
 </div>
 <div id="exclusions-with-negative-numeric-indices" class="section level2">
-<h2>Exclusions with negative numeric indices</h2>
+<h2><span class="header-section-number">17.2</span> Exclusions with negative numeric indices</h2>
 <p>Giving R a negative index to a vector tells R to <em>exclude</em> that element (as distinct from Python, for instance, where a negative index <em>selects</em> a particular element).</p>
 <pre class="r"><code>  a &lt;- c(1,3,5)
   b &lt;- c(1, 3)
@@ -1022,7 +1022,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   a[c(-1,-2,-3)]   ## Nothing left.</code></pre>
 </div>
 <div id="logical-selection" class="section level2">
-<h2>Logical selection</h2>
+<h2><span class="header-section-number">17.3</span> Logical selection</h2>
 <p>If you index a vector in R with a collection of TRUE/FALSE values, R will return just the elements of the vector whose positions match the positions of the TRUE values in the index. As you’ll see, this is a powerful tool. Here are some examples:</p>
 <pre class="r"><code>  a &lt;- c(1,3,5)
   b &lt;- c(1, 3)
@@ -1048,7 +1048,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   (1:12)[c(TRUE,TRUE,FALSE)] # recycle (and leave out every third item)</code></pre>
 </div>
 <div id="repeated-indexing" class="section level2">
-<h2>Repeated indexing</h2>
+<h2><span class="header-section-number">17.4</span> Repeated indexing</h2>
 <p>Vectors can be indexed repeatedly. Here are some examples:</p>
 <pre class="r"><code>  a &lt;- c(1, 3, 5)
   b &lt;- c(1, 3)
@@ -1060,7 +1060,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   a[c(1, 3)][c(1, 2, 1, 2)]</code></pre>
 </div>
 <div id="vector-indexing-and-subsetting-used-for-assignment" class="section level2">
-<h2>Vector indexing and subsetting used for assignment</h2>
+<h2><span class="header-section-number">17.5</span> Vector indexing and subsetting used for assignment</h2>
 <p>Vector indexing and subsetting can be used for assignment. Here are some examples:</p>
 <pre class="r"><code>  a &lt;- c(1,3,5)
   b &lt;- c(1, 3)
@@ -1080,14 +1080,14 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="some-functions-that-create-vectors" class="section level1">
-<h1>Some functions that create vectors</h1>
+<h1><span class="header-section-number">18</span> Some functions that create vectors</h1>
 <p>We’ve already seen numerous examples of creating a vector using the <code>c</code> function. Here are some other ways to create vectors.</p>
 <div id="the-c-function-or-manual-entry" class="section level2">
-<h2>The <code>c</code> function (or “manual entry”)</h2>
+<h2><span class="header-section-number">18.1</span> The <code>c</code> function (or “manual entry”)</h2>
 <pre class="r"><code>  x &lt;- c(-1,2,5)  ## the &quot;usual&quot; way (so far)</code></pre>
 </div>
 <div id="sequences-of-equally-spaced-numbers" class="section level2">
-<h2>Sequences of equally spaced numbers</h2>
+<h2><span class="header-section-number">18.2</span> Sequences of equally spaced numbers</h2>
 <pre class="r"><code>  3:10
   10:3
   seq(3, 10)           # where to start, where to stop
@@ -1095,12 +1095,12 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   seq(3, 10, len=4)    # where to start, where to stop, how many?
   seq(letters)         # List of indexes into 'letters'</code></pre>
 <div id="digression-on-data-type" class="section level3">
-<h3>Digression on data type</h3>
+<h3><span class="header-section-number">18.2.1</span> Digression on data type</h3>
 <p>Note that two of the sequences above are “numeric”, i.e., double-precision floating-point. The rest are integers. One of the numeric sequences is obvious. But the other one “looks” like a bunch of integers. Can you tell which it is? (Hint: the <code>str</code> function) This is sometimes important, as you <strong>cannot reliably test two floating-point numbers for equality</strong>.</p>
 </div>
 </div>
 <div id="repetitions" class="section level2">
-<h2>Repetitions</h2>
+<h2><span class="header-section-number">18.3</span> Repetitions</h2>
 <pre class="r"><code>  rep(3, 10)
   rep(1:3, 5)
   #     Here is something more complex that &quot;rep&quot; can also do:
@@ -1114,7 +1114,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Again, note the varying data types in the above.</p>
 </div>
 <div id="miscellaneous-ways-of-generating-vectors" class="section level2">
-<h2>Miscellaneous ways of generating vectors</h2>
+<h2><span class="header-section-number">18.4</span> Miscellaneous ways of generating vectors</h2>
 <p>There are many other functions in R that you can use to create vectors. Here is a potpourri of some of those functions. We’ll discuss these functions in context later in the course.</p>
 <pre class="r"><code>    #   Random numbers:
   x &lt;- runif(5) # Five uniform random numbers in [0,1]
@@ -1131,7 +1131,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="automatic-vector-extension" class="section level1">
-<h1>Automatic vector extension</h1>
+<h1><span class="header-section-number">19</span> Automatic vector extension</h1>
 <p>You may be used to seeing in other languages errors generated when you try to index beyond the limits of an array. Here’s an example from Python:</p>
 <pre><code>
   $ python
@@ -1163,7 +1163,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p><em>Note</em>: Automatic vector extension makes vectors very different from <em>matrices</em> and <em>arrays</em> (discussed below), for which automatic extension does <strong>not</strong> exist.</p>
 </div>
 <div id="named-vector-elements" class="section level1">
-<h1>Named vector elements</h1>
+<h1><span class="header-section-number">20</span> Named vector elements</h1>
 <p>It is possible to <em>name</em> the elements of a vector, either as part of the definition of a vector, or after the fact:</p>
 <pre class="r"><code>  x &lt;- c(first=1, second=3, third=5, fourth=7)
   x
@@ -1194,7 +1194,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>We’ll discuss both <code>sample</code> and <code>table</code> in much more detail later, but the example above is just “randomly” grabbing 1000 lower-case letters and keeping track (via the <code>table</code> function) of the number of <code>a</code>’s, the number of <code>b</code>’s, etc.</p>
 </div>
 <div id="vectors-with-named-elements-as-associative-arrays" class="section level1">
-<h1>Vectors with named elements as associative arrays</h1>
+<h1><span class="header-section-number">21</span> Vectors with named elements as associative arrays</h1>
 <p>Vectors with named elements in R can be used to create a limited form of “associative arrays”:</p>
 <pre><code>http://en.wikipedia.org/wiki/Associative_array</code></pre>
 <p>(These are referred to as <em>dictionaries</em> in Python and as <em>maps</em> in C++., for instance.)</p>
@@ -1213,9 +1213,9 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   salaries[2]</code></pre>
 </div>
 <div id="ranking-sorting-reversing-permuting" class="section level1">
-<h1>Ranking, sorting, reversing, permuting</h1>
+<h1><span class="header-section-number">22</span> Ranking, sorting, reversing, permuting</h1>
 <div id="basic-sorting" class="section level2">
-<h2>Basic sorting</h2>
+<h2><span class="header-section-number">22.1</span> Basic sorting</h2>
 <p>As in most languages, sorting is important in R. Here are some functions that are used in the context of sorting.</p>
 <pre class="r"><code>  x &lt;- c(5:1, 5:10)  ## unsorted vector
   x
@@ -1225,7 +1225,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   rev(x)   ## reverse the order of the entries in x</code></pre>
 </div>
 <div id="permutations-and-other-uses-of-sample" class="section level2">
-<h2>Permutations and other uses of <code>sample</code></h2>
+<h2><span class="header-section-number">22.2</span> Permutations and other uses of <code>sample</code></h2>
 <p>Something like the opposite of sorting, a “permutation” is a (potentially) scrambled listing of the elements of a vector. Permutations are important in probability, and it’s somewhat surprising that R has no built-in <code>permutation</code> function. The rationale may be that the built-in function <code>sample</code> will produce a permutation.</p>
 <p>The <code>sample</code> function is one of the more-important functions that we’ll encounter in this course. We’ve seen an example of it above. Here are some more examples:</p>
 <pre class="r"><code>  x &lt;- c(5:1, 5:10)  ## unsorted vector
@@ -1234,7 +1234,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   sample(x, size=100) ## generates error.  Why?</code></pre>
 </div>
 <div id="the-order-function" class="section level2">
-<h2>The <code>order</code> function</h2>
+<h2><span class="header-section-number">22.3</span> The <code>order</code> function</h2>
 <p>From the R help page:</p>
 <pre><code>  `order` returns a permutation which rearranges its first argument into
   ascending or descending order, breaking ties by further arguments.
@@ -1269,7 +1269,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="simple-statistics" class="section level1">
-<h1>Simple statistics</h1>
+<h1><span class="header-section-number">23</span> Simple statistics</h1>
 <p>R has many functions for doing statistics (duh!). Here are some of the common ones:</p>
 <pre class="r"><code>  x &lt;- runif(10, min=0, max=5) ## generate some numbers for the things below
   length(x)
@@ -1284,7 +1284,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>We’ll discuss these in context later in the course.</p>
 </div>
 <div id="cumulative-operations" class="section level1">
-<h1>Cumulative operations</h1>
+<h1><span class="header-section-number">24</span> Cumulative operations</h1>
 <p>R has some useful functions for computing cumulative values, e.g., a running sum of a series of numbers. Here are some examples:</p>
 <pre class="r"><code>  x &lt;- 1:10
   x
@@ -1296,7 +1296,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   cummin(x)</code></pre>
 </div>
 <div id="simple-numeric-functionstransformations-vectorization" class="section level1">
-<h1>Simple numeric functions/transformations; vectorization</h1>
+<h1><span class="header-section-number">25</span> Simple numeric functions/transformations; vectorization</h1>
 <p>R has built-in functions for doing all of the usual mathematical operations (square root, cosine, etc., etc.). An unusual feature of the R implementation of these functions is that most of them (and many other functions in R) are automatically “vectorized”: if you give one of these functions an argument that is a vector containing, say, seven items, you’ll get back an answer containing seven items. Here are some concrete examples:</p>
 <pre class="r"><code>  x &lt;- runif(20, min=-10, max=+10)
   x
@@ -1326,7 +1326,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   pi / 3</code></pre>
 </div>
 <div id="matrices" class="section level1">
-<h1>Matrices</h1>
+<h1><span class="header-section-number">26</span> Matrices</h1>
 <p>Matrices have many uses in theoretical and applied statistics. See, for instance:</p>
 <pre><code>http://en.wikipedia.org/wiki/Matrix_(mathematics)</code></pre>
 <p>for a quick overview.</p>
@@ -1335,7 +1335,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>The elements of a matrix fill in column by column (so-called <strong>column-major order</strong>), as in Fortran, but unlike C and C++ (that use row-major order). On the other hand, there <em>are</em> ways to tell R that you want to fill in row by row.</p>
 <p>Note also that you can change the <em>shape</em> of a given vector or matrix, i.e., make it “fatter” or “thinner”, “shorter” or “taller”, by supplying new values for the number of rows and columns. This will <em>not</em> change the order of the elements within the matrix.</p>
 <div id="creating-a-matrix-by-hand" class="section level2">
-<h2>Creating a matrix “by hand”</h2>
+<h2><span class="header-section-number">26.1</span> Creating a matrix “by hand”</h2>
 <p>Here are some examples:</p>
 <pre class="r"><code>  aDozen &lt;- 1:12  ## a vector of integer objects
   matrix(aDozen, ncol=4)  ## reshape into a matrix with 4 columns
@@ -1351,7 +1351,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   matrix(paste(&quot;UCD&quot;,letters), ncol=2)  ## same but paste in a prefix</code></pre>
 </div>
 <div id="reading-a-matrix-from-a-file" class="section level2">
-<h2>Reading a matrix from a file</h2>
+<h2><span class="header-section-number">26.2</span> Reading a matrix from a file</h2>
 <p>You can read data into a matrix from a text file. You’d typically need to tell R to insert the data by row, and you might need to tell R to skip the first line of the file, if that line is just a header (and not data).</p>
 <pre><code>
   myMat &lt;- matrix(scan(&quot;laser.dat&quot;,  ## need to have file &quot;laser.dat&quot; first!
@@ -1363,7 +1363,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Later we’ll see a more convenient way to read tabular data (<code>read.table()</code> and related functions).</p>
 </div>
 <div id="is-this-object-a-matrix" class="section level2">
-<h2>Is this object a matrix?</h2>
+<h2><span class="header-section-number">26.3</span> Is this object a matrix?</h2>
 <p>Sometimes we encounter objects in R that look like matrices but aren’t. Doing matrix-like operations on them would result in an error. But you can check first:</p>
 <pre class="r"><code>  is.matrix(matrix(1:12, 3))
   is.matrix(1:12)
@@ -1376,7 +1376,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   is.matrix(matrix(0, nrow=3, ncol=5))  # tautology</code></pre>
 </div>
 <div id="a-vector-by-any-other-name-would-be-a-matrix" class="section level2">
-<h2>A vector by any other name would … be a matrix?</h2>
+<h2><span class="header-section-number">26.4</span> A vector by any other name would … be a matrix?</h2>
 <p>As we discussed above, a matrix is just a vector with an additional attribute: the <code>dimension</code>:</p>
 <pre class="r"><code>  myMat &lt;- matrix(as.numeric(1:12), nrow=3)  ## force to double precision
   dim(myMat)     ## Vector of length 12 with the two dimensions.
@@ -1387,7 +1387,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   ncol(myMat)</code></pre>
 </div>
 <div id="vector-to-matrix-and-back-again" class="section level2">
-<h2>Vector to matrix and back again</h2>
+<h2><span class="header-section-number">26.5</span> Vector to matrix and back again</h2>
 <p>A vector can be turned into a matrix by assigning the dimension attribute. And a matrix can be turned back into a vector by removing that attribute.</p>
 <pre class="r"><code>  myMat &lt;- 1:12        # Just a vector (despite the name!)
   myMat
@@ -1399,7 +1399,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   is.matrix(myMat)     # Check it again (it's FALSE)</code></pre>
 </div>
 <div id="names-for-the-rows-and-columns" class="section level2">
-<h2>Names for the rows and columns</h2>
+<h2><span class="header-section-number">26.6</span> Names for the rows and columns</h2>
 <p>By default, R refers to the elements of a matrix numerically, i.e., <code>myMat[2, 3]</code>. But it’s sometimes convenient to have more-descriptive identifiers, such as “Height” and “Weight” for the columns and “Name” for the rows. Here’s an example where we’re simply using the alphabet for the identifiers.</p>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, nrow=3)  ## ncol has to be 4
   myMat
@@ -1412,7 +1412,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   rownames(myMat)</code></pre>
 </div>
 <div id="indexing-and-subsetting-a-matrix-by-rows-and-columns" class="section level2">
-<h2>Indexing and subsetting a matrix by rows and columns</h2>
+<h2><span class="header-section-number">26.7</span> Indexing and subsetting a matrix by rows and columns</h2>
 <p>It’s possible to subset a matrix. This is best explained by examples. Note that this is generally <em>not</em> the same as similar-looking operations in C.</p>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, ncol=4)
   myMat
@@ -1438,7 +1438,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   str(myMat[c(&quot;A&quot;, &quot;C&quot;), &quot;a&quot;, drop=FALSE])</code></pre>
 </div>
 <div id="a-vector-is-a-vector" class="section level2">
-<h2>A vector is a vector</h2>
+<h2><span class="header-section-number">26.8</span> A vector is a vector</h2>
 <p>As in the example above, selecting an individual row or column of a matrix will generate a vector that doesn’t “know” it was once a row or column of a matrix. R has no concept of column vectors or row vectors.</p>
 <p>But you can force the issue by turning such vectors into Nx1 or 1xN matrices, or you can use the <code>drop</code> argument (as above).</p>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, ncol=4)
@@ -1455,7 +1455,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   is.matrix(myMat[ ,1, drop=FALSE])</code></pre>
 </div>
 <div id="indexingsubsetting-can-be-used-for-assignment" class="section level2">
-<h2>Indexing/subsetting can be used for assignment</h2>
+<h2><span class="header-section-number">26.9</span> Indexing/subsetting can be used for assignment</h2>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, ncol=4)
   myMat
 
@@ -1472,7 +1472,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   myMat</code></pre>
 </div>
 <div id="associative-array-feature-for-matrices" class="section level2">
-<h2>Associative-array feature for matrices</h2>
+<h2><span class="header-section-number">26.10</span> Associative-array feature for matrices</h2>
 <p>If you have set up the appropriate names for the rows and/or columns of a matrix, you can use the names for indexing and subsetting.</p>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, ncol=4)
   myMat
@@ -1489,7 +1489,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
         c(&quot;c&quot;, &quot;a&quot;, &quot;a&quot;)]   # col-row rearrangement</code></pre>
 </div>
 <div id="column-and-row-binding" class="section level2">
-<h2>Column and row binding</h2>
+<h2><span class="header-section-number">26.11</span> Column and row binding</h2>
 <p>R has functions that let you aggregate a collection of vectors into a matrix: <code>rbind</code> and <code>cbind</code>. Some simple examples:</p>
 <pre class="r"><code>  x &lt;- c(3, 1, 4, 1, 5)            # Play data.
   cbind(1:5, x, x, rep(10,5))      # Column binding.
@@ -1511,7 +1511,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   cbind(myMat1, myMat2)                    # 3x5</code></pre>
 </div>
 <div id="coercion-of-matrices-to-vectors" class="section level2">
-<h2>Coercion of matrices to vectors</h2>
+<h2><span class="header-section-number">26.12</span> Coercion of matrices to vectors</h2>
 <p>A matrix can always be treated as a vector. The following displays the first five elements of a matrix and does not generate an error message:</p>
 <pre class="r"><code>  myMat &lt;- matrix(1:12, nrow=3)
   myMat
@@ -1519,7 +1519,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Recall that R stores data in matrices in column-major order.</p>
 </div>
 <div id="generating-patterned-matrices" class="section level2">
-<h2>Generating patterned matrices</h2>
+<h2><span class="header-section-number">26.13</span> Generating patterned matrices</h2>
 <pre class="r"><code>  diag(5)  ## unit matrix is assumed if row/col not specified
   diag(5, nrow=3, ncol=4)  ## row/col changes behavior!
   outer(1:3, 1:4)  ## products of all combinations of 1st arg and 2nd arg
@@ -1535,7 +1535,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="arrays-the-generalization-of-matrices-to-more-than-2-indexes" class="section level1">
-<h1>Arrays: the generalization of matrices to more than 2 indexes</h1>
+<h1><span class="header-section-number">27</span> Arrays: the generalization of matrices to more than 2 indexes</h1>
 <p>Suppose we’re interested in studying rainfall totals for California cities over a period of years. We find a source for the data we want, and it has a table similar to the following for <strong>every</strong> year for the past <code>50</code> years. (Table is abbreviated for simplicity.)</p>
 <table>
 <thead>
@@ -1601,7 +1601,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   a[ , 2:3, c(1, 4)]  ## all rows, columns 2 &amp; 3, planes 1 and 4</code></pre>
 </div>
 <div id="lists" class="section level1">
-<h1>Lists</h1>
+<h1><span class="header-section-number">28</span> Lists</h1>
 <p>Recall that vectors and matrices can contain only <strong>one</strong> basic data type: all numeric <em>or</em> all logical <em>or</em> all string, etc.</p>
 <pre class="r"><code>  matrix(c(TRUE, FALSE), nrow=4, ncol=4)  ## all logical
   matrix(paste(LETTERS, letters)[1:25], nrow=5)  ## all strings
@@ -1649,7 +1649,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <pre class="r"><code>  list(1, TRUE)
   list(a=1, b=TRUE)</code></pre>
 <div id="access-to-list-items" class="section level2">
-<h2>Access to list items</h2>
+<h2><span class="header-section-number">28.1</span> Access to list items</h2>
 <p>Access to <em>list items</em> is by index with “[[…]]”, or by “$name” if names exist:</p>
 <pre class="r"><code>  myList &lt;- list(vec=1:3,
                  mat=cbind(1:2, 3:4),
@@ -1673,7 +1673,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>You might think of the “[…]” as returning a “box of stuff”. The double bracket, “[[…]]” tells R to “look inside the box”. In the example above you can see that <code>myList[&quot;vec&quot;]</code> is still a list, while <code>myList[[&quot;vec&quot;]]</code> is the contents of that list.</p>
 </div>
 <div id="access-to-sublists" class="section level2">
-<h2>Access to sublists</h2>
+<h2><span class="header-section-number">28.2</span> Access to sublists</h2>
 <p>A list is really a generalized form of vector, and, as such, the indexing techniques used for vectors can also be applied to lists, keeping in mind the distinction between “box” and “stuff in the box” mentioned above. Here are some more examples:</p>
 <pre class="r"><code>  myList &lt;- list(vec=1:3,
                  mat=cbind(1:2, 3:4),
@@ -1690,7 +1690,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   myList[c(TRUE, FALSE, TRUE, FALSE)]   # Logical selection</code></pre>
 </div>
 <div id="sublists-are-still-lists" class="section level2">
-<h2>Sublists are still lists</h2>
+<h2><span class="header-section-number">28.3</span> Sublists are still lists</h2>
 <p>If you use indexing to pick off a sublist from a list, you still have to use the list indexing described above to drill down to the contents of the sublist. Here are some examples:</p>
 <pre class="r"><code>  myList &lt;- list(vec=1:3,
                  mat=cbind(1:2, 3:4),
@@ -1707,9 +1707,9 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="dataframes" class="section level1">
-<h1>Dataframes</h1>
+<h1><span class="header-section-number">29</span> Dataframes</h1>
 <div id="background" class="section level2">
-<h2>Background</h2>
+<h2><span class="header-section-number">29.1</span> Background</h2>
 <p>In statistics we often encounter studies that include sets of data in the form of rectangular tables, with each row of the table representing a set of observations for one person or thing (the “case”) and each column representing a set of measured or observed values for the variables in the study.</p>
 <p>Here’s a snippet of such a table that illustrates the idea:</p>
 <pre><code>
@@ -1759,7 +1759,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>The answer is to use a <em>dataframe</em>, which is an R structure that <em>looks</em> something like a matrix, but with the flexibility to have different data types in different columns. The columns are actually stored as lists.</p>
 </div>
 <div id="making-a-data-frame-by-hand" class="section level2">
-<h2>Making a data frame “by hand”</h2>
+<h2><span class="header-section-number">29.2</span> Making a data frame “by hand”</h2>
 <p>The function “data.frame()” can bundle conforming vectors, matrices, other dataframes into a single dataframe:</p>
 <pre class="r"><code>  myFrame &lt;- data.frame(someNumbers=1:3,
                         someCharacters=c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;),
@@ -1781,7 +1781,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   str(someDF)</code></pre>
 </div>
 <div id="operations-on-dataframes" class="section level2">
-<h2>Operations on dataframes</h2>
+<h2><span class="header-section-number">29.3</span> Operations on dataframes</h2>
 <p>Many of the operations we’ve discussed above for matrices carry over to dataframes:</p>
 <pre class="r"><code>  newFrame &lt;- data.frame(someNumbers=1:3,
                         someCharacters=c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;),
@@ -1803,7 +1803,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Why is <code>newFrame[2, ]</code> not coerced to a vector? Because the items in the different columns in row <code>2</code> might in general not all be of the same data type (and in fact in this case they are <em>not</em> of the same data type).</p>
 </div>
 <div id="it-sometimes-looks-like-a-matrix-but-it-isnt" class="section level2">
-<h2>It sometimes looks like a matrix, but it isn’t</h2>
+<h2><span class="header-section-number">29.4</span> It sometimes looks like a matrix, but it isn’t</h2>
 <p>We haven’t discussed matrix multiplication yet, and we likely won’t use it in this course, but it <em>is</em> possible to do linear-algebra-style matrix multiplication in R:</p>
 <pre class="r"><code>  aMat &lt;- rbind(c(1, 0, -2), c(0, 3, -1))
   aMat
@@ -1817,7 +1817,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   aFrame %*% bMat  ## generates an error: a data frame is not a matrix</code></pre>
 </div>
 <div id="making-a-dataframe-from-other-data-sources" class="section level2">
-<h2>Making a dataframe from other data sources</h2>
+<h2><span class="header-section-number">29.5</span> Making a dataframe from other data sources</h2>
 <p>The function <code>read.table()</code> will read a table from a text file into a dataframe. Here’s a simple example. First, here are the contents of a file, <code>atable.dat</code> as seen by the file system outside of R:</p>
 <pre><code>  $ cat atable.dat ## &quot;cat&quot; is used to display the contents of a file
     Id Age  Weight Height  Gender Smoker
@@ -1854,7 +1854,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   str(myNewTable)</code></pre>
 </div>
 <div id="sorting-a-data-frame" class="section level2">
-<h2>Sorting a data frame</h2>
+<h2><span class="header-section-number">29.6</span> Sorting a data frame</h2>
 <p>In a previous section we noted that the <code>order()</code> function is useful in sorting matrices and data frames. We’re now in a position to give an example of that.</p>
 <p>In the following example, we’re given a data frame containing some information about a few people. (For simplicity we’re constructing the data frame in the example, but you can imagine we got the data from some outside source, so that we have no control over the initial format.)</p>
 <p>Suppose that we wish to sort the data frame according to the heights of the people in the data frame. We can pull the heights out of the data frame, but then what? It might be an interesting exercise to try to find another way to do this, but the canonical approach is to use the <code>order()</code> function:</p>
@@ -1876,11 +1876,11 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="flow-control-conditionals-and-loops" class="section level1">
-<h1>Flow control: conditionals and loops</h1>
+<h1><span class="header-section-number">30</span> Flow control: conditionals and loops</h1>
 <p>R has the kinds of conditional and looping statements that you would expect to find in a “C-like” language, along with some you might not expect. R also has a family of functions (the “apply” family – see below) that (a) are in most cases better to use for looping than the “C-like” constructs and (b) are similar in spirit to the “transform” function, for instance, in the C++ standard library.</p>
 <p><strong>Note</strong>: you don’t have to know anything about C or C++ to understand and use these features of R.</p>
 <div id="making-decisions-the-if-statement" class="section level2">
-<h2>Making decisions: the <code>if</code> statement</h2>
+<h2><span class="header-section-number">30.1</span> Making decisions: the <code>if</code> statement</h2>
 <p>You use the <code>if</code> statement as follows:</p>
 <pre><code>
   if (condition is true)
@@ -1934,7 +1934,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </code></pre>
 </div>
 <div id="something-a-little-different-the-ifelse-function" class="section level2">
-<h2>Something a little different: the <code>ifelse</code> function</h2>
+<h2><span class="header-section-number">30.2</span> Something a little different: the <code>ifelse</code> function</h2>
 <p>We’ve been talking about <code>if</code> and <code>else</code> clauses in R. These are flow-control constructs. R also has <em>function</em> called <code>ifelse()</code> that is really a combination of looping and conditional statements rolled into one.</p>
 <p>And like many other functions in R, <code>ifelse()</code> is <em>vectorized</em>, meaning it can operate on all elements of a vector “at once” (at least from the perspective of the programmer – the code may or may not run all at the same time on the actual hardware).</p>
 <p>Here’s are some examples:</p>
@@ -1953,7 +1953,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   ifelse(tosses &gt; 0.5, &quot;Heads&quot;, &quot;Tails&quot;) ## recycle to 10 Heads, 10 Tails</code></pre>
 </div>
 <div id="the-for-loop" class="section level2">
-<h2>The <code>for</code> loop</h2>
+<h2><span class="header-section-number">30.3</span> The <code>for</code> loop</h2>
 <p>The <code>for</code> loop executes a statement, usually a compound (<code>{...}</code>) statement, once for every item in a given vector. It has the general form:</p>
 <pre><code>
   for (dummyName in someExpression) someOtherExpression
@@ -1971,7 +1971,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>This is discussed in more detail below.</p>
 </div>
 <div id="the-while-loop" class="section level2">
-<h2>The <code>while</code> loop</h2>
+<h2><span class="header-section-number">30.4</span> The <code>while</code> loop</h2>
 <p>The <code>while</code> loop is a first cousin to the <code>for</code> loop (and one can be formulated in terms of the other). The general syntax is:</p>
 <pre><code>
   while (someExpressionEvaluatesToTRUE) someOtherExpression
@@ -1987,7 +1987,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p><em>Note</em>: the <code>paste</code> function in the example above does just what the name implies: it “pastes” together a bunch of strings, converting the arguments to strings in the process as necessary (e.g., converting the <code>howMany</code> numeric to a string in the above). Using <code>paste</code> is a simple way to format your output.</p>
 </div>
 <div id="the-next-and-break-commands" class="section level2">
-<h2>The <code>next</code> and <code>break</code> commands</h2>
+<h2><span class="header-section-number">30.5</span> The <code>next</code> and <code>break</code> commands</h2>
 <p>If you <em>do</em> find that you have to use explicit loops (<code>for</code> or <code>while</code>) in R, you may also find that you need to alter the program flow, based on some computed condition. R has a number of constructs to do this, the most common of which are <code>next</code> and <code>break</code>.</p>
 <p>The <code>next</code> command tells R to proceed with the next step in the iteration, if there is one. Here’s an example in which we want to print out only the odd numbers in a sequence:</p>
 <pre class="r"><code>  for (aNum in 1:20) {
@@ -1997,7 +1997,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Of course we could have done the same thing in numerous other ways, but this illustrates the idea: if the number is even, just go on to the next number in the <code>aNum</code> vector.</p>
 </div>
 <div id="the-repeat-loop" class="section level2">
-<h2>The <code>repeat</code> loop</h2>
+<h2><span class="header-section-number">30.6</span> The <code>repeat</code> loop</h2>
 <p>The <code>repeat</code> loop will just go on forever unless it contains some code to break out of the loop. Here’s a toy example, just to illustrate the concept:</p>
 <pre class="r"><code>  nextNum &lt;- 0
   repeat { 
@@ -2017,10 +2017,10 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="writing-functions" class="section level1">
-<h1>Writing functions</h1>
+<h1><span class="header-section-number">31</span> Writing functions</h1>
 <p>We’ve already had one <em>ad hoc</em> example of defining and using your own function in R (the <code>zFn</code> example above). Now we want to explore the topic systematically.</p>
 <div id="syntax-1" class="section level2">
-<h2>Syntax</h2>
+<h2><span class="header-section-number">31.1</span> Syntax</h2>
 <p>Here’s a simple example showing the <em>syntax</em> (“grammar”) of some functions:</p>
 <pre class="r"><code>  myFn1 &lt;- function(x) {
       plot(x)
@@ -2043,7 +2043,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </ul>
 </div>
 <div id="semantics-1" class="section level2">
-<h2>Semantics</h2>
+<h2><span class="header-section-number">31.2</span> Semantics</h2>
 <p>Here are some words about <em>semantics</em>, that is, the <em>meaning</em> of function statements (as opposed to <em>syntax</em>, the <em>structure</em> of function statements).</p>
 <p>Note that <code>myFn1</code> <em>does</em> return a value (see below), but its real mission in life is to create a so-called “side effect”, namely (in this case), a picture (plot) of the stuff you give it when you call the function. On the other hand, <code>myFn2</code> has no side effects, and it does return a <em>meaningful</em> value:</p>
 <pre class="r"><code>  myFn1 &lt;- function(x) {
@@ -2057,7 +2057,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   myFn2(1:10)  # returns the vector containing 2, 4, ..., 20</code></pre>
 </div>
 <div id="more-semantics" class="section level2">
-<h2>More semantics</h2>
+<h2><span class="header-section-number">31.3</span> More semantics</h2>
 <p>A little more about semantics: functions are <em>first class citizens</em>, that is, they can be assigned, printed, passed as arguments, etc. Here are some examples:</p>
 <pre class="r"><code>  myFn1 &lt;- function(x) {
       plot(x)
@@ -2078,7 +2078,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   printFn(printFn)  # a *function* argument to a function.  (prints itself!)</code></pre>
 </div>
 <div id="return-values" class="section level2">
-<h2>Return values</h2>
+<h2><span class="header-section-number">31.4</span> Return values</h2>
 <p>A function returns a value. Sometimes that’s interesting, sometimes not:</p>
 <pre class="r"><code>  myFn1 &lt;- function(x) {
       plot(x)
@@ -2093,7 +2093,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   x</code></pre>
 </div>
 <div id="syntax-and-return-values" class="section level2">
-<h2>Syntax <em>and</em> return values</h2>
+<h2><span class="header-section-number">31.5</span> Syntax <em>and</em> return values</h2>
 <p>And now here are a few more words about syntax. All of the following are equivalent ways of writing <code>myFn2()</code>.</p>
 <pre class="r"><code>    myFn2 &lt;- function(x) {
         2*x
@@ -2117,7 +2117,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>It’s worth emphasizing that the value of the <em>last</em> statement in a function will <em>automatically</em> be returned. In most cases R programmers will omit the explicit <code>return</code> statement, but using <code>return</code> can sometimes help to clarify.</p>
 </div>
 <div id="a-realistic-example" class="section level2">
-<h2>A realistic example</h2>
+<h2><span class="header-section-number">31.6</span> A realistic example</h2>
 <p>Here’s an example of defining and using a function with multiple arguments and multi-statement bodies:</p>
 <pre class="r"><code>  myFn3 &lt;- function(x, y) {
       pdf(file=&quot;test.pdf&quot;, width=5, height=5)  ## make a plot in a PDF file
@@ -2134,7 +2134,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </ul>
 </div>
 <div id="arguments-to-functions" class="section level2">
-<h2>Arguments to functions</h2>
+<h2><span class="header-section-number">31.7</span> Arguments to functions</h2>
 <p>Ordinarily, for functions with multiple arguments, the formal arguments (the ones in the <em>definition</em> of the function) get assigned the actual arguments (the ones in the <em>calling</em> of the function) in order. But if a function is called with <em>named</em> arguments, the arguments can appear in any order. (There is no great advantage to this for functions with short argument lists, but it can be useful in more-complicated cases, especially in conjunction with default values for arguments – see below.) Here’s an example:</p>
 <pre class="r"><code>  myArgsFn &lt;- function(x, y) {
       par(mgp=c(1.8, 0.5, 0), mar=c(3, 3, 2, 1))  ## set some graphics params
@@ -2175,7 +2175,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </ul>
 </div>
 <div id="functions-returning-complex-data-structures" class="section level2">
-<h2>Functions returning complex data structures</h2>
+<h2><span class="header-section-number">31.8</span> Functions returning complex data structures</h2>
 <p>“Complex” in this context means “something other than a single number (or single logical, etc.)”, not anything to do with complex numbers (<code>a + b*i</code>). The point is that if R always returns the last thing evaluated in a function, how do you make it return more than one thing?</p>
 <p>The answer is to pack your return values into a <code>list</code> and return the <code>list</code>. In the special case that all the items being returned are of the same type, you can pack them into a vector (“c(x, y, z)”, rather than “list(x, y, z)”).</p>
 <p>Here’s a simple example. Note that we assign names to the returned list items, so that they explicitly appear in the result of the function call.</p>
@@ -2189,7 +2189,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   pi /4</code></pre>
 </div>
 <div id="function-arguments-passed-by-value" class="section level2">
-<h2>Function arguments passed by value</h2>
+<h2><span class="header-section-number">31.9</span> Function arguments passed by value</h2>
 <p>In R, arguments are passed to functions “by value”, <em>not</em> “by reference” or “by name”. This means that all arguments get <em>copied</em> into a function, so that any calculations done on those arguments inside the function do <em>not</em> affect the original variables. Here’s an example.</p>
 <pre class="r"><code>  alpha &lt;- 1
   omega &lt;- 26
@@ -2218,7 +2218,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </ul>
 </div>
 <div id="r-uses-lexical-scoping" class="section level2">
-<h2>R uses <em>lexical scoping</em></h2>
+<h2><span class="header-section-number">31.10</span> R uses <em>lexical scoping</em></h2>
 <p>This topic is somewhat technical for a statistics course, but <em>somebody</em> is going to ask about it. Feel free to skip to the next section.</p>
 <p>We saw above that variables in R have some kind of restriction on the places where they can be “seen”. The <code>x</code> inside a function may not be the same as the <code>x</code> outside that function, for instance.</p>
 <p>The variable names used in a function in R fall into one of three categories, as illustrated by the following (taken from the R documentation):</p>
@@ -2268,15 +2268,15 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Hence, <code>someFn</code> is <em>always</em> going to raise its argument to the power of <code>2</code>, regardless of the value that <code>nnn</code> might have in some other environment.</p>
 </div>
 <div id="scoping-a-word-of-caution" class="section level2">
-<h2>Scoping: a word of caution</h2>
+<h2><span class="header-section-number">31.11</span> Scoping: a word of caution</h2>
 <p>It’s a little dangerous to depend on R to go off looking for your variables and using whatever it turns up. A better idea is to pass to your functions <em>all</em> the variables they’re going to use. That way you at least know where the values came from.</p>
 <p>There are sometimes reasons <em>not</em> to pass all the variables to your functions, but it’s probably a good idea to start by passing in everything and then back off of that ideal only to the extent necessary (for performance or other reasons).</p>
 </div>
 </div>
 <div id="a-better-way-of-looping-the-apply-family" class="section level1">
-<h1>A better way of looping: the “apply” family</h1>
+<h1><span class="header-section-number">32</span> A better way of looping: the “apply” family</h1>
 <div id="background-1" class="section level2">
-<h2>Background</h2>
+<h2><span class="header-section-number">32.1</span> Background</h2>
 <p>What is “apply” in this sense? It means to “apply” a function to a set of arguments. Sort of a loop without a loop. Have a look at:</p>
 <pre><code>http://en.wikipedia.org/wiki/Apply</code></pre>
 <p>for much more than you currently need to know about apply-style functions.</p>
@@ -2294,7 +2294,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>We’ll be most concerned with <code>lapply</code>, <code>sapply</code>, and <code>replicate</code> (which doesn’t have the word “apply” in its name but is still an apply-style function). We may also make some use of <code>apply</code> and <code>mapply</code>.</p>
 </div>
 <div id="lapply" class="section level2">
-<h2><code>lapply</code></h2>
+<h2><span class="header-section-number">32.2</span> <code>lapply</code></h2>
 <p>Here’s an excerpt from the R help page for <code>lapply</code>:</p>
 <pre><code>
   Description:
@@ -2348,7 +2348,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   unlist(myVecLog.10)</code></pre>
 </div>
 <div id="sapply" class="section level2">
-<h2><code>sapply</code></h2>
+<h2><span class="header-section-number">32.3</span> <code>sapply</code></h2>
 <p>Here’s an excerpt from the R help page for <code>sapply</code>:</p>
 <pre><code>
   Description:
@@ -2392,7 +2392,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Of course, it <em>is</em> possible to use <code>sapply</code> safely in the more-complicated cases. In the example above, just adding <code>simplify=FALSE</code> after the function definition would make <code>sapply</code> work the same as <code>lapply</code>. But as a rule of thumb, it’s better to use <code>sapply</code> only in simple cases (numeric in, numeric out, for instance).</p>
 </div>
 <div id="replicate" class="section level2">
-<h2><code>replicate</code></h2>
+<h2><span class="header-section-number">32.4</span> <code>replicate</code></h2>
 <p>Here’s an excerpt from the R help page for <code>replicate</code>:</p>
 <pre><code>  Description:
   
@@ -2417,7 +2417,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </code></pre>
 </div>
 <div id="apply" class="section level2">
-<h2><code>apply</code></h2>
+<h2><span class="header-section-number">32.5</span> <code>apply</code></h2>
 <p>Here’s an excerpt from the R help page for <code>apply</code>:</p>
 <pre><code>
   Description:
@@ -2442,7 +2442,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   thatsOdd</code></pre>
 </div>
 <div id="mapply" class="section level2">
-<h2><code>mapply</code></h2>
+<h2><span class="header-section-number">32.6</span> <code>mapply</code></h2>
 <p>Here’s an excerpt from the R help page for <code>mapply</code>:</p>
 <pre><code>
   Description:
@@ -2464,7 +2464,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="do.call-and-its-applications" class="section level1">
-<h1><code>do.call</code> and its applications</h1>
+<h1><span class="header-section-number">33</span> <code>do.call</code> and its applications</h1>
 <p>The use of the function <code>do.call</code> is a somewhat specialized topic, but we use the function extensively in this course, so it merits discussion here.</p>
 <p>From the help page for <code>do.call</code>:</p>
 <pre><code>
@@ -2518,7 +2518,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Note, by the way, that if, for instance, you decided you needed to have a finer granularity in your result, you could change <code>by=0.2</code> to <code>by=0.1</code> (for example) in the code above, then run the code, and get a larger, but still nicely-formatted, table as a result, with <em>no other change in the code</em>.</p>
 </div>
 <div id="string-manipulation" class="section level1">
-<h1>String manipulation</h1>
+<h1><span class="header-section-number">34</span> String manipulation</h1>
 <p>R has a number of functions that are useful for manipulating strings, including, in particular, pattern matching with so-called <em>regular expressions</em>. We’ll touch on these only briefly here and revisit them later, as necessary.</p>
 <pre class="r"><code>  #      paste(..., sep = &quot; &quot;, collapse = NULL)
   paste(&quot;abra&quot;, &quot;cadabra&quot;, sep=&quot;!!!&quot;)
@@ -2592,13 +2592,13 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   gregexpr(&quot;\\d+&quot;, moreText) ## find locations, length of all digit substr</code></pre>
 </div>
 <div id="pseudo-random-numbers" class="section level1">
-<h1>Pseudo-random numbers</h1>
+<h1><span class="header-section-number">35</span> Pseudo-random numbers</h1>
 <div id="background-and-motivation" class="section level2">
-<h2>Background and motivation</h2>
+<h2><span class="header-section-number">35.1</span> Background and motivation</h2>
 <p>Much of the work in this course will involve generating “random samples” of data. Most of this work will be done on a computer, although it’s possible to use some physical process, such as flipping a coin, to get random samples. As you can see, it would be tedious to obtain, say, a million random things by flipping a coin a million times. Computers can do the same task in practically no time, and with more or less no work on your part.</p>
 </div>
 <div id="generation-of-random-numbers" class="section level2">
-<h2>Generation of random numbers</h2>
+<h2><span class="header-section-number">35.2</span> Generation of random numbers</h2>
 <p>The concept of “randomness” is somewhat slippery. In particular, the methods used to generate random numbers on a computer rely on computer programs to generate the random numbers. But if you tell (program) a computer to run through some given series of operations, the results by definition can’t be truly random. Any time you run the same program, with the same initial conditions, you get exactly the same output.</p>
 <p>This topic is discussed in detail at:</p>
 <pre><code>http://en.wikipedia.org/wiki/Random_number_generation</code></pre>
@@ -2607,7 +2607,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <pre><code>http://en.wikipedia.org/wiki/Statistical_randomness</code></pre>
 </div>
 <div id="random-numbers-in-r" class="section level2">
-<h2>Random numbers in R</h2>
+<h2><span class="header-section-number">35.3</span> Random numbers in R</h2>
 <p>R has many functions that explicitly or implicitly involve the use of its random-number generator. We’ve looked briefly at several examples of such functions (<code>sample</code>, <code>runif</code>, <code>rnorm</code>). Every such function will use and modify the so-called <code>seed</code>, which represents the state of the random-number generator.</p>
 <p>It might be helpful to visual the output of the random-number generator as a long, closed loop of string, with pieces of paper attached to the loop at various points, and each piece of paper containing two numbers: the first number is just a sequence number, identifying the piece of paper (1, 2, 3, …); the second number is one of the sequence of random numbers. (The random numbers will always eventually loop back and start repeating themselves.)</p>
 <p>In this model, the <code>seed</code> is just the first number on the next piece of paper to be read. If the <code>seed</code> is 1, the next random number you’ll get from <code>sample</code>, etc., is the second number on the first piece of paper in the loop. If the <code>seed</code> is 31415, the next random number you get will be the second number on the piece of paper whose first number is 31415.</p>
@@ -2640,9 +2640,9 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="plotting" class="section level1">
-<h1>Plotting</h1>
+<h1><span class="header-section-number">36</span> Plotting</h1>
 <div id="background-2" class="section level2">
-<h2>Background</h2>
+<h2><span class="header-section-number">36.1</span> Background</h2>
 <p>R has extensive facilities for making plots, graphs, charts, etc., on a wide variety of graphic devices, including the standard displays on linux, Macintosh, and Windows, as well as PDF, PNG, JPEG, etc.</p>
 <p>R currently has many packages devoted to graphics, including, for example, <code>lattice</code>, <code>grid</code>, <code>ggplot2</code>, etc. We’ll restrict our attention to the so-called “base graphics”, the set of graphics tools that comes with R by default.</p>
 <p>You can type:</p>
@@ -2655,7 +2655,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>We’ll have more to say about the base graphics system below.</p>
 </div>
 <div id="the-murrell-book" class="section level2">
-<h2>The Murrell book</h2>
+<h2><span class="header-section-number">36.2</span> The Murrell book</h2>
 <p>The “bible” on R graphics is this book by Paul Murrell:</p>
 <pre><code>http://www.amazon.com/Graphics-Second-Edition-Chapman-Series/dp/1439831769</code></pre>
 <p>This book contains a good deal of material that, while useful, is beyond the scope of the graphics we’ll use in this course. Nevertheless, the book is an excellent reference, and you should be aware of it if you plan to make serious use of R graphics.</p>
@@ -2694,7 +2694,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>The same technique works for all the figures in the book/package.</p>
 </div>
 <div id="plot-and-related-functions" class="section level2">
-<h2><code>plot</code> and related functions</h2>
+<h2><span class="header-section-number">36.3</span> <code>plot</code> and related functions</h2>
 <p>We’ll now begin our actual study of R’s base graphics.</p>
 <p>The most-important function to use for plotting is, surprisingly, <code>plot</code>. The basic syntax is as follows:</p>
 <pre><code>  plot(x, y) ## plot the object &quot;y&quot; as a function of the object &quot;x&quot;
@@ -2784,7 +2784,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
          col=c(&quot;darkblue&quot;, &quot;red&quot;), pch=c(20, 32), lty=c(0, 1))</code></pre>
 </div>
 <div id="graphics-parameters.-the-par-function" class="section level2">
-<h2>Graphics parameters. The <code>par()</code> function</h2>
+<h2><span class="header-section-number">36.4</span> Graphics parameters. The <code>par()</code> function</h2>
 <p>R has an intimidating array of graphical parameters, some of which we’ve used in the examples above. You can view the help page for the <code>par</code> function to see the details:</p>
 <pre><code>
   ?par
@@ -2799,7 +2799,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   plot(1:3, 1:3, type=&quot;l&quot;)  ## back to thinner lines, smaller characters</code></pre>
 <p>Here’s a list of some commonly-used graphics parameters:</p>
 <div id="colors" class="section level3">
-<h3>Colors</h3>
+<h3><span class="header-section-number">36.4.1</span> Colors</h3>
 <table>
 <thead>
 <tr class="header">
@@ -2840,7 +2840,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </table>
 </div>
 <div id="font" class="section level3">
-<h3>Font</h3>
+<h3><span class="header-section-number">36.4.2</span> Font</h3>
 <table>
 <thead>
 <tr class="header">
@@ -2873,7 +2873,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </table>
 </div>
 <div id="character-expansion" class="section level3">
-<h3>Character expansion</h3>
+<h3><span class="header-section-number">36.4.3</span> Character expansion</h3>
 <table>
 <thead>
 <tr class="header">
@@ -2906,7 +2906,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </table>
 </div>
 <div id="plotting-characters-and-lines" class="section level3">
-<h3>Plotting characters and lines</h3>
+<h3><span class="header-section-number">36.4.4</span> Plotting characters and lines</h3>
 <table>
 <thead>
 <tr class="header">
@@ -2931,7 +2931,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </table>
 </div>
 <div id="margins" class="section level3">
-<h3>Margins</h3>
+<h3><span class="header-section-number">36.4.5</span> Margins</h3>
 <p>See:</p>
 <pre><code>http://research.stowers-institute.org/efg/R/Graphics/Basics/mar-oma/index.htm</code></pre>
 <p>for an informative discussion of margins in R plots.</p>
@@ -2971,7 +2971,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </table>
 </div>
 <div id="layout" class="section level3">
-<h3>Layout</h3>
+<h3><span class="header-section-number">36.4.6</span> Layout</h3>
 <table>
 <thead>
 <tr class="header">
@@ -2990,7 +2990,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="more-decorations" class="section level2">
-<h2>More decorations</h2>
+<h2><span class="header-section-number">36.5</span> More decorations</h2>
 <p>In the plotting examples above, we plotted some points (<code>yVals</code> vs. <code>xVals</code>) and then “decorated” the plot with a line (and various text items). It’s also possible to do this in reverse order: plot a line and decorate with points. Here’s an example:</p>
 <pre class="r"><code>  xVals &lt;- seq(from=1, to=10, by=0.1)
   yVals &lt;- xVals^2
@@ -3001,7 +3001,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   points(xVals, zVals, col=&quot;red&quot;, pch=20)</code></pre>
 </div>
 <div id="multiple-plots-on-one-display" class="section level2">
-<h2>Multiple plots on one display</h2>
+<h2><span class="header-section-number">36.6</span> Multiple plots on one display</h2>
 <p>There are several ways in traditional R graphics to put multiple plots onto a single display. The most-common way is to set the graphics parameter <code>mfrow</code> (or the essentially equivalent <code>mfcol</code>).</p>
 <p>The following example uses the built-in <code>iris</code> data set to generate three different data subsets and then makes a plot of Petal Length versus Petal Width for each of the three subsets. The plots all appear in one graphics pane. You can type the command:</p>
 <pre><code>
@@ -3034,7 +3034,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   par(par.save)</code></pre>
 </div>
 <div id="multiple-plots-on-multiple-displays" class="section level2">
-<h2>Multiple plots on multiple displays</h2>
+<h2><span class="header-section-number">36.7</span> Multiple plots on multiple displays</h2>
 <p>In the example above we managed to squeeze all three of our <code>iris</code> plots into one display. To make things look reasonable we had to fiddle with the margins. But suppose there were, say, ten species of iris, and that we wanted to have a look at some plots for all ten. It’s likely that no amount of fiddling with the margins, etc., would let us squeeze all ten into the same display.</p>
 <p>One way around this problem is to open multiple displays. Unfortunately, the function used to open a new display depends on the system you’re using (linux, Macintosh, Windows). Here’s an example:</p>
 <pre class="r"><code>  plot(rnorm(10))  ## generate some points and plot them
@@ -3049,7 +3049,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Note that if you’re using RStudio, the commands above will open a graphics display <em>outside</em> the boundaries of the RStudio window.</p>
 </div>
 <div id="saving-a-plot-to-a-file" class="section level2">
-<h2>Saving a plot to a file</h2>
+<h2><span class="header-section-number">36.8</span> Saving a plot to a file</h2>
 <p>If you create a plot interactively (i.e., so that it shows up in the graphics pane in RStudio) and decide you’d like to keep that plot, you have a couple of options for doing so. You can print the contents of the current graphics device to a printer or a file, using <code>dev.print()</code>. In RStudio you can go to the <code>Plots</code> tab in the pane on the lower right and select <code>Export</code> to do essentially the same thing. You would typically do this while you’re doing some exploration of some data. After you’ve done all the exploring you need to do, you can rerun your plotting code (in what you might call “production mode”) and specify in your code that you want the plot output to go to files. Here are some examples.</p>
 <pre class="r"><code>  plot(1:10, rnorm(10)) ## exploring -- generate some data and plot it
   dev.print(device=pdf, file=&quot;firstPlot.pdf&quot;)  ## looks good: save to file
@@ -3065,10 +3065,10 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>to see a list of the graphics devices available on your system.</p>
 </div>
 <div id="plots-for-exploratory-data-analysis" class="section level2">
-<h2>Plots for exploratory data analysis</h2>
+<h2><span class="header-section-number">36.9</span> Plots for exploratory data analysis</h2>
 <p>There are some graphics functions in R that are commonly used to explore sets of data, including <code>histogram()</code> and <code>boxplot)</code>. Here are some details.</p>
 <div id="histogram" class="section level3">
-<h3>Histogram</h3>
+<h3><span class="header-section-number">36.9.1</span> Histogram</h3>
 <p>A histogram is a graphical tool that lets us examine the variability of a set of data. A very common use of histograms in an academic setting is to determine the grades of students in a class: count all the students with final scores between, say, 90 and 100 and give them a grade of <code>A</code>, then count all the students with final scores between, say, 80 and 90 and give them a grade of <code>B</code>, etc.</p>
 <p>Here’s an example. The details of generating the numbers are not important. There’s more discussion below.</p>
 <pre class="r"><code>  set.seed(42)  ## just to get repeatable results
@@ -3244,7 +3244,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   par(par.save)</code></pre>
 </div>
 <div id="box-plot" class="section level3">
-<h3>Box plot</h3>
+<h3><span class="header-section-number">36.9.2</span> Box plot</h3>
 <p>In the example above where we were “sanitizing” the baseball data, we made repeated (and otherwise unexplained) use of the <code>summary</code> function to track our progress through the data-cleanup process.</p>
 <p>The <code>summary</code> function will accept an arbitrary object as its argument, but we use it primarily to give us summaries of numerical objects, and in those cases the <code>summary</code> function tells us:</p>
 <ul>
@@ -3374,7 +3374,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="querying-r-objects" class="section level1">
-<h1>Querying R objects</h1>
+<h1><span class="header-section-number">37</span> Querying R objects</h1>
 <p>Everything we use in R, including vectors, lists, and even functions, is an object. What does that mean? For our purposes we can think of an object as a thing consisting of:</p>
 <ul>
 <li>a location in the computer’s memory</li>
@@ -3490,7 +3490,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   names(newList)</code></pre>
 </div>
 <div id="the-working-directory" class="section level1">
-<h1>The working directory</h1>
+<h1><span class="header-section-number">38</span> The working directory</h1>
 <p>R has the concept of <em>working directory</em>, that is, the place in your file system where it currently looks to find files.</p>
 <p>You can examine and set the current working directory (CWD) from the R console:</p>
 <pre class="r"><code>  save.wd &lt;- getwd()    ## gets (and saves) the current working directory
@@ -3527,9 +3527,9 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>One advantage of using <code>setwd()</code> is that it works in <em>all</em> R environments, not just in RStudio.</p>
 </div>
 <div id="regular-expressions" class="section level1">
-<h1>Regular expressions</h1>
+<h1><span class="header-section-number">39</span> Regular expressions</h1>
 <div id="general-discussion" class="section level2">
-<h2>General discussion</h2>
+<h2><span class="header-section-number">39.1</span> General discussion</h2>
 <p>A “regular expression” (or “regex” or “regexp”) is a sequence of characters used to make a pattern for search and/or replace operations on strings (at least that’s how we’ll use regular expressions).</p>
 <p>If you’ve ever used the command line in Windows, Mac OS, or linux, you’ve probably used some form of regular expression. For instance:</p>
 <pre><code>
@@ -3544,7 +3544,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </code></pre>
 </div>
 <div id="some-basic-syntax" class="section level2">
-<h2>Some basic syntax</h2>
+<h2><span class="header-section-number">39.2</span> Some basic syntax</h2>
 <p>While the syntax of regular expressions is simpler than that of a full-blown computer language (C++, for instance), it still takes some getting used to. Here’s a nice summary online:</p>
 <pre><code>http://www.regular-expressions.info/reference.html</code></pre>
 <p>There is, as usual, a lot of useful discussion in the R help pages. See, for instance:</p>
@@ -3555,7 +3555,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </code></pre>
 <p>has a special meaning in regular expressions. All other characters just match themselves.</p>
 <div id="escape-sequences" class="section level3">
-<h3>Escape sequences</h3>
+<h3><span class="header-section-number">39.2.1</span> Escape sequences</h3>
 <p>What happens if you <em>have</em> to search for a dollar sign or a left parenthesis, or any of the other special characters mentioned above? That is, you want to treat the special characters as ordinary characters, devoid of special significance.</p>
 <p>You <em>can</em> do that, of course, and the way you do it is to put a backslash in front of the special character, as, for example:</p>
 <pre><code>
@@ -3574,9 +3574,9 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="commonly-used-pattern-matching-functions" class="section level2">
-<h2>Commonly-used pattern-matching functions</h2>
+<h2><span class="header-section-number">39.3</span> Commonly-used pattern-matching functions</h2>
 <div id="grep" class="section level3">
-<h3>grep</h3>
+<h3><span class="header-section-number">39.3.1</span> grep</h3>
 <p>The <code>grep()</code> function is the workhorse tool for regular expressions. Have a look at:</p>
 <pre><code>http://en.wikipedia.org/wiki/Grep</code></pre>
 <p>for some background and details.</p>
@@ -3596,7 +3596,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>The Perl-compatible, regular-expression “engine” is more flexible than the standard one in R, and many people prefer to use it by default.</p>
 </div>
 <div id="regexpr-and-gregexpr" class="section level3">
-<h3>regexpr and gregexpr</h3>
+<h3><span class="header-section-number">39.3.2</span> regexpr and gregexpr</h3>
 <p>The functions <code>regexpr()</code> and <code>gregexpr()</code> are also used to find patterns in strings, but they report the results in a different way, compared to <code>grep</code>.</p>
 <p>Here are the templates for <code>regexpr</code> and <code>gregexpr</code>:</p>
 <pre><code>
@@ -3615,7 +3615,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   gregexpr(&quot;iss&quot;, &quot;Mississippi&quot;)</code></pre>
 </div>
 <div id="sub-and-gsub" class="section level3">
-<h3>sub and gsub</h3>
+<h3><span class="header-section-number">39.3.3</span> sub and gsub</h3>
 <p>You might think of <code>sub()</code> and <code>gsub()</code> as “find-and-replace” functions.</p>
 <p>Here are the templates for <code>sub</code> and <code>gsub</code>:</p>
 <pre><code>
@@ -3632,7 +3632,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
   gsub(&quot;iss&quot;, &quot;-Ole_Miss-&quot;, &quot;Mississippi&quot;)</code></pre>
 </div>
 <div id="strsplit" class="section level3">
-<h3>strsplit</h3>
+<h3><span class="header-section-number">39.3.4</span> strsplit</h3>
 <p>We’ve seen examples of the use of <code>strsplit()</code> above. It’s used, as the name implies, to split strings into pieces, chopping the string at the places specified by the <code>split</code> argument. Here’s the template:</p>
 <pre><code>
   strsplit(x, split, fixed = FALSE, perl = FALSE, useBytes = FALSE)
@@ -3645,7 +3645,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 </div>
 </div>
 <div id="more-complicated-examples" class="section level2">
-<h2>More-complicated examples</h2>
+<h2><span class="header-section-number">39.4</span> More-complicated examples</h2>
 <p>What was it that was so “simple” about the examples above? Answer: in every case, the pattern was a “literal”, a bunch of characters for which we were seeking an exact match (“iss” matched “iss”, for instance). We didn’t use any “wildcards”, i.e., any of the special characters mentioned above, and we didn’t really demonstrate the power of regular expressions. The point was just to get familiar with some commonly-used functions.</p>
 <p>Now we can proceed to <em>use</em> those functions to exhibit some of the more-interesting properties of regular expressions. Here are some examples:</p>
 <pre class="r"><code>    ## the &quot;.&quot; matches *any* character, so we get back the whole string
@@ -3692,7 +3692,7 @@ Platform: x86_64-redhat-linux-gnu (64-bit)
 <p>Note that in the last example we had to “escape” the special character <code>?</code> so that <code>grep</code> would interpret it as a plain, old question-mark character, and <em>not</em> as one of the special characters used in regular expressions. And we had to use <em>two</em> backslashes to do that, because the R interpreter will read and “consume” one of them prior to passing the pattern to the <code>grep</code> function.</p>
 </div>
 <div id="regular-expressions-with-character-classes" class="section level2">
-<h2>Regular expressions with character classes</h2>
+<h2><span class="header-section-number">39.5</span> Regular expressions with character classes</h2>
 <p>Up to this point we’ve been concerned with:</p>
 <pre><code>
   - matching literal strings (&quot;xyz&quot;, &quot;1and2&quot;)
@@ -3726,7 +3726,7 @@ not in the list.</code></pre>
   grep(&quot;^[0-9a-fA-F]+$&quot;, c(&quot;123&quot;, &quot;FF&quot;, &quot;ab&quot;, &quot;turkey&quot;, &quot;trot&quot;),
        value=TRUE)</code></pre>
 <div id="predefined-character-classes" class="section level3">
-<h3>Predefined character classes</h3>
+<h3><span class="header-section-number">39.5.1</span> Predefined character classes</h3>
 <p>There are some classes of characters that are used so frequently in dealing with regular expressions that the classes have been “built in” to some versions of the regular-expression language. Here are a few of them:</p>
 <pre><code>
   [:alnum:]
@@ -3750,7 +3750,7 @@ not in the list.</code></pre>
        value=TRUE)</code></pre>
 </div>
 <div id="repetition-quantifiers" class="section level3">
-<h3>Repetition quantifiers</h3>
+<h3><span class="header-section-number">39.5.2</span> Repetition quantifiers</h3>
 <p>We can get even more specific about the match by requiring a character, or character class, to be repeated a given number of times, or a given range of times:</p>
 <pre><code>
   {n}    ## preceding object must be repeated n times
@@ -3768,7 +3768,7 @@ not in the list.</code></pre>
       )</code></pre>
 </div>
 <div id="reusing-the-matched-text" class="section level3">
-<h3>Reusing the matched text</h3>
+<h3><span class="header-section-number">39.5.3</span> Reusing the matched text</h3>
 <p>You can tell R to “remember” portions of a matched string and reuse those matched portions. To do this you put parentheses “(…)” in the pattern surrounding the things you want to remember. Here’s an example that came originally from research done by a graduate student at UCD. The task was to extract numerical information from a URL (a “web address”).</p>
 <pre class="r"><code>  nextURL &lt;- &quot;http://purl.org/phylo/treebase/tree/Tr3212&quot;
   nextNum &lt;- as.numeric(gsub(&quot;^.*/Tr(\\d+)$&quot;, &quot;\\1&quot;, nextURL))
@@ -3792,7 +3792,7 @@ not in the list.</code></pre>
 <p>We convert the return value from gsub (“3212”) into a numeric object for use in later calculations.</p>
 </div>
 <div id="logical-or" class="section level3">
-<h3>Logical OR</h3>
+<h3><span class="header-section-number">39.5.4</span> Logical OR</h3>
 <p>You can search for any of several alternatives by separating the alternatives by a vertical bar, “|”, in the pattern. Here’s an example:</p>
 <pre class="r"><code>  lookStooge &lt;- grep(&quot;[Ll]arry|[Mm]oe|[Cc]urly&quot;,
                      c(&quot;Fred&quot;, &quot;Ethel&quot;, &quot;Curly&quot;, &quot;Rainman&quot;, &quot;moe&quot;),
@@ -3802,7 +3802,7 @@ not in the list.</code></pre>
 </div>
 </div>
 <div id="debugging-in-r" class="section level1">
-<h1>Debugging in R</h1>
+<h1><span class="header-section-number">40</span> Debugging in R</h1>
 <p>There are times when even the most-experienced programmer encounters seemingly inexplicable behavior in his or her program. One response to this situation is to stare intently at the program code for long periods of time, in the hopes of spotting the flaw in the program. This is, perhaps, commendable at some level, but it’s often a waste of time, as our brains tend to make, subconsciously, the same mistakes over and over if we ask them to do the same tasks over and over.</p>
 <p>Is there an alternative? The answer is: yes, it’s called “debugging”. Debugging a program consists essentially of somehow interrupting the execution of a program at selected spots and examining the values of program variables and other aspects of the computing environment.</p>
 <p>The oldest and simplest way to do this is simply to embed <code>print</code> statements at the relevant places in the code. This can be tedious, and it does require us to remember to remove the <code>print</code> statements once we’ve got things working.</p>
@@ -3819,13 +3819,13 @@ not in the list.</code></pre>
 <p>Also note that, starting with version 0.98, RStudio will have a graphical interface to most of these debugging tools.</p>
 </div>
 <div id="a-quick-review-control-panels-for-r" class="section level1">
-<h1>A quick review: “control panels” for R</h1>
+<h1><span class="header-section-number">41</span> A quick review: “control panels” for R</h1>
 <p>You can think of R as a sort of machine with a number of “control panels”.</p>
 <div id="the-interpreter-the-main-control-panel" class="section level2">
-<h2>The interpreter: the main control panel</h2>
+<h2><span class="header-section-number">41.1</span> The interpreter: the main control panel</h2>
 <p>The part of R that reads commands and executes the corresponding functions is the <em>interpreter</em>.</p>
 <div id="the-settings-on-the-interpreter-control-panel" class="section level3">
-<h3>The settings on the interpreter control panel</h3>
+<h3><span class="header-section-number">41.1.1</span> The settings on the interpreter control panel</h3>
 <p>The settings for this control panel are:</p>
 <ul>
 <li>the variables that are defined at any one moment</li>
@@ -3833,7 +3833,7 @@ not in the list.</code></pre>
 </ul>
 </div>
 <div id="reading-out-the-settings-on-the-interpreter-control-panel" class="section level3">
-<h3>Reading out the settings on the interpreter control panel</h3>
+<h3><span class="header-section-number">41.1.2</span> Reading out the settings on the interpreter control panel</h3>
 <p>You can examine the state of the interpreter in various ways:</p>
 <ul>
 <li>ls()</li>
@@ -3841,7 +3841,7 @@ not in the list.</code></pre>
 </ul>
 </div>
 <div id="changing-the-settings-on-the-interpreter-control-panel" class="section level3">
-<h3>Changing the settings on the interpreter control panel</h3>
+<h3><span class="header-section-number">41.1.3</span> Changing the settings on the interpreter control panel</h3>
 <p>You change the settings of the interpreter by using an assignment statement:</p>
 <ul>
 <li><code>zzz &lt;- 42</code></li>
@@ -3849,7 +3849,7 @@ not in the list.</code></pre>
 </div>
 </div>
 <div id="the-options-control-panel" class="section level2">
-<h2>The <code>options</code> control panel</h2>
+<h2><span class="header-section-number">41.2</span> The <code>options</code> control panel</h2>
 <p>The <code>options()</code> function controls what you might call R’s general settings. You can type:</p>
 <pre class="r"><code>  options()  ## to see the values of all options currently set
   ?options   ## to see a discussion of the many options
@@ -3857,7 +3857,7 @@ not in the list.</code></pre>
   options(width=120)  ## to make R use more of your screen real estate</code></pre>
 </div>
 <div id="the-par-control-panel" class="section level2">
-<h2>The <code>par</code> control panel</h2>
+<h2><span class="header-section-number">41.3</span> The <code>par</code> control panel</h2>
 <p>The <code>par()</code> function can be used to set or query <em>graphical</em> parameters.</p>
 <p>You can type:</p>
 <pre class="r"><code>  par() ## to see the current values of graphical parameters
@@ -3866,7 +3866,7 @@ not in the list.</code></pre>
 <p>There are many examples above of other uses of <code>par</code>.</p>
 </div>
 <div id="the-random-number-control-panel" class="section level2">
-<h2>The random-number control panel</h2>
+<h2><span class="header-section-number">41.4</span> The random-number control panel</h2>
 <p>The random-number “machinery” in R is activated by the <code>set.seed()</code> function or by the use of any function in R that relates to random numbers (<code>rnorm</code>, <code>dnorm</code>, <code>sample</code>, etc.), and it is <em>changed</em> by <strong>any</strong> subsequent use of those functions.</p>
 <pre class="r"><code>  .Random.seed  ## produces an error if no previous use of random numbers
   set.seed(42)  ## pick a starting point in the list of random numbers
